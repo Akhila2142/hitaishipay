@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employer Login</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+    </head>
+
+<body
+    style="font-family: 'Roboto', sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; background: url('https://freerangestock.com/sample/139684/sky-blue-flare-bubbles-abstract-background-.jpg') no-repeat center center/cover;">
+
+    <header
+        style="width: 100%; background: rgba(255, 255, 255, 0); display: flex; justify-content: space-between; align-items: center; padding: 0px 0px; position: fixed; top: 0; left: 0; right: 0; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
+        <a href="#"
+            style="display: flex; align-items: center; font-size: 2.2rem; font-weight: bold; text-decoration: none; background: linear-gradient(to right, #444, #ff9900); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            <img src="https://cdn3d.iconscout.com/3d/premium/thumb/payment-successful-3d-illustration-download-in-png-blend-fbx-gltf-file-formats--done-dollar-money-finance-and-pack-business-illustrations-4731409.png?f=webp"
+                alt="Hitaishi Pay Logo" style="width: 70px; height: 70px; margin-right: 12px; border-radius: 10px;">
+            Hitaishi <span style="font-family: 'Montserrat', sans-serif; font-weight: 1000; color: black;">Pay</span>
+        </a>
+        <div style="display: flex; gap: 15px;margin-right: 100px;">
+            <a href="EmployerRegistration.html" style="text-decoration: none;">
+                <button
+                    style="padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; background-color: yellow; font-weight: bold; font-size: 1rem;">Employer</button>
+            </a>
+            <a href="StudentLogin.html" style="text-decoration: none;">
+                <button
+                    style="padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; background-color: yellow; font-weight: bold; font-size: 1rem;">Login</button>
+            </a>
+        </div>
+    </header>
+
+    <div
+        style="width: 100%; max-width: 450px; background: rgba(255, 255, 255, 0.9); border-radius: 8px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); padding: 40px; box-sizing: border-box; margin-top: 120px; margin-bottom: 50px;">
+        <div style="text-align: center; margin-bottom: 30px;">
+            <h1 style="color: #343a40; font-size: 2.1em; font-weight: 500; margin-bottom: 10px;">Employer Login</h1>
+            <p style="color: #6c757d; font-size: 0.95em;">Welcome back! Please enter your details.</p>
+        </div>
+        <form id="loginForm">
+            <div style="margin-bottom: 20px;">
+                <label for="email" style="display: block; margin-bottom: 6px; color: #495057; font-size: 0.98em; font-weight: 500;">Email
+                    Address</label>
+                <input type="email" id="email" placeholder="Enter your Gmail" required
+                    style="width: 100%; padding: 14px; border: 1px solid #ced4da; border-radius: 6px; font-size: 1em; box-sizing: border-box;">
+                <span id="emailError" style="color: #dc3545; font-size: 0.9em; margin-top: 5px; display: none;">Invalid Gmail
+                    address</span>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label for="password" style="display: block; margin-bottom: 6px; color: #495057; font-size: 0.98em; font-weight: 500;">Password</label>
+                <input type="password" id="password" placeholder="Enter password" required
+                    style="width: 100%; padding: 14px; border: 1px solid #ced4da; border-radius: 6px; font-size: 1em; box-sizing: border-box;">
+            </div>
+
+            <button type="submit"
+                style="width: 100%; padding: 15px; background-color: #007bff; color: white; border: none; border-radius: 6px; font-size: 1.05em; cursor: pointer;">Login</button>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px; font-size: 0.9em; color: #6c757d;">
+                <a href="#" style="color: #007bff; text-decoration: none;">Forgot Password?</a>
+                <a href="EmployerRegistration.html" style="color: #007bff; text-decoration: none;">Don't have an account?
+                    Register Here</a>
+            </div>
+        </form>
+    </div>
+
+    <footer style="width: 100%; background: rgba(0, 0, 0, 0.9); color: white; text-align: center; padding: 15px 0; position: fixed; bottom: 0; left: 0;">
+        <p style="margin-bottom: 8px;">&copy; 2025 Hitaishi Pay. All Rights Reserved.</p>
+        <div style="display: flex; justify-content: center; gap: 20px;">
+            <a href="#" style="color: white; font-size: 1.5rem; text-decoration: none;">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="#" style="color: white; font-size: 1.5rem; text-decoration: none;">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" style="color: white; font-size: 1.5rem; text-decoration: none;">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="#" style="color: white; font-size: 1.5rem; text-decoration: none;">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+       document.addEventListener('DOMContentLoaded', function () {
+    const loginForm = document.getElementById('loginForm');
+    const emailInput = document.getElementById('email');
+    const emailErrorSpan = document.getElementById('emailError');
+    const passwordInput = document.getElementById('password');
+    const loginButton = loginForm.querySelector('button[type="submit"]');
+
+    function validateEmail() {
+        const emailValue = emailInput.value.trim();
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+        if (!emailRegex.test(emailValue)) {
+            emailErrorSpan.style.display = 'block';
+            emailInput.style.borderColor = '#dc3545';
+        } else {
+            emailErrorSpan.style.display = 'none';
+            emailInput.style.borderColor = '#ced4da';
+        }
+    }
+
+    emailInput.addEventListener('input', validateEmail);
+
+    loginForm.addEventListener('submit', async function (event) {
+        event.preventDefault();
+        validateEmail();
+        if (emailErrorSpan.style.display === 'block') return;
+
+        loginButton.innerText = "Logging in...";
+        loginButton.disabled = true;
+
+        const loginData = {
+            email: emailInput.value,
+            password: passwordInput.value
+        };
+
+        try {
+            const response = await fetch("http://localhost:5000/api/login-employer", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(loginData)
+            });
+
+            const result = await response.json();
+
+            if (response.ok && result.success) {
+                alert("Login successful! Redirecting to your profile...");
+                window.location.href = "EmployerProfile.html"; 
+            } else {
+                alert(result.message || "Incorrect email or password. Please try again.");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            alert("Login failed. Please check your internet connection and try again.");
+        }
+
+        loginButton.innerText = "Login";
+        loginButton.disabled = false;
+    });
+});
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employer Registration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background: url('https://img.freepik.com/premium-photo/colorful-line-wave-background-geometric-banner-flyer-template-wallpaper_665280-2658.jpg?semt=ais_hybrid') no-repeat center center/cover; min-height: 100vh; display: flex; flex-direction: column; align-items: center;">
+
+    <header style="width: 100%; background: rgb(255, 255, 255); display: flex; justify-content: space-between; align-items: center; padding: 1px 1px; position: fixed; top: 0; left: 0; right: 0; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
+        <a href="#" style="display: flex; align-items: center; font-size: 2rem; font-weight: bold; text-decoration: none; background: linear-gradient(to right, #444, #ff9900); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            <img src="https://cdn3d.iconscout.com/3d/premium/thumb/payment-successful-3d-illustration-download-in-png-blend-fbx-gltf-file-formats--done-dollar-money-finance-and-pack-business-illustrations-4731409.png?f=webp" alt="Hitaishi Pay Logo" style="width: 70px; height: 70px; margin-right: 12px; border-radius: 10px;">
+            Hitaishi <span style="font-family: 'Montserrat', sans-serif; font-weight: 1000; color: black;">Pay</span>
+        </a>
+        <a href="StudentLogin.html" style="text-decoration: none; margin-right: 80px;">
+            <button style="padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; background-color: yellow; font-weight: bold; font-size: 1rem;">Login</button>
+        </a>
+    </header>
+
+    <div style="flex: 1; width: 100%; max-width: 500px; background: rgba(255, 255, 255, 0.95); padding: 35px; border-radius: 12px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); margin-top: 120px;">
+        <h2 style="text-align: center; color: #1a73e8; font-size: 2em; margin-bottom: 25px;">Employer Registration</h2>
+        <form id="registrationForm" style="display: grid; gap: 18px;">
+            <div>
+                <label for="company-name" style="font-weight: 500; color: #333;">Company Name:</label>
+                <input type="text" id="company-name" placeholder="Enter company name" required style="width: 100%; padding: 12px; border: 1px solid #dcdcdc; border-radius: 8px; font-size: 1em;">
+            </div>
+            <div>
+                <label for="username" style="font-weight: 500; color: #333;">Username:</label>
+                <input type="text" id="username" placeholder="Enter your username" required style="width: 100%; padding: 12px; border: 1px solid #dcdcdc; border-radius: 8px; font-size: 1em;">
+            </div>
+            <div>
+                <label for="employer-name" style="font-weight: 500; color: #333;">Employer Name:</label>
+                <input type="text" id="employer-name" placeholder="Enter your full name" required style="width: 100%; padding: 12px; border: 1px solid #dcdcdc; border-radius: 8px; font-size: 1em;">
+            </div>
+            <div>
+                <label for="email" style="font-weight: 500; color: #333;">Email:</label>
+                <input type="email" id="email" placeholder="Enter your Gmail" required style="width: 100%; padding: 12px; border: 1px solid #dcdcdc; border-radius: 8px; font-size: 1em;">
+                <span id="emailError" style="color: #dc3545; font-size: 0.9em; display: none;">Invalid Gmail address</span>
+            </div>
+            <div>
+                <label for="phone" style="font-weight: 500; color: #333;">Phone:</label>
+                <input type="tel" id="phone" placeholder="Enter your phone number" required style="width: 100%; padding: 12px; border: 1px solid #dcdcdc; border-radius: 8px; font-size: 1em;">
+            </div>
+            <div>
+                <label for="password" style="font-weight: 500; color: #333;">Password:</label>
+                <input type="password" id="password" placeholder="Enter password" required style="width: 100%; padding: 12px; border: 1px solid #dcdcdc; border-radius: 8px; font-size: 1em;">
+            </div>
+            <button type="submit" style="width: 100%; padding: 14px; background: #1a73e8; color: white; border: none; border-radius: 8px; font-size: 1.05em; cursor: pointer;">Register</button>
+        </form>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const registrationForm = document.getElementById('registrationForm');
+            const emailInput = document.getElementById('email');
+            const emailErrorSpan = document.getElementById('emailError');
+            const submitButton = registrationForm.querySelector('button[type="submit"]');
+
+            function validateEmail() {
+                const emailValue = emailInput.value.trim();
+                const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+                if (!emailRegex.test(emailValue)) {
+                    emailErrorSpan.style.display = 'block';
+                } else {
+                    emailErrorSpan.style.display = 'none';
+                }
+            }
+
+            emailInput.addEventListener('input', validateEmail);
+
+            registrationForm.addEventListener('submit', async function(event) {
+                event.preventDefault();
+                validateEmail();
+                
+                if (emailErrorSpan.style.display === 'block') return;
+
+                submitButton.innerText = "Registering...";
+                submitButton.disabled = true;
+
+                const formData = {
+                    company_name: document.getElementById("company-name").value,
+                    username: document.getElementById("username").value,
+                    employer_name: document.getElementById("employer-name").value,
+                    email: document.getElementById("email").value,
+                    phone: document.getElementById("phone").value,
+                    password: document.getElementById("password").value
+                };
+
+                try {
+                    const response = await fetch("http://localhost:5000/api/register-employer", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(formData)
+                    });
+
+                    const result = await response.json();
+                    
+                    if (response.status === 201) {
+                        alert("Registration successful! Redirecting to login...");
+                        window.location.href = "EmployerLogin.html"; 
+                    } else {
+                        alert(result.message || "Registration failed. Please try again.");
+                    }
+                } catch (error) {
+                    console.error("Error:", error);
+                    alert("Registration failed. Please check your internet connection and try again.");
+                }
+
+                submitButton.innerText = "Register";
+                submitButton.disabled = false;
+            });
+        });
+    </script>
+
+
+</body>
+</html>

@@ -61,7 +61,7 @@
         <nav class="navbar navbar-expand-lg" style="background:linear-gradient(to right, #0a3d62, #1e5799, #2980b9); padding: 10px;">
             <div class="container-fluid">
                 <a class="navbar-brand d-flex align-items-center" href="#" 
-                    style="font-size: 2.8rem; font-weight: bolder;
+                    style="font-size: 2.2rem; font-weight: bolder;
                         font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
                         background: linear-gradient(to right, rgb(235, 230, 224), #ff9900); 
                         -webkit-background-clip: text; 
@@ -79,8 +79,10 @@
                     <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto" style="gap: 3px;">
+                    <ul class="navbar-nav ms-auto" style="gap: 1px;">
                         <li class="nav-item"><a class="nav-link active" href="#" style="color: white !important; padding: 8px;">Home</a></li>
+                        
+                        
                         
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="hourlyPayDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white !important; padding: 8px;">
@@ -117,6 +119,23 @@
                                 <li><a class="dropdown-item" href="#">Cyber security/Ethical hacking</a></li>
                                 <li><a class="dropdown-item" href="#">Content Creation </a></li>
                                 <li><a class="dropdown-item" href="#">Social Media Managment</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="wfhDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white !important; padding: 8px;">
+                                WFH
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="wfhDropdown">
+                                <li><a class="dropdown-item" href="#">Remote Customer Support</a></li>
+                                <li><a class="dropdown-item" href="#">Online Tutoring</a></li>
+                                <li><a class="dropdown-item" href="#">Freelance Writing</a></li>
+                                <li><a class="dropdown-item" href="#">Graphic Design</a></li>
+                                <li><a class="dropdown-item" href="#">Web Development</a></li>
+                                <li><a class="dropdown-item" href="#">Data Entry</a></li>
+                                <li><a class="dropdown-item" href="#">Social Media Management</a></li>
+                                <li><a class="dropdown-item" href="#">SEO & Digital Marketing</a></li>
+                                <li><a class="dropdown-item" href="#">Transcription</a></li>
+                                <li><a class="dropdown-item" href="#">Virtual Assistance</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -262,11 +281,7 @@
                             </ul>
                         </li>
                                             
-                        <!-- <li class="nav-item"><a class="nav-link" href="#" style="color: white !important; padding: 8px;">Projects</a></li> -->
-                        <!-- <li class="nav-item"><a class="nav-link" href="#" style="color: white !important; padding: 8px;">Trainings</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#" style="color: white !important; padding: 8px;">Technical Support</a></li> -->
-                        <!-- <li class="nav-item"><a class="nav-link" href="#" style="color: white !important; padding: 8px;">Freshers Job</a></li>
-                        -->
+                       
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="fresherJobsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" 
                                 style="color: white !important; padding: 8px;">
@@ -311,147 +326,21 @@
                             </a>
                         </li>
                         
-                        <!-- Employee Login Button -->
-                       <!-- Employer Button -->
-                        <button onclick="document.getElementById('employerRegisterModal').style.display='flex'"  
-                        style="padding: 10px 20px; font-size: 16px; background: gold; color: black; border: none; border-radius: 5px; cursor: pointer;font-weight: bolder;">
-                        Employer
+                        <a href="EmployerRegistration.html" style="text-decoration: none;">
+                        <button 
+                         style="padding: 10px 20px; font-size: 16px; background: gold; color: black; border: none; border-radius: 5px; cursor: pointer;font-weight: bold;">
+                            Employer
                         </button>
-
-                        <!-- Employer Registration Modal (Overlay) -->
-                        <div id="employerRegisterModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); align-items: center; justify-content: center; z-index: 9999;">
-                        <div style="background: white; padding: 20px; border-radius: 10px; width: 350px; text-align: center; position: relative;">
-
-                        <!-- Close Button -->
-                        <span onclick="document.getElementById('employerRegisterModal').style.display='none'" 
-                            style="position: absolute; top: 10px; right: 15px; font-size: 20px; cursor: pointer;">&times;</span>
-
-                        <h2 style="font-weight: bold;font-size: 25px;color: #007bff;margin-bottom: 28px;">Employer Registration</h2>
-                        <label for="company-email" style="display: block; font-weight: bold;margin-right: 250px;">Email id </label>
-                        <input type="email" placeholder="name@company.com" 
-                            style="width: 90%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;margin-right: 30px;"><br>
-
-                            <label for="company-email" style="display: block; font-weight: bold; margin-right: 250px;">Password </label>
-                        <input type="password" placeholder="Minimum 6 characters" 
-                            style="width: 90%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;margin-right: 30px;"><br>
-
-                        <div style="display: flex; justify-content: space-between;">
-                            <div style="width: 48%;">
-                                <label for="company-email" style="display: block; font-weight: bold;margin-right: 50px;">First Name</label>
-                                <input type="text" placeholder="Your First Name" 
-                                    style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
-                            </div>
-                            <div style="width: 48%;">
-                                <label for="company-email" style="display: block; font-weight: bold;margin-right: 50px; ">Last Name </label>
-                                <input type="text" placeholder="Your Last Name" 
-                                    style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
-                            </div>
-                        </div>
-
-                        <div style="display: flex; align-items: center; justify-content: center; margin-top: 10px;">
-                            <label for="company-email" style="display: block; font-weight: bold; margin-bottom: 5px;">Phone Number </label>
-                            <span style="padding: 10px; background: #ddd; border-radius: 5px 0 0 5px; border: 1px solid #ccc;">+91</span>
-                            <input type="tel" placeholder="Enter mobile number" 
-                                style="width: 80%; padding: 10px; border: 1px solid #ccc; border-radius: 0 5px 5px 0;">
-                        </div>
-
-                        <p style="font-size: 12px; margin-top: 10px;">
-                            By clicking on <b>Post for Free</b>, you agree to our 
-                            <a href="#" style="color: blue;">T&C</a>.
-                        </p>
-
-                        <button style="width: 100%; padding: 10px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
-                            Post for Free
-                        </button>
-
-                        <p style="margin-top: 10px; font-size: 14px;">
-                            Already registered? <a href="#" style="color: blue;">Login</a>
-                        </p>
-                        </div>
-                        </div>
-
-                        <!-- JavaScript to Handle Submission -->
-                        <script>
-                        function submitEmployeeLogin() {
-                        let name = document.getElementById("employeeName").value;
-                        let email = document.getElementById("employeeEmail").value;
-                        let mobile = document.getElementById("employeeMobile").value;
-
-                        if (name === "" || email === "" || mobile === "") {
-                            alert("Please fill in all fields!");
-                            return;
-                        }
-
-                        alert("Employee login submitted:\nName: " + name + "\nEmail: " + email + "\nMobile: " + mobile);
-                        document.getElementById('employeeLoginModal').style.display = 'none';
-                        }
-                        </script>
+                        </a>
+        
+                           
 
 
                         <!-- Login Button -->
-                        <button onclick="document.getElementById('loginModal').style.display='flex'" style="padding: 12px 20px; font-size: 18px; background:gold; color: black; border: none; border-radius: 6px; cursor: pointer;font-weight: bold;">Login</button>
-
-                        <div id="loginModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); justify-content: center; align-items: center; z-index: 9999;">
-                            <div style="background: white; padding: 30px; border-radius: 12px; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); width: 400px; text-align: center; position: relative;">
-                                <span onclick="document.getElementById('loginModal').style.display='none'" style="position: absolute; top: 15px; right: 20px; font-size: 22px; cursor: pointer; font-weight: bold;">&times;</span>
-                                <h2 style="margin-bottom: 15px; color: #333;">Login</h2>
-                                <img src="https://png.pngtree.com/png-vector/20220907/ourmid/pngtree-happy-woman-works-on-laptop-in-cozy-autumn-home-office-vector-png-image_33669896.png" alt="Student Login" style="width: 100%; height: 150px; border-radius: 8px; object-fit: cover; margin-bottom: 15px;">
-                                <form>
-                                    <input type="email" placeholder=" Email" required style="width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ccc; border-radius: 6px;">
-                                    <input type="password" placeholder="Password" required style="width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ccc; border-radius: 6px;">
-                                    <button style="background: #007BFF; color: white; border: none; padding: 12px; width: 100%; cursor: pointer; border-radius: 6px; font-size: 16px;">Login</button>
-                                </form>
-                                <div style="margin-top: 15px;">
-                                    <a href="#" style="text-decoration: none; color: #007bff; font-size: 14px;">Forgot Password?</a>
-                                </div>
-                                <div style="margin-top: 10px;">
-                                    <span style="font-size: 14px; color: #555;">Don't have an account?</span> 
-                                    <a href="#" style="text-decoration: none; color: #007bff; font-weight: bold;">Register</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- <button onclick="document.getElementById('loginModal').style.display='flex'" style="padding: 10px 20px; font-size: 16px; background: white; color: black; border: none; border-radius: 5px; cursor: pointer;">Login</button>
-        
-                        <div id="loginModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); justify-content: center; align-items: center;z-index: 9999;">
-                            <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); width: 400px; text-align: center; position: relative;">
-                                <span onclick="document.getElementById('loginModal').style.display='none'" style="position: absolute; top: 10px; right: 15px; font-size: 20px; cursor: pointer;">&times;</span>
-                                <h2 style="margin-bottom: 20px; color: #333;">Login</h2>
-                                <div>
-                                    <button onclick="showForm('employee')" style="background: #007bff; color: white; border: none; padding: 10px; width: 30%; margin: 5px; cursor: pointer; border-radius: 5px;">Employee</button>
-                                    <button onclick="showForm('manager')" style="background: #007bff; color: white; border: none; padding: 10px; width: 30%; margin: 5px; cursor: pointer; border-radius: 5px;">Manager</button>
-                                    <button onclick="showForm('student')" style="background: #007bff; color: white; border: none; padding: 10px; width: 30%; margin: 5px; cursor: pointer; border-radius: 5px;">Student</button>
-                                </div>
-                    
-                                <form id="employee" style="display: block;">
-                                    <input type="text" placeholder="Full Name" required style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px;">
-                                    <input type="email" placeholder="Email" required style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px;">
-                                    <input type="password" placeholder="Password" required style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px;">
-                                    <button style="background: #28a745; color: white; border: none; padding: 10px; width: 100%; cursor: pointer; border-radius: 5px;">Login as Employee</button>
-                                </form>
-                    
-                                <form id="manager" style="display: none;">
-                                    <input type="text" placeholder="Full Name" required style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px;">
-                                    <input type="email" placeholder="Work Email" required style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px;">
-                                    <input type="password" placeholder="Password" required style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px;">
-                                    <button style="background: #28a745; color: white; border: none; padding: 10px; width: 100%; cursor: pointer; border-radius: 5px;">Login as Hiring Manager</button>
-                                </form>
-                    
-                                <form id="student" style="display: none;">
-                                    <input type="text" placeholder="Full Name" required style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px;">
-                                    <input type="email" placeholder="Student Email" required style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px;">
-                                    <input type="password" placeholder="Password" required style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px;">
-                                    <button style="background: #28a745; color: white; border: none; padding: 10px; width: 100%; cursor: pointer; border-radius: 5px;">Login as Student</button>
-                                </form>
-                            </div>
-                        </div>
-                    
-                        <script>
-                            function showForm(formType) {
-                                document.querySelectorAll('form').forEach(form => form.style.display = 'none');
-                                document.getElementById(formType).style.display = 'block';
-                            }
-                        </script> -->
+                         <a href="StudentLogin.html" style="text-decoration: none;">
+                        <button  style="padding: 10px 20px; font-size: 16px; background:gold; color: black; border: none; border-radius: 5px; cursor: pointer;font-weight: bold;">Login</button>
+                        </a>     
+                       
                     </ul>
                 </div>
             </div>
@@ -480,52 +369,95 @@
             </div>
         </div><br>
 
-        <section style="background: whitesmoke; padding: 50px 20px; text-align: center; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); border-radius: 10px;max-width: 1200px; margin: auto;  padding: 30px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+        <section style="background: whitesmoke; padding: 50px 20px; text-align: center; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); border-radius: 10px; max-width: 1200px; margin: auto;">
             <h2 style="font-size: 2.5rem; font-weight: bold; font-family: 'Poppins', sans-serif; color: #004085; margin-bottom: 25px; text-transform: uppercase;">
                 Find Your Perfect Job or Hire Talent!
             </h2>
             
             <div id="job-inputs" style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 20px;">
                 <input type="text" placeholder="Job Title, Skills or Company" style="padding: 12px; width: 280px; border: 2px solid #ccc; border-radius: 8px; font-size: 1rem;">
-                <select style="padding: 12px; width: 280px; border: 2px solid #ccc; border-radius: 8px; font-size: 1rem;">
-                    <option>City, State, or Country</option>
-                    <option>Hyderabad</option>
-                    <option>Bangalore</option>
-                    <option>Pune</option>
-                    <option>Chennai</option>
-                    <option>Delhi</option>
+                
+                <select id="country" style="padding: 12px; width: 220px; border: 2px solid #ccc; border-radius: 8px; font-size: 1rem;" onchange="updateStates()">
+                    <option value="">Select Country</option>
+                    <option value="India">India</option>
+                    <option value="USA">USA</option>
                 </select>
-                <select style="padding: 12px; width: 220px; border: 2px solid #ccc; border-radius: 8px; font-size: 1rem;">
-                    <option>Category</option>
-                    <option>IT</option>
-                    <option>Finance</option>
-                    <option>Marketing</option>
-                    <option>Healthcare</option>
+                
+                <select id="state" style="padding: 12px; width: 220px; border: 2px solid #ccc; border-radius: 8px; font-size: 1rem;" onchange="updateCities()" disabled>
+                    <option value="">Select State</option>
                 </select>
+                
+                <select id="city" style="padding: 12px; width: 220px; border: 2px solid #ccc; border-radius: 8px; font-size: 1rem;" disabled>
+                    <option value="">Select City</option>
+                </select>
+                
                 <button style="padding: 12px 18px; background: #004085; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1.2rem;">🔍</button>
             </div>
-    
-            <div id="employer-inputs" style="display: none; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 20px;">
-                <input type="text" placeholder="Job Position" style="padding: 12px; width: 280px; border: 2px solid #ccc; border-radius: 8px; font-size: 1rem;">
-                <input type="text" placeholder="Company Name" style="padding: 12px; width: 280px; border: 2px solid #ccc; border-radius: 8px; font-size: 1rem;">
-                <select style="padding: 12px; width: 220px; border: 2px solid #ccc; border-radius: 8px; font-size: 1rem;">
-                    <option>Location</option>
-                    <option>Hyderabad</option>
-                    <option>Bangalore</option>
-                    <option>Pune</option>
-                    <option>Chennai</option>
-                    <option>Delhi</option>
-                </select>
-                <button style="padding: 12px 18px; background: #004085; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1.2rem;">🔍</button>
-            </div>
+        
+            <a href="Search.html">  
+                <button style="padding: 12px 25px; background: #ffc107; color: #333; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem;">Browse Jobs</button>
+            </a>
+        </section>
+        
+        <script>
+            const locationData = {
+                India: {
+                    Telangana: ["Hyderabad", "Warangal","Karimnagar"],
+                    Karnataka: ["Bangalore", "Mysore"],
+                    Maharashtra: ["Mumbai", "Pune"],
+                    TamilNadu: ["Chennai", "Coimbatore"],
+                    Delhi: ["New Delhi"]
+                },
+                USA: {
+                    California: ["Los Angeles", "San Francisco"],
+                    Texas: ["Houston", "Dallas"],
+                    NewYork: ["New York City", "Buffalo"]
+                }
+            };
             
-            <!-- <div style="display: flex; justify-content: center; gap: 20px; margin-bottom: 20px;">
-                <button onclick="toggleUserType('student')" style="padding: 14px 30px; background: #007bff; color: white; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem;">👤 I'm a Student</button>
-                <button onclick="toggleUserType('employer')" style="padding: 14px 30px; background: #28a745; color: white; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem;">🏢 I'm an Employer</button>
-            </div> -->
+            function updateStates() {
+                let country = document.getElementById("country").value;
+                let stateSelect = document.getElementById("state");
+                let citySelect = document.getElementById("city");
+                
+                stateSelect.innerHTML = '<option value="">Select State</option>';
+                citySelect.innerHTML = '<option value="">Select City</option>';
+                citySelect.disabled = true;
+                
+                if (country && locationData[country]) {
+                    stateSelect.disabled = false;
+                    for (let state in locationData[country]) {
+                        let option = document.createElement("option");
+                        option.value = state;
+                        option.textContent = state;
+                        stateSelect.appendChild(option);
+                    }
+                } else {
+                    stateSelect.disabled = true;
+                }
+            }
             
-            <a href="Search.html">  <button style="padding: 12px 25px; background: #ffc107; color: #333; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem;">Browse Jobs</button></a>
-        </section><br>
+            function updateCities() {
+                let country = document.getElementById("country").value;
+                let state = document.getElementById("state").value;
+                let citySelect = document.getElementById("city");
+                
+                citySelect.innerHTML = '<option value="">Select City</option>';
+                
+                if (state && locationData[country][state]) {
+                    citySelect.disabled = false;
+                    locationData[country][state].forEach(city => {
+                        let option = document.createElement("option");
+                        option.value = city;
+                        option.textContent = city;
+                        citySelect.appendChild(option);
+                    });
+                } else {
+                    citySelect.disabled = true;
+                }
+            }
+        </script><br>
+        
     
         <div style=" display: flex; flex-direction: column; align-items: flex-start; margin-left: 200px;margin-top: 20px;max-width: 1200px; margin: auto;  padding: 30px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
             <div style="display: flex;">
@@ -537,6 +469,11 @@
                     <img src="https://cdn-icons-png.flaticon.com/512/3135/3135693.png" alt="Hourly Pay" style="width: 50px; height: 50px;">
                     <h3>Hourly Pay</h3>
                     <p>1,200 Jobs</p>
+                </div>
+                <div style="display: inline-block; background: #fff; padding: 20px; margin-right: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); text-align: center; width: 200px;">
+                    <img src="https://thumb.ac-illust.com/1b/1b71069ceae829cc218405082e31e7b9_t.jpeg" alt="Hourly Pay" style="width: 50px; height: 50px;">
+                    <h3>WFH Jobs</h3>
+                    <p>1,600 Jobs</p>
                 </div>
                 <div style="display: inline-block; background: #fff; padding: 20px; margin-right: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); text-align: center; width: 200px;">
                     <img src="https://cdn-icons-png.flaticon.com/512/1041/1041916.png" alt="Second Job" style="width: 50px; height: 50px;">
@@ -562,8 +499,7 @@
             <!-- <button style="margin-top: 20px; padding: 10px 20px; background: #007bffd5; color: white; border: none; border-radius: 5px; cursor: pointer;">Explore All Jobs</button> -->
         </div><br>
         
-        <!-- About Us Section -->
-           <!-- About Us Section -->
+            <!-- About Us Section -->
             <section id="about-us" style="position: relative; height: auto; display: flex; align-items: center; justify-content: center; padding: 80px 0; background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url('https://source.unsplash.com/1600x900/?corporate,teamwork,technology') center/cover no-repeat; color: white;max-width: 1200px; margin: auto;  padding: 30px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
 
                 <div style="max-width: 1200px; display: flex; align-items: center; justify-content: space-between; padding: 40px; gap: 40px;">
@@ -598,7 +534,7 @@
             </section>
 
 
-       <!-- Our Mission & Vision Section -->
+            <!-- Our Mission & Vision Section -->
         <section id="mission-vision" style="background: #f4f6f9; padding: 80px 20px; text-align: center; overflow: hidden;max-width: 1200px; margin: auto;  padding: 30px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
             <div style="max-width: 1200px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap;">
                 
@@ -661,7 +597,7 @@
         <h2 style="color: #0056b3; font-size: 38px; font-weight: 800; font-family: 'Playfair Display', serif;">Explore High-Paying Hourly Jobs</h2>
         <p style="color: #333; font-size: 22px; line-height: 1.8; font-weight: 600;">💼 <span style="color: #d32f2f; font-weight: bold;">Hourly jobs</span> offer flexibility and fair wages. Ideal for freelancers, students, and professionals.</p>
         <p style="color: #444; font-size: 22px; line-height: 1.8; font-weight: 600;">🌟 Opportunities in <span style="color: #00796b; font-weight: bold;">retail</span>, <span style="color: #c2185b; font-weight: bold;">customer service</span>, and the <span style="color: #ffa000; font-weight: bold;">gig economy</span> provide work-life balance and earnings growth.</p>
-        <a href= "# " style=" color:#007bff;"> learn More</a>
+        <a href= "HourlyPay.html" style=" color:#007bff;"> learn More</a>
     </div>
     
     <div style="flex: 1; position: relative; overflow: hidden; border-radius: 15px; box-shadow: 0px 4px 15px rgba(0,0,0,0.15);">
@@ -1069,10 +1005,34 @@
         <p style="color: #555; font-size: 18px; margin-bottom: 20px;">Get real-time job updates & more!</p>
         
         <div style="display: flex; align-items: center;">
-            <input type="text" placeholder="Enter mobile number..." 
+            <input type="text" id="mobileNumber" placeholder="Enter mobile number..." 
                 style="padding: 12px; width: 250px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px;">
-            <button style="padding: 12px 20px; background: #007BFF; color: white; border: none; border-radius: 5px; margin-left: 10px; font-size: 16px; cursor: pointer; transition: 0.3s;">Get link</button>
+            <button onclick="sendLink()" 
+                style="padding: 12px 20px; background: #007BFF; color: white; border: none; border-radius: 5px; margin-left: 10px; font-size: 16px; cursor: pointer; transition: 0.3s;">
+                Get link
+            </button>
         </div>
+        
+        <script>
+        function sendLink() {
+            const mobileNumber = document.getElementById("mobileNumber").value;
+        
+            if (!mobileNumber) {
+                alert("Please enter a mobile number");
+                return;
+            }
+        
+            fetch("http://localhost:5000/api/storeNumber", {    // Change to your backend URL
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ mobile: mobileNumber })
+            })
+            .then(response => response.json())
+            .then(data => alert(data.message))
+            .catch(error => console.error("Error:", error));
+        }
+        </script>
+
         
         <div style="margin-top: 20px; display: flex; align-items: center;">
             <img src="https://ride-taxis.co.uk/wp-content/uploads/2024/05/Google_Play_Store_badge_EN.svg-1-1024x302.png" alt="Google Play" style="width: 150px; margin-right: 10px; cursor: pointer;">
@@ -1085,21 +1045,70 @@
     </div>
 </div><br>
 <section style="border-radius: 10px; max-width: 1200px; margin: auto; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);background-color: #c4d9dd;justify-content: center;align-items: center;">
-        <div style="background: white; padding: 50px 20px; border-bottom: 5px solid #22BFD8; text-align: center; ">
-            <h2 style="margin: 0; font-size: 28px; color: #333;">Contact Hitaishi Pay</h2>
-            <p style="color: #666; font-size: 16px;">Have questions about hourly pay, jobs, or projects? Reach out to us!</p>
-            <form>
-                <input type="email" placeholder="Enter your email address" 
-                    style="padding: 12px; width: 38%; margin: 10px; border: 1px solid #ccc; border-radius: 25px; font-size: 14px; text-align: center;">
-                <input type="text" placeholder="Enter your Name" 
-                    style="padding: 12px; width: 38%; margin: 10px; border: 1px solid #ccc; border-radius: 25px; font-size: 14px; text-align: center;">
-                <br>
-                <button type="submit" 
-                        style="background: #22BFD8; color: white; border: none; padding: 12px 40px; border-radius: 25px; cursor: pointer; font-size: 16px; font-weight: bold; transition: 0.3s;">
-                    SUBMIT
-                </button>
-            </form>
-        </div>
+    <div style="background: white; padding: 50px 20px; border-bottom: 5px solid #22BFD8; text-align: center;">
+        <h2 style="margin: 0; font-size: 28px; color: #333;">Contact Hitaishi Pay</h2>
+        <p style="color: #666; font-size: 16px;">Have questions about hourly pay, jobs, or projects? Reach out to us!</p>
+
+        <form id="contactForm">
+            <input type="email" id="email" value="" placeholder="Enter your email address" required
+                style="padding: 12px; width: 38%; margin: 10px; border: 1px solid #ccc; border-radius: 25px; font-size: 14px; text-align: center;">
+            <input type="text" id="name" placeholder="Enter your Name" required
+                style="padding: 12px; width: 38%; margin: 10px; border: 1px solid #ccc; border-radius: 25px; font-size: 14px; text-align: center;">
+            <br>
+            <button type="submit" id="submit"
+                style="background: #22BFD8; color: white; border: none; padding: 12px 40px; border-radius: 25px; cursor: pointer; font-size: 16px; font-weight: bold; transition: 0.3s;">
+                SUBMIT
+            </button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("contactForm");
+
+        if (!form) {
+            console.error("❌ Error: Form not found!");
+            return;
+        }
+        form.addEventListener("submit", async (event) => {
+        event.preventDefault(); // Stop default form submission
+
+        // Capture values BEFORE any async operation
+        const email = document.getElementById("email").value.trim();
+        const name = document.getElementById("name").value.trim();
+
+        console.log("📌 Email Captured:", email);
+        console.log("📌 Name Captured:", name);
+
+        if (!email || !name) {
+            alert("⚠ Please enter both Name and Email.");
+            return;
+        }
+
+        try {
+            const response = await fetch("http://localhost:5000/api/contacts", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email, name }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                alert("✅ Success: " + data.message);
+            } else {
+                alert("⚠ Error: " + (data.error || "Unknown error"));
+            }
+        } catch (error) {
+            alert("❌ Something went wrong!");
+            console.error("Error:", error);
+        }
+    })
+    });
+
+
+    </script>
+
 
         <div style="background: #22BFD8; padding: 40px 10px; display: flex; justify-content: center; align-items: center; ">
             <div style="background: white; padding: 30px; width: 80%; display: flex; justify-content: space-between; align-items: center; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
@@ -1122,8 +1131,8 @@
         </div>
 </section><br>
 <!-- Footer Section -->
-<div style="background: #b9b9b9; padding: 40px; display: flex; justify-content: space-between;">
-    <div>
+<div style="background: #b9b9b9; padding: 40px; display: flex; justify-content: space-between; flex-wrap: wrap;">
+    <div style="flex: 1; min-width: 200px;">
         <h3 style="color: #000;">Hitaishi Pay</h3>
         <p>Connect with us</p>
         <div>
@@ -1132,25 +1141,42 @@
             <a href="#"><i class="fab fa-linkedin" style="font-size: 24px;"></i></a>
         </div>
     </div>
-    <div>
+    
+    <div style="flex: 1; min-width: 200px;">
         <h4>Company</h4>
         <p>About Us</p>
         <p>Careers</p>
         <p>Employer Home</p>
     </div>
-    <div>
+    
+    <div style="flex: 1; min-width: 200px;">
         <h4>Support</h4>
         <p>Help Center</p>
         <p>Privacy Policy</p>
         <p>Fraud Alert</p>
     </div>
-    <div>
+    
+    <div style="flex: 1; min-width: 200px;">
+        <h4>Quick Links</h4>
+        <p>WFH</p>
+        <p>Hourly Pay</p>
+        <p>Second Job</p>
+        <p>Projects</p>
+        <p>Training</p>
+        <p>Technical Support</p>
+        <p>Fresher Jobs</p>
+    </div>
+
+    <div style="flex: 1; min-width: 200px;">
         <h4>Apply on the Go</h4>
         <p>Get real-time job updates on our App</p>
         <img src="https://ride-taxis.co.uk/wp-content/uploads/2024/05/Google_Play_Store_badge_EN.svg-1-1024x302.png" alt="Google Play" style="width: 120px; margin-right: 5px;">
         <img src="https://logosmarken.com/wp-content/uploads/2021/02/App-Store-Emblem.png" alt="App Store" style="width: 120px;">
     </div>
 </div>
+
     
 </body>
 </html>
+
+

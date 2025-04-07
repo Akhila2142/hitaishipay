@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Posting Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background:linear-gradient(to right, #0a3d62, #1e5799, #2980b9); /* A more dynamic gradient */
+            font-family: 'Poppins', sans-serif;
+            margin: 0px;
+            padding: 0px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: #333; /* Default text color */
+        }
+        .header-container {
+            width: 85%;
+            background: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+            color: #333;
+            text-align: center;
+            padding: 45px 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .header-container h2 {
+            margin: 0;
+            font-size: 32px;
+            color: #2c3e50; /* Darker heading color */
+        }
+        .header-container p {
+            font-size: 18px;
+            margin-top: 15px;
+            color: #555; /* Lighter paragraph color */
+        }
+        .main-container {
+            display: flex;
+            width: 85%;
+            background-color: rgba(255, 255, 255, 0.98); /* Even more subtle transparency */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 900px; /* Limit width for better readability on larger screens */
+        }
+        .form-container {
+            width: 100%;
+        }
+        h2 {
+            text-align: center;
+            color: #3498db; /* Primary accent color */
+            margin-bottom: 25px;
+            font-size: 26px;
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        label {
+            font-weight: 500;
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+            font-size: 16px;
+        }
+        input, select, textarea {
+            width: calc(100% - 22px); /* Adjust for padding */
+            padding: 12px;
+            margin-top: 7px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        }
+        textarea {
+            resize: vertical; /* Allow vertical resizing */
+        }
+        .checkbox-group, .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center; /* Vertically align items */
+        }
+        .checkbox-group label, .radio-group label {
+            font-weight: normal;
+            font-size: 15px;
+            color: #555;
+            display: flex; /* Align checkbox/radio with text */
+            align-items: center;
+            gap: 8px;
+            cursor: pointer; /* Indicate interactivity */
+        }
+        .checkbox-group input[type="checkbox"],
+        .radio-group input[type="radio"] {
+            margin: 0; /* Remove default margin */
+            vertical-align: middle; /* Align with text */
+        }
+        button {
+            background-color: #3498db; /* Primary button color */
+            color: white;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        button:hover {
+            background-color: #2980b9; /* Darker shade on hover */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #eee;
+            padding: 10px;
+            text-align: left;
+            font-size: 14px;
+        }
+        th {
+            background-color: #f8f8f8;
+            font-weight: 600;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .input-box {
+            width: 90%; /* Adjust width for table cells */
+            padding: 8px;
+            margin-top: 0;
+            margin-bottom: 0;
+            border: 1px solid #ffffff00;
+            border-radius: 4px;
+            font-size: 14px;
+            display: none;
+            box-sizing: border-box;
+        }
+        .form-group table label {
+            margin-bottom: 0;
+            display: inline-block;
+            width: auto;
+            margin-right: 10px;
+        }
+    </style>
+    <script>
+        function toggleInput(checkbox) {
+            let row = checkbox.closest('tr');
+            let inputs = row.querySelectorAll('.input-box');
+            inputs.forEach(input => {
+                input.style.display = checkbox.checked ? 'inline-block' : 'none';
+            });
+        }
+    </script>
+</head>
+<body>
+    <header style="background:linear-gradient(to right, #0a3d62, #1e5799, #2980b9); display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; width: 97%;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <img src="https://cdn3d.iconscout.com/3d/premium/thumb/payment-successful-3d-illustration-download-in-png-blend-fbx-gltf-file-formats--done-dollar-money-finance-and-pack-business-illustrations-4731409.png?f=webp" 
+                alt="Logo" 
+                style="width: 70px; height: 70px; border-radius: 10px;">
+            <a href="index.html" style="font-size: 2.2rem; font-weight: bolder; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; background: linear-gradient(to right, rgb(235, 230, 224), #ff9900); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 1px; text-decoration: none;">
+                Hitaishi <span style="font-family: 'Montserrat', sans-serif; font-weight: 1000; color: #000000;">Pay</span>
+            </a>
+        </div>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <!-- <input type="text" placeholder="Search..." style="padding: 8px; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem;">
+            <button style="padding: 8px 12px; border: none; border-radius: 5px; cursor: pointer; background-color: #ffffff; color: white; font-weight: bold; font-size: 1rem;">🔍</button> -->
+            <a href="EmployerRegistration.html" style="text-decoration: none;">
+                <button style="padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; background-color:#ff9900; font-weight: bold;">Employer</button>
+            </a>
+            <a href="StudentLogin.html" style="text-decoration: none;">
+                <button style="padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; background-color: #ff9900; font-weight: bold;">Login</button>
+            </a>
+        </div>
+    </header><br>
+    <div class="header-container">
+        <h2>Post Your Job with Ease</h2>
+        <p>Find the best talent for your company by posting your job requirements here. Fill in the details and reach the right candidates quickly.</p>
+    </div>
+    <div class="main-container">
+        <div class="form-container">
+            <h2>Post a Job</h2>
+            <form id="jobForm">
+                <div class="form-group">
+                    <label>Job Title:</label>
+                    <input type="text" name="jobTitle" placeholder="Enter job title" required>
+                </div>
+                <div class="form-group">
+                    <label>Company Name:</label>
+                    <input type="text" name="companyName" placeholder="Enter company name" required>
+                </div>
+                <div class="form-group">
+                    <label>Location:</label>
+                    <input type="text" name="location" placeholder="Enter job location" required>
+                </div>
+                <div class="form-group">
+                    <label>Posted By:</label>
+                    <input type="text" name="postedBy" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label>Experience Level:</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="experience" value="0 Yrs" required> 0Yrs</label>
+                        <label><input type="radio" name="experience" value="Fresher"> Fresher</label>
+                        <label><input type="radio" name="experience" value="Mid-Level"> MidLevel</label>
+                        <label><input type="radio" name="experience" value="Senior"> Senior</label>
+                    </div>
+                </div>
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label style="font-weight: bold; display: block; margin-bottom: 5px;">Job Type:</label>
+                    <div class="checkbox-group" style="display: flex; flex-wrap: wrap; gap: 15px;">
+                        <label style="display: flex; align-items: center; gap: 8px;"><input type="checkbox" name="workMode" value=""> HourlyPay</label>
+                        <label style="display: flex; align-items: center; gap: 5px;"><input type="checkbox" name="workMode" value=""> SecondaryJobs</label>
+                        <label style="display: flex; align-items: center; gap: 5px;"><input type="checkbox" name="workMode" value=""> WFH</label>
+                        <label style="display: flex; align-items: center; gap: 5px;"><input type="checkbox" name="workMode" value=""> Projects</label>
+                        <label style="display: flex; align-items: center; gap: 5px;"><input type="checkbox" name="workMode" value=""> Training</label>
+                        <label style="display: flex; align-items: center; gap: 5px;"><input type="checkbox" name="workMode" value=""> TechnicalSupport</label>
+                        <label style="display: flex; align-items: center; gap: 5px;"><input type="checkbox" name="workMode" value=""> FreshersJobs</label>
+                    </div>
+                </div>
+                <table style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>Work Pay</th>
+                            <th>Total Amount</th>
+                            <th>Duration</th>
+                            <th>Salary</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><label><input type="checkbox" onclick="toggleInput(this)"> Hourly Pay $</label></td>
+                            <td><input type="text" class="input-box" style="display: none;"></td>
+                            <td><input type="text" class="input-box" style="display: none;"></td>
+                            <td><input type="text" class="input-box" style="display: none;"> $ Per Hour</td>
+                        </tr>
+                        <tr>
+                            <td><label><input type="checkbox" onclick="toggleInput(this)"> Second Job $</label></td>
+                            <td><input type="text" class="input-box" style="display: none;"></td>
+                            <td><input type="text" class="input-box" style="display: none;"></td>
+                            <td><input type="text" class="input-box" style="display: none;"> $ Per Week</td>
+                        </tr>
+                        <tr>
+                            <td><label><input type="checkbox" onclick="toggleInput(this)"> WFH $</label></td>
+                            <td><input type="text" class="input-box" style="display: none;"></td>
+                            <td><input type="text" class="input-box" style="display: none;"></td>
+                            <td><input type="text" class="input-box" style="display: none;"> $ Per Month</td>
+                        </tr>
+                        <tr>
+                            <td><label><input type="checkbox" onclick="toggleInput(this)"> Full Time $</label></td>
+                            <td><input type="text" class="input-box" style="display: none;"></td>
+                            <td><input type="text" class="input-box" style="display: none;"></td>
+                            <td><input type="text" class="input-box" style="display: none;"> $ Per Year</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="form-group">
+                    <label>Work Mode:</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="workMode" value="Remote"> Remote</label>
+                        <label><input type="checkbox" name="workMode" value="Onsite"> Onsite</label>
+                        <label><input type="checkbox" name="workMode" value="Hybrid"> Hybrid</label>
+                    </div>
+                </div>
+               
+                <div class="form-group">
+                    <label>Job Description:</label>
+                    <textarea name="description" rows="4" placeholder="Describe the job responsibilities..." required></textarea>
+                </div>
+                <button type="submit">Post Job</button>
+            </form>
+        </div>
+    </div>
+
+   <script>
+    document.getElementById('jobForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    const formData = new FormData(this);
+    const data = {};
+    
+    formData.forEach((value, key) => {
+        if (key === 'workMode' || key === 'education') {
+            if (!data[key]) {
+                data[key] = [];
+            }
+            data[key].push(value);
+        } else {
+            data[key] = value;
+        }
+    });
+
+    fetch('http://localhost:5000/api/createJob', { // Adjust URL if needed
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(result => {
+        console.log('Success:', result);
+        alert('Job Posted Successfully');
+        document.getElementById('jobForm').reset();
+
+        // Redirect to job listings page (uncomment if needed)
+        // window.location.href = 'job-listings.html';
+
+        // OR Update the job listing dynamically
+        updateJobListings();
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Error Posting Job');
+    });
+});
+
+// Function to fetch updated jobs and update the listing
+function updateJobListings() {
+    fetch('http://localhost:5000/api/getJobs') // Adjust API endpoint as needed
+    .then(response => response.json())
+    .then(jobs => {
+        const jobListContainer = document.getElementById('jobListings'); // Ensure your HTML has an element with this ID
+        jobListContainer.innerHTML = ''; // Clear old job listings
+
+        jobs.forEach(job => {
+            const jobElement = document.createElement('div');
+            jobElement.classList.add('job-item'); // Add styling class
+            jobElement.innerHTML = `
+                <h3>${job.title}</h3>
+                <p><strong>Company:</strong> ${job.company}</p>
+                <p><strong>Location:</strong> ${job.location}</p>
+                <p><strong>Work Mode:</strong> ${job.workMode.join(', ')}</p>
+                <p><strong>Education:</strong> ${job.education.join(', ')}</p>
+                <p><strong>Description:</strong> ${job.description}</p>
+                <hr>
+            `;
+            jobListContainer.appendChild(jobElement);
+        });
+    })
+    .catch(error => console.error('Error fetching jobs:', error));
+}
+
+   </script>
+</body>
+</html>

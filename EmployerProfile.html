@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employer Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+</head>
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #eef2f3;background: url('https://wallpapers.com/images/hd/solid-dark-blue-and-black-vector-gzibvjtoxecs2mcd.jpg');">
+    <div style="background: linear-gradient(to right, #00305f00, #00408000); padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; color: white;">
+        <a class="navbar-brand d-flex align-items-center" href="HitaishiPay.html" 
+        style="font-size: 2.8rem; font-weight: bolder;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+            background: linear-gradient(to right, rgb(235, 230, 224), #ff9900); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px; ">
+
+        <img src="https://cdn3d.iconscout.com/3d/premium/thumb/payment-successful-3d-illustration-download-in-png-blend-fbx-gltf-file-formats--done-dollar-money-finance-and-pack-business-illustrations-4731409.png?f=webp" 
+            alt="Logo" 
+            style="width: 70px; height: 70px; margin-right: 12px; border-radius: 10px;margin-bottom: -20px;">
+    
+        Hitaishi <span style="font-family: 'Montserrat', sans-serif; font-weight: 1000; color: #ffffff;">Pay</span>
+    </a>
+
+        <!-- <ul style="list-style: none; display: flex; gap: 20px; margin: 0; padding: 0;">
+           
+            <a href="Post.html" style="text-decoration: none;">
+                <div style="display: flex; gap: 10px;">
+                    <button style="padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; background-color: yellow; font-weight: bold;">Post Job</button>
+                   
+                </div>
+            </a>
+            </li>
+        </ul> -->
+    </div>
+        
+    <div style="max-width: 800px; margin: 40px auto; background: #f8f9fa; padding: 30px; box-shadow: 0px 4px 20px rgba(0,0,0,0.1); border-radius: 12px; text-align: left; font-family: Arial, sans-serif;">
+        <h2 style="color: #333; text-align: center;">Employer Profile</h2>
+        
+        <div style="position: relative; display: flex; align-items: center; gap: 20px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0px 2px 10px rgba(0,0,0,0.1);">
+            <div>
+                <img src="https://via.placeholder.com/120" alt="Profile Picture" id="profile-preview"
+                    style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 4px solid #007bff; display: block;">
+                <input type="file" id="profile-pic" accept=".jpg, .jpeg" 
+                    style="display: block; margin-top: 10px; padding: 8px 12px; background-color:white; color: black; border: 1px solid #ddd; border-radius: 6px; cursor: pointer;" 
+                    onchange="validateAndPreviewImage(event)">
+                <button id="change-profile-btn" style="display: none; margin-top: 5px; padding: 8px 12px; background-color: #007bff; color: white; border: none; border-radius: 6px; cursor: pointer; width: 100%;" onclick="changeProfile()">Change Profile</button>
+                <button id="remove-profile-btn" style="display: none; margin-top: 5px; padding: 8px 12px; background-color: red; color: white; border: none; border-radius: 6px; cursor: pointer; width: 100%;" onclick="removeProfile()">Remove</button>
+                <p id="error-message" style="color: red; display: none; text-align: center;">Only JPG or JPEG files are allowed.</p>
+            </div>
+            <div id="profile-completion" style="color: red; font-size: 14px; font-weight: bold; width: 100%;">
+                <p>Profile Completion: <span id="completion-percent">0%</span></p>
+                <div id="missing-fields" style="color: darkred; font-size: 12px;"></div>
+            </div>
+        </div>
+        
+        <form id="profile-form" style="text-align: left; background: white; padding: 20px; border-radius: 10px; box-shadow: 0px 2px 10px rgba(0,0,0,0.1); margin-top: 20px;">
+            <label>Full  Name:</label>
+            <input type="text" id="Your-name" placeholder="Enter Your Name" class="input-field" required>
+
+            <label>Company Name:</label>
+            <input type="text" id="company-name" placeholder="Enter Company Name" class="input-field" required>
+            
+            <label>Industry:</label>
+            <input type="text" id="industry" placeholder="Enter Industry" class="input-field" required>
+            
+            <label>Location:</label>
+            <input type="text" id="location" placeholder="Enter Location" class="input-field" required>
+            
+            <label>Designation:</label>
+            <input type="text" id="designation" placeholder="Enter Designation" class="input-field">
+            
+            <label>Experience (in years):</label>
+            <input type="number" id="experience" placeholder="Enter Experience" class="input-field">
+            
+            <label>Company Type:</label>
+            <select id="company-type" class="input-field">
+                <option value="">Select Company Type</option>
+                <option>Startup</option>
+                <option>Mid-size</option>
+                <option>Enterprise</option>
+            </select>
+            
+            <label>Summary:</label>
+            <textarea id="summary" placeholder="Provide a brief summary" class="input-field"></textarea>
+            
+            <label>About Us:</label>
+            <textarea id="about-us" placeholder="Describe your company" class="input-field"></textarea>
+            
+            <label>Email:</label>
+            <input type="email" id="email" placeholder="Enter Email" class="input-field" required>
+            
+            <label>Phone:</label>
+            <input type="text" id="phone" placeholder="Enter Phone Number" class="input-field">
+            
+            <button type="button" onclick="validateProfile()" style="background-color: #007bff; color: white; padding: 12px; border: none; border-radius: 6px; cursor: pointer; width: 100%; font-size: 16px; margin-top: 10px;">Save Profile</button>
+        </form>
+    </div>
+    
+    <style>
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+    </style>
+    
+    <script>
+        function validateAndPreviewImage(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const fileType = file.type.toLowerCase();
+                if (fileType === "image/jpeg" || fileType === "image/jpg") {
+                    const reader = new FileReader();
+                    reader.onload = function () {
+                        document.getElementById("profile-preview").src = reader.result;
+                        document.getElementById("profile-pic").style.display = "none";
+                        document.getElementById("change-profile-btn").style.display = "inline-block";
+                        document.getElementById("remove-profile-btn").style.display = "inline-block";
+                        document.getElementById("error-message").style.display = "none";
+                    };
+                    reader.readAsDataURL(file);
+                } else {
+                    document.getElementById("error-message").style.display = "block";
+                    event.target.value = "";
+                }
+            }
+        }
+        
+        function changeProfile() {
+            document.getElementById("profile-pic").click();
+        }
+    
+        function removeProfile() {
+            document.getElementById("profile-preview").src = "https://via.placeholder.com/120";
+            document.getElementById("profile-pic").value = "";
+            document.getElementById("profile-pic").style.display = "block";
+            document.getElementById("change-profile-btn").style.display = "none";
+            document.getElementById("remove-profile-btn").style.display = "none";
+            document.getElementById("error-message").style.display = "none";
+        }
+        
+        function validateProfile() {
+            const requiredFields = ["company-name", "industry", "location", "email"];
+            let filledFields = 0;
+            let missingFields = [];
+            requiredFields.forEach(id => {
+                const value = document.getElementById(id).value.trim();
+                if (value) {
+                    filledFields++;
+                } else {
+                    missingFields.push(id.replace("-", " ").toUpperCase());
+                }
+            });
+            const completionPercent = Math.round((filledFields / requiredFields.length) * 100);
+            document.getElementById("completion-percent").textContent = completionPercent + "%";
+            document.getElementById("missing-fields").innerHTML = missingFields.length > 0 ? "Missing Fields: " + missingFields.join(", ") : "";
+        }
+    </script>
+    
+  
+<!-- Benefits of Completing Your Profile -->
+<div style="text-align: center; margin: 40px auto; padding: 30px; background: #f8f9fa; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0,0,0,0.1); max-width: 800px;">
+    <h2 style="color: #002f5f; margin-bottom: 15px;">🌟 Why Complete Your Profile?</h2>
+    <p style="color: #555; font-size: 16px; max-width: 600px; margin: auto;">Unlock the full potential of Hitaishi Pay by completing your profile and making your company stand out.</p>
+    <ul style="list-style: none; padding: 0; margin-top: 15px;">
+        <li style="margin: 10px 0; font-size: 16px;"><strong>✅ Access a larger talent pool</strong></li>
+        <li style="margin: 10px 0; font-size: 16px;"><strong>✅ Showcase your company and its culture</strong></li>
+        <li style="margin: 10px 0; font-size: 16px;"><strong>✅ Attract top candidates with detailed job postings</strong></li>
+        <li style="margin: 10px 0; font-size: 16px;"><strong>✅ Enhance credibility and trust among job seekers</strong></li>
+    </ul>
+</div>
+
+<!-- How Hitaishi Pay Helps Employers -->
+<div style="text-align: center; margin: 40px auto; padding: 30px; background: linear-gradient(135deg, #004080, #007bff); border-radius: 10px; box-shadow: 0px 4px 10px rgba(0,0,0,0.1); max-width: 800px; color: white;">
+    <h2 style="margin-bottom: 15px;">🚀 How Hitaishi Pay Helps You Hire the Best Talent</h2>
+    <p style="font-size: 16px; max-width: 600px; margin: auto;">We simplify the hiring process with AI-driven job matching and smart recruitment tools.</p>
+    <ul style="list-style: none; padding: 0; margin-top: 15px;">
+        <li style="margin: 10px 0; font-size: 16px;"><strong>🔹 AI-powered job matching for faster hiring</strong></li>
+        <li style="margin: 10px 0; font-size: 16px;"><strong>🔹 Advanced filters to find the perfect fit</strong></li>
+        <li style="margin: 10px 0; font-size: 16px;"><strong>🔹 Access to freshers & experienced candidates</strong></li>
+        <li style="margin: 10px 0; font-size: 16px;"><strong>🔹 Seamless job posting & candidate tracking</strong></li>
+    </ul>
+</div>
+
+<!-- Steps to Hire the Best Talent -->
+<div style="text-align: center; margin: 40px auto; padding: 30px; background: #fff3cd; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0,0,0,0.1); max-width: 800px;">
+    <h2 style="color: #856404; margin-bottom: 15px;">📢 Simple Steps to Hire with Hitaishi Pay</h2>
+    <p style="color: #555; font-size: 16px; max-width: 600px; margin: auto;">Follow these easy steps to find and hire the best candidates for your company.</p>
+    <ol style="padding-left: 20px; text-align: left; display: inline-block; font-size: 16px; color: #333;">
+        <li style="margin: 10px 0;"><strong>1️⃣ Sign up & create your company profile</strong></li>
+        <li style="margin: 10px 0;"><strong>2️⃣ Post job openings with detailed descriptions</strong></li>
+        <li style="margin: 10px 0;"><strong>3️⃣ Use smart filters to find the best candidates</strong></li>
+        <li style="margin: 10px 0;"><strong>4️⃣ Schedule interviews and hire seamlessly</strong></li>
+    </ol>
+</div>
+    <!-- Footer Section -->
+<footer style="background: #002f5f; color: white; padding: 30px 0; text-align: center; margin-top: 50px;">
+    <div style="max-width: 1100px; margin: auto; display: flex; justify-content: space-between; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 250px; padding: 10px;">
+            <h3 style="color:white;">Hitaishi Pay</h3>
+            <p>Your trusted platform for connecting skilled professionals with top employers.</p>
+        </div>
+        <div style="flex: 1; min-width: 250px; padding: 10px;">
+            <h3>Quick Links</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li><a href="about.html" style="color: white; text-decoration: none;">About Us</a></li>
+                <li><a href="contact.html" style="color: white; text-decoration: none;">Contact</a></li>
+                <li><a href="privacy.html" style="color: white; text-decoration: none;">Privacy Policy</a></li>
+            </ul>
+        </div>
+        <div style="flex: 1; min-width: 250px; padding: 10px;">
+            <h3>Follow Us</h3>
+            <a href="#" style="color:white; margin-right: 15px; font-size: 18px;">
+                <i class="fa-brands fa-facebook"></i> 
+            </a>
+            <a href="#" style="color: white; margin-right: 15px; font-size: 18px;">
+                <i class="fa-brands fa-linkedin"></i> 
+            </a>
+            <a href="#" style="color: white; font-size: 18px;">
+                <i class="fa-brands fa-twitter"></i> 
+            </a>
+        </div>
+        
+    </div>
+    <p style="margin-top: 20px; font-size: 14px;">© 2025 Hitaishi Pay. All rights reserved.</p>
+</footer>
+<script>
+    async function validateProfile() {
+      // Step 1: Get employerId from localStorage
+      const employerId = localStorage.getItem("employerId");
+
+      if (!employerId) {
+        alert("Employer ID not found. Please log in again.");
+        window.location.href = "EmployerLogin.html";
+        return;
+      }
+
+      // Step 2: Collect form values
+      const companyName = document.getElementById("companyName").value;
+      const industry = document.getElementById("industry").value;
+      const location = document.getElementById("location").value;
+      const website = document.getElementById("website").value;
+      const description = document.getElementById("description").value;
+
+      // Step 3: Send profile data to backend
+      try {
+        const response = await fetch("http://localhost:5000/api/employer-profile", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            employer_id: employerId,
+            company_name: companyName,
+            industry: industry,
+            location: location,
+            website: website,
+            description: description,
+          }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+          alert("Profile saved successfully!");
+          // optionally redirect
+        } else {
+          alert("Failed to save profile: " + data.message);
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        alert("Something went wrong. Please try again.");
+      }
+    }
+  </script>            
+</body>
+</html>  

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f0f8ff, #e6e6fa);
+            padding: 0px;
+            margin: 0;
+            
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 700px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            margin-left: 250px;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-picture {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #007bff;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+            margin-right: 20px;
+        }
+
+        .profile-picture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 2.2em;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        form {
+            display: grid;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 1em;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        textarea,
+        select,
+        input[type="file"] {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-sizing: border-box;
+            font-size: 1.05em;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="date"]:focus,
+        textarea:focus,
+        select:focus,
+        input[type="file"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        h3 {
+            color: #007bff;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.7em;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+        }
+
+        .education-section > div {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .education-section > div:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 16px;
+            background-color:#1e5779;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.15em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        button[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .container {
+                padding: 25px;
+            }
+            .profile-header {
+                flex-direction: column;
+                align-items: center;
+            }
+            .profile-picture {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            h2 {
+                font-size: 1.8em;
+                text-align: center;
+            }
+            h3 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header style="background:linear-gradient(to right, #0a3d62, #1e5799, #2980b9); display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; width: 97%;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <img src="https://cdn3d.iconscout.com/3d/premium/thumb/payment-successful-3d-illustration-download-in-png-blend-fbx-gltf-file-formats--done-dollar-money-finance-and-pack-business-illustrations-4731409.png?f=webp" 
+                alt="Logo" 
+                style="width: 70px; height: 70px; border-radius: 10px;">
+            <a href="index.html" style="font-size: 2.2rem; font-weight: bolder; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; background: linear-gradient(to right, rgb(235, 230, 224), #ff9900); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 1px; text-decoration: none;">
+                Hitaishi <span style="font-family: 'Montserrat', sans-serif; font-weight: 1000; color: #000000;">Pay</span>
+            </a>
+        </div>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <!-- <input type="text" placeholder="Search..." style="padding: 8px; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem;">
+            <button style="padding: 8px 12px; border: none; border-radius: 5px; cursor: pointer; background-color: #ffffff; color: white; font-weight: bold; font-size: 1rem;">🔍</button> -->
+            <a href="EmployerRegistration.html" style="text-decoration: none;">
+                <button style="padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; background-color:#ff9900; font-weight: bold;">Employer</button>
+            </a>
+            <a href="StudentLogin.html" style="text-decoration: none;">
+                <button style="padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; background-color: #ff9900; font-weight: bold;">Login</button>
+            </a>
+        </div>
+    </header><br>
+    <div class="container">
+        <div class="profile-header">
+            <div class="profile-picture">
+                <img id="profile-image-preview" src="https://via.placeholder.com/100" alt="Profile Picture">
+            </div>
+            <h2> Profile</h2>
+        </div>
+
+        <form>
+            <div class="form-group">
+                <label for="full-name">Full Name:</label>
+                <input type="text" id="full-name" placeholder="Enter your name">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="Enter your email">
+            </div>
+
+            <div class="form-group" style="display: flex; flex-direction: column; width: 600px;">
+                <label for="password" style="margin-bottom: 5px; font-weight: bold;">Password:</label>
+                <input type="password" id="password" placeholder="Enter password" 
+                    style="padding: 12px; border-radius: 25px; border: 1px solid #ccc; outline: none; font-size: 16px; width: 100%;
+                           transition: 0.3s; box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);"
+                    onfocus="this.style.borderColor='#007bff'; this.style.boxShadow='0 0 5px rgba(0, 123, 255, 0.5)';"
+                    onblur="this.style.borderColor='#ccc'; this.style.boxShadow='inset 0 1px 3px rgba(0, 0, 0, 0.1)';">
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" placeholder="Enter your phone number">
+            </div>
+
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob">
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <textarea id="address" placeholder="Enter your address" rows="3"></textarea>
+            </div>
+
+            <h3>Education Details</h3>
+
+            <div class="education-section">
+                <div>
+                    <label for="ssc-school">SSC (10th):</label>
+                    <input type="text" id="ssc-school" placeholder="School Name">
+                    <input type="text" placeholder="Year of Passing">
+                    <input type="text" placeholder="CGPA">
+                </div>
+
+                <div>
+                    <label for="inter-college">Intermediate (12th):</label>
+                    <input type="text" id="inter-college" placeholder="College Name">
+                    <input type="text" placeholder="Year of Passing">
+                    <input type="text" placeholder="CGPA">
+                </div>
+
+                <div>
+                    <label for="ug-uni">Undergraduate (UG):</label>
+                    <input type="text" id="ug-uni" placeholder="University/College Name">
+                    <input type="text" placeholder="Year of Passing">
+                    <input type="text" placeholder="CGPA">
+                </div>
+
+                <div>
+                    <label for="pg-uni">Postgraduate (PG) (if any):</label>
+                    <input type="text" id="pg-uni" placeholder="University/College Name">
+                    <input type="text" placeholder="Year of Passing">
+                    <input type="text" placeholder="CGPA">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="skills">Skills:</label>
+                <input type="text" id="skills" placeholder="List your skills">
+            </div>
+
+            <div class="form-group">
+                <label for="experience">Experience (if any):</label>
+                <input type="text" id="experience" placeholder="Enter work experience">
+            </div>
+
+            <div class="form-group">
+                <label for="profile-picture">Profile Picture:</label>
+                <input type="file" id="profile-picture" accept="image/jpeg, image/jpg">
+            </div>
+
+            <div class="form-group">
+                <label for="resume">Resume (PDF or DOC/DOCX):</label>
+                <input type="file" id="resume" accept=".pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+            </div>
+            <div class="form-group" style="display: flex; align-items: center; gap: 10px;">
+                <input type="checkbox" id="whatsapp-updates" name="whatsapp-updates" style="width: 18px; height: 18px;">
+                <label for="whatsapp-updates" style="margin: 0; font-size: 1em; color: #333;">Receive updates via WhatsApp</label>
+            </div>
+
+            <button type="submit">
+                Submit
+            </button>
+        </form>
+    </div>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const studentId = 1; // Replace with actual student ID
+    const form = document.getElementById("profileForm");
+    const updateMessage = document.getElementById("updateMessage");
+
+    // Elements for Profile Picture Preview
+    const fileInputProfile = document.getElementById("profile-picture");
+    const imagePreview = document.getElementById("profile-image-preview");
+
+    // Fetch Student Data and Populate Form
+    fetch(`http://localhost:5000/api/student/${studentId}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data) {
+                document.getElementById("full-name").value = data.full_name || "";
+                document.getElementById("email").value = data.email || "";
+                document.getElementById("phone").value = data.phone || "";
+                document.getElementById("dob").value = data.dob || "";
+                document.getElementById("address").value = data.address || "";
+                document.getElementById("ssc-school").value = data.ssc_school || "";
+                document.getElementById("inter-college").value = data.inter_college || "";
+                document.getElementById("ug-uni").value = data.ug_uni || "";
+                document.getElementById("pg-uni").value = data.pg_uni || "";
+                document.getElementById("skills").value = data.skills || "";
+                document.getElementById("experience").value = data.experience || "";
+
+                if (data.profile_picture) {
+                    imagePreview.src = data.profile_picture;
+                }
+            }
+        })
+        .catch(error => console.error("Error fetching student data:", error));
+
+    // Handle Profile Picture Preview
+    if (fileInputProfile) {
+        fileInputProfile.addEventListener("change", function () {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    imagePreview.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            } else {
+                imagePreview.src = "https://via.placeholder.com/100"; // Default image
+            }
+        });
+    }
+
+    // Form Validation
+    function validateForm() {
+        const full_name = document.getElementById("full-name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const dob = document.getElementById("dob").value.trim();
+        const address = document.getElementById("address").value.trim();
+        const skills = document.getElementById("skills").value.trim();
+
+        if (!full_name || !email || !phone || !dob || !address || !skills) {
+            alert("All fields are required!");
+            return false;
+        }
+
+        // Validate Email
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailPattern.test(email)) {
+            alert("Please enter a valid email address!");
+            return false;
+        }
+
+        // Validate Phone Number (10-digit)
+        const phonePattern = /^[0-9]{10}$/;
+        if (!phonePattern.test(phone)) {
+            alert("Please enter a valid 10-digit phone number!");
+            return false;
+        }
+
+        return true;
+    }
+
+    // Handle Form Submission
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        if (!validateForm()) return;
+
+        let formData = new FormData(this);
+
+        fetch(`http://localhost:5000/api/student/${studentId}/update`, {
+            method: "POST",
+            body: formData,
+        })
+            .then(response => response.json())
+            .then(data => {
+                updateMessage.style.color = data.success ? "green" : "red";
+                updateMessage.textContent = data.message || "Profile updated successfully!";
+            })
+            .catch(error => {
+                console.error("Error updating profile:", error);
+                updateMessage.style.color = "red";
+                updateMessage.textContent = "Profile update failed!";
+            });
+    });
+});
+
+  
+            </script>
+
+
+</body>
+</html>

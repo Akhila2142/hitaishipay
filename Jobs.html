@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Listing Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            display: flex;
+        }
+        .sidebar {
+            width: 25%;
+            padding: 20px;
+            background-color: #ffffff;
+            border-right: 2px solid #ddd;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar h3 {
+            color: #333;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 5px;
+        }
+        .filter-group {
+            margin-bottom: 15px;
+        }
+        .filter-group label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .filter-group input {
+            margin-right: 5px;
+        }
+        .content {
+            width: 75%;
+            padding: 20px;
+        }
+        .job {
+            background: #fff;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #007bff;
+        }
+        .job h4 {
+            margin: 0;
+            color: #007bff;
+        }
+        #noResults {
+            display: none;
+            background: #ffdddd;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+            color: #d9534f;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header style="background:linear-gradient(to right, #0a3d62, #1e5799, #2980b9); display: flex; justify-content: space-between; align-items: center; padding: 10px 20px;">
+    
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <img src="https://cdn3d.iconscout.com/3d/premium/thumb/payment-successful-3d-illustration-download-in-png-blend-fbx-gltf-file-formats--done-dollar-money-finance-and-pack-business-illustrations-4731409.png?f=webp" 
+                alt="Logo" 
+                style="width: 70px; height: 70px; border-radius: 10px;">
+        
+            <a class="navbar-brand" href="index.html" 
+                style="font-size: 2.2rem; font-weight: bolder;
+                    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+                    background: linear-gradient(to right, rgb(235, 230, 224), #ff9900); 
+                    -webkit-background-clip: text; 
+                    -webkit-text-fill-color: transparent;
+                    letter-spacing: 1px; text-decoration: none;">
+                Hitaishi <span style="font-family: 'Montserrat', sans-serif; font-weight: 1000; color: #000000;">Pay</span>
+            </a>
+        </div>
+    
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <!-- Search Bar -->
+            <input type="text" placeholder="Search..." style="padding: 8px; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem;">
+            <button style="padding: 8px 12px; border: none; border-radius: 5px; cursor: pointer; background-color: #ffffff; color: white; font-weight: bold; font-size: 1rem;">🔍</button>
+    
+    
+            <!-- Employer & Login Buttons -->
+            <a href="EmployerRegistration.html" style="text-decoration: none;">
+                <button style="padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; background-color: yellow; font-weight: bold;">Employer</button>
+            </a>
+            <a href="StudentLogin.html" style="text-decoration: none;">
+                <button style="padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; background-color: yellow; font-weight: bold;">Login</button>
+            </a>
+        </div>
+        
+    </header>
+    
+    <!-- FontAwesome Script -->
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+    
+    <div class="container">
+        <div class="sidebar">
+            <h3>Filters</h3>
+            <div class="filter-group">
+                <label>Job Type:</label>
+                <input type="checkbox" value="full-time" class="filter" data-category="type"> Full-Time<br>
+                <input type="checkbox" value="part-time" class="filter" data-category="type"> Part-Time<br>
+                <input type="checkbox" value="remote" class="filter" data-category="type"> Remote<br>
+            </div>
+            <div class="filter-group">
+                <label>Experience:</label>
+                <input type="checkbox" value="0" class="filter" data-category="exp"> 0 Yrs<br>
+                <input type="checkbox" value="fresher" class="filter" data-category="exp"> Fresher<br>
+                <input type="checkbox" value="mid" class="filter" data-category="exp"> Mid-Level<br>
+                <input type="checkbox" value="senior" class="filter" data-category="exp"> Senior<br>
+            </div>
+            <div class="filter-group">
+                <label>Location:</label>
+                <input type="checkbox" value="hyderabad" class="filter" data-category="location"> Hyderabad<br>
+                <input type="checkbox" value="noida" class="filter" data-category="location"> Noida<br>
+                <input type="checkbox" value="bangalore" class="filter" data-category="location"> Bangalore<br>
+                <input type="checkbox" value="pune" class="filter" data-category="location"> Pune<br>
+                <input type="checkbox" value="chennai" class="filter" data-category="location"> Chennai<br>
+            </div>
+            <div class="filter-group">
+                <label>Salary Range:</label>
+                <input type="checkbox" value="3-3.5" class="filter" data-category="salary"> 3-3.5 LPA<br>
+                <input type="checkbox" value="4.5-5.5" class="filter" data-category="salary"> 4.5-5.5 LPA<br>
+                <input type="checkbox" value="4-7" class="filter" data-category="salary"> 4-7 LPA<br>
+                <input type="checkbox" value="7-9" class="filter" data-category="salary"> 7-9 LPA<br>
+            </div>
+            <div class="filter-group">
+                <label>Work Mode:</label>
+                <input type="checkbox" value="remote" class="filter" data-category="workmode"> Remote<br>
+                <input type="checkbox" value="onsite" class="filter" data-category="workmode"> Onsite<br>
+                <input type="checkbox" value="hybrid" class="filter" data-category="workmode"> Hybrid<br>
+            </div>
+            <div class="filter-group">
+                <label>Education:</label>
+                <input type="checkbox" value="degree" class="filter" data-category="education"> Degree<br>
+                <input type="checkbox" value="btech" class="filter" data-category="education"> B-Tech<br>
+                <input type="checkbox" value="pg" class="filter" data-category="education"> PG<br>
+            </div>
+        </div>
+        <!-- <div class="content" id="jobList">
+            <h3>Job Listings</h3>
+            <div id="noResults">No jobs found matching your criteria.</div>
+            <div class="job" data-type="full-time" data-exp="mid" data-location="bangalore" data-salary="4-7" data-workmode="onsite" data-education="btech">
+                <h4>Software Engineer</h4>
+                <p>Full-Time | Mid-Level | Bangalore | 4-7 LPA | Onsite | B-Tech</p>
+            </div>
+            <div class="job" data-type="part-time" data-exp="fresher" data-location="hyderabad" data-salary="3-3.5" data-workmode="remote" data-education="degree">
+                <h4>Web Developer</h4>
+                <p>Part-Time | Fresher | Hyderabad | 3-3.5 LPA | Remote | Degree</p>
+            </div>
+            <div class="job" data-type="remote" data-exp="senior" data-location="pune" data-salary="7-9" data-workmode="hybrid" data-education="pg">
+                <h4>Data Scientist</h4>
+                <p>Remote | Senior | Pune | 7-9 LPA | Hybrid | PG</p>
+            </div>
+        </div> -->
+        <div id="job-listings"></div>
+    </div>
+    <footer style="background: #111; color: white; padding: 50px 20px; font-family: Arial, sans-serif;">
+        <div style="max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between;">
+            
+            <!-- About Jobs Section -->
+            <div style="flex: 1; min-width: 600px; margin-bottom: 20px;">
+                <h3 style="color: #ffcc00; font-size: 22px;">💼 Jobs We Offer</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin: 8px 0;">✅ **Hourly Paying Jobs** (No qualification filters, instant earnings)</li>
+                    <li style="margin: 8px 0;">✅ **Part-Time & Weekend Jobs** (Work on your schedule)</li>
+                    <li style="margin: 8px 0;">✅ **Full-Time Jobs** (Find stable career opportunities)</li>
+                    <li style="margin: 8px 0;">✅ **Freelance & Project-Based Work** (Earn from skills & expertise)</li>
+                    <li style="margin: 8px 0;">✅ **Remote Work & WFH Jobs** (Work from anywhere, anytime)</li>
+                    <li style="margin: 8px 0;">✅ **Internships & Fresher Jobs** (Kickstart your career with the right opportunities)</li>
+                    <li style="margin: 8px 0;">✅ **Technical Support & Training** (Upskill and get hired)</li>
+                </ul>
+            </div>
+    
+            <!-- Social Media & Contact -->
+            <div style="flex: 1; min-width: 300px; margin-bottom: 20px; margin-left: 100px;">
+                <h3 style="color: #ffcc00; font-size: 22px;">📲 Connect With Us</h3>
+                <div style="display: flex; gap: 15px; margin-top: 10px;">
+                    <a href="#" style="text-decoration: none;">
+                        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" style="width: 32px;">
+                    </a>
+                    <a href="#" style="text-decoration: none;">
+                        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" style="width: 32px;">
+                    </a>
+                    <a href="#" style="text-decoration: none;">
+                        <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" style="width: 32px;">
+                    </a>
+                    <a href="#" style="text-decoration: none;">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384014.png" alt="LinkedIn" style="width: 32px;">
+                    </a>
+                </div>
+                <p style="margin-top: 15px; font-size: 14px; color: #bbb;">📧 support@hitaishipay.com</p>
+                <p style="font-size: 14px; color: #bbb;">📞 +91 98765 43210</p>
+            </div>
+    
+            <!-- Download Our App -->
+            <div style="flex: 1; min-width: 200px; margin-bottom: 20px;">
+                <h3 style="color: #ffcc00; font-size: 22px;">📥 Download Our App</h3>
+                <a href="#" style="display: block; margin-bottom: 10px;">
+                    <img src="https://ride-taxis.co.uk/wp-content/uploads/2024/05/Google_Play_Store_badge_EN.svg-1-1024x302.png" alt="Google Play" style="width: 160px;">
+                </a>
+                <a href="#" style="display: block;">
+                    <img src="https://logosmarken.com/wp-content/uploads/2021/02/App-Store-Emblem.png" alt="App Store" style="width: 160px;">
+                </a>
+            </div>
+        </div>
+    
+        <hr style="border: 0; height: 1px; background: #444; margin: 30px 0;">
+    
+        <!-- Copyright -->
+        <p style="text-align: center; font-size: 14px; color: #bbb;">
+            © 2025 Hitaishi Pay. All Rights Reserved.
+        </p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.filter').forEach(filter => {
+            filter.addEventListener('change', filterJobs);
+        });
+
+        function filterJobs() {
+            let jobs = document.querySelectorAll('.job');
+            let filters = {};
+            let jobList = document.getElementById("jobList");
+            let noResults = document.getElementById("noResults");
+
+            document.querySelectorAll('.filter:checked').forEach(filter => {
+                let category = filter.dataset.category;
+                if (!filters[category]) filters[category] = [];
+                filters[category].push(filter.value);
+            });
+
+            let visibleJobs = 0;
+            jobs.forEach(job => {
+                let show = Object.keys(filters).every(key => !filters[key].length || filters[key].includes(job.dataset[key]));
+                job.style.display = show ? 'block' : 'none';
+                if (show) visibleJobs++;
+            });
+
+            noResults.style.display = visibleJobs ? 'none' : 'block';
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+        fetch("http://localhost:5000/api/getJobs")
+            .then(response => response.json())
+            .then(jobs => {
+                const jobContainer = document.getElementById("job-listings");
+                jobContainer.innerHTML = ""; // Clear existing content
+
+                jobs.forEach(job => {
+                    const jobElement = document.createElement("div");
+                    jobElement.classList.add("job-card");
+                    jobElement.innerHTML = `
+                        <h3>${job.jobTitle}</h3>
+                        <p><strong>Company:</strong> ${job.companyName}</p>
+                        <p><strong>Location:</strong> ${job.location}</p>
+                        <p><strong>PostedBy:</strong> ${job.postedby}</p>
+                        <p><strong>Experience:</strong> ${job.experience}</p>
+                        <p><strong>JobType:</strong> ${job.jobtype}</p>
+                        <p><strong>WorkPay:</strong> ${job.workpay || "Not specified"}</p>
+                        <p><strong>Hourlypay:</strong> ${job.hourlypay}</p>
+                        <p><strong>SecondJob:</strong> ${job.secondjob}</p>
+                        <p><strong>WFH:</strong> ${job.wfh}</p>
+                        <p><strong>FullTime:</strong> ${job.fulltime}</p>
+                        <p><strong>Work Mode:</strong> ${job.workMode.join(", ")}</p>
+                        <p><strong>Description:</strong> ${job.description}</p>
+                        <button>PostJob</button>
+                    `;
+                    jobContainer.appendChild(jobElement);
+                });
+            })
+            .catch(error => console.error("Error fetching jobs:", error));
+    });
+
+
+                // job_filtering.js (Job Filtering Page Script)
+
+                document.addEventListener("DOMContentLoaded", function() {
+            fetchJobs();
+        });
+
+        function fetchJobs() {
+            fetch('http://localhost:5000/api/getJobs')
+                .then(response => response.json())
+                .then(jobs => {
+                    const jobContainer = document.getElementById('jobListings');
+                    jobContainer.innerHTML = '';
+                    
+                    jobs.forEach(job => {
+                        let jobElement = document.createElement("div");
+                        jobElement.classList.add("job");
+                        jobElement.innerHTML = `
+                            <h3>${job.jobTitle}</h3>
+                            <p><strong>Company:</strong> ${job.companyName}</p>
+                            <p><strong>Location:</strong> ${job.location}</p>
+                            <p><strong>Experience:</strong> ${job.experience}</p>
+                            <p><strong>Work Mode:</strong> ${job.workMode ? job.workMode.join(", ") : "Not specified"}</p>
+                            <p>${job.description}</p>
+                        `;
+                        jobContainer.appendChild(jobElement);
+                    });
+                })
+                .catch(error => console.error('Error fetching jobs:', error));
+                function updateJob(id) {
+    const updatedData = {
+        jobTitle: prompt("Enter new job title"),
+        companyName: prompt("Enter new company name"),
+        location: prompt("Enter new location"),
+        postedBy: "Admin", // Change as needed
+        experience: "3 years",
+        salary: "50000",
+        workMode: ["Remote"],
+        education: ["Bachelor's"],
+        description: "Updated job description",
+        workPay: ["Monthly"]
+    };
+
+    fetch(`http://localhost:5000/api/updateJob/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updatedData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.message);
+        window.location.reload();
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+function deleteJob(id) {
+    fetch(`http://localhost:5000/api/deleteJob/${id}`, { method: 'DELETE' })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.message);
+        window.location.reload();
+    })
+    .catch(error => console.error('Error:', error));
+}
+        }    
+    </script>
+    
+</body>
+</html>
