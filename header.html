@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+        <header style="position: sticky; top: 0; background-color: white; z-index: 1000; ">  
+                  <!-- Welcome Message -->
+            <div style="text-align: center; background:linear-gradient(to right, #0a3d62, #1e5799, #2980b9);  font-style: italic; color: rgb(255, 238, 0); font-weight: bold;padding-bottom: -100px;padding-top: -100px;">
+               Empowering Your Success — Welcome to Hitaishi Pay!
+            </div>
+        <!-- HEADER TOP -->
+        <div class="container-fluid" style="background:linear-gradient(to right, #0a3d62, #1e5799, #2980b9); padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: -15px;">
+            <!-- Left Side (Logo + Title + Search) -->
+            <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
+                <img src="https://cdn3d.iconscout.com/3d/premium/thumb/payment-successful-3d-illustration-download-in-png-blend-fbx-gltf-file-formats--done-dollar-money-finance-and-pack-business-illustrations-4731409.png?f=webp"
+                loading="lazy" alt="Hitaishipay_Logo" 
+                    style="width: 60px; height: 60px; border-radius: 10px;">
+
+                <a class="navbar-brand" href="index.html"
+                    style="font-size: 2rem; font-weight: bolder;
+                    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+                    background: linear-gradient(to right, rgb(235, 230, 224), #ff9900); 
+                    -webkit-background-clip: text; 
+                    -webkit-text-fill-color: transparent;
+                    letter-spacing: 1px; text-decoration: none;">
+                    Hitaishi <span style="font-family: 'Montserrat', sans-serif; font-weight: 1000; color: #000;">Pay</span>
+                </a>
+
+                <!-- Search bar -->
+                <div style="position: relative;">
+                    <input id="searchInput" type="text" placeholder="Search..."
+                    style="padding: 10px 20px; border: 2px solid #ddd; border-radius: 30px; width: 300px; font-size: 16px; transition: width 0.4s ease, border-color 0.3s ease; outline: none; margin-left: 200px;"
+                    onfocus="this.style.width='300px'; this.style.borderColor='#007bff';"
+                        onblur="this.style.width='250px'; this.style.borderColor='#ddd';" />
+                   <span 
+                        style="position: absolute; right: 20px; top: 30%; font-size: 18px; color: #007bff; cursor: pointer; transition: color 0.3s ease;" 
+                        onclick="searchJobs()">
+                        🔍
+                    </span>
+
+                </div> 
+            </div>
+
+            <!-- Right Side (Buttons + Social) -->
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                <a href="https://www.facebook.com/yourprofile" target="_blank" style="background-color: #1877F2; color: #ffffff; font-size: 18px; padding: 10px 12px; margin: 5px; border-radius: 50%; display: inline-block; text-align: center;">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://twitter.com/yourprofile" target="_blank" style="background-color: #1DA1F2; color: #ffffff; font-size: 18px; padding: 10px 11px; margin: 5px; border-radius: 50%; display: inline-block; text-align: center;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/yourprofile" target="_blank" style="background-color: #0077B5; color: #ffffff; font-size: 18px; padding: 10px 12px; margin: 5px; border-radius: 50%; display: inline-block; text-align: center;">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/yourprofile" target="_blank" style="background-color: #E4405F; color: #ffffff; font-size: 18px; padding: 10px 11px; margin: 5px; border-radius: 50%; display: inline-block; text-align: center;">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.youtube.com/channel/yourchannel" target="_blank" style="background-color: #FF0000; color: #ffffff; font-size: 18px; padding: 10px 11px; margin: 5px; border-radius: 50%; display: inline-block; text-align: center;">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                
+                <!-- Employer Button -->
+                <a href="EmployerRegistration.html" style="text-decoration: none;">
+                    <button style="padding: 10px 20px; font-size: 16px; background: gold; color: black; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
+                    Employer
+                    </button>
+                </a>
+
+                <!-- Login Button -->
+                <a href="StudentLogin.html" style="text-decoration: none;">
+                    <button style="padding: 10px 20px; font-size: 16px; background: gold; color: black; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
+                    Login
+                    </button>
+                </a>
+            </div>
+        </div>
+
+        <style>
+            /* Mobile styles (only activates below 992px) */
+            @media (max-width: 991px) {
+                .container-fluid {
+                    flex-direction: column;
+                    padding: 15px !important;
+                    gap: 15px;
+                }
+                
+                .container-fluid > div {
+                    width: 100%;
+                    justify-content: center !important;
+                }
+                
+                /* Search bar adjustments */
+                .container-fluid > div:first-child {
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 15px;
+                }
+                
+                #searchInput {
+                    margin-left: 0 !important;
+                    width: 100% !important;
+                    max-width: 400px;
+                }
+                
+                /* Right side adjustments */
+                .container-fluid > div:last-child {
+                    justify-content: center;
+                    gap: 8px;
+                }
+                
+                /* Social icons size */
+                .container-fluid > div:last-child > a {
+                    font-size: 16px !important;
+                    padding: 8px 10px !important;
+                }
+                
+                /* Buttons size */
+                .container-fluid > div:last-child > a > button {
+                    padding: 8px 16px !important;
+                    font-size: 15px !important;
+                }
+            }
+            
+            /* Desktop styles remain EXACTLY as in your original code */
+            @media (min-width: 992px) {
+                /* All original styles preserved exactly */
+            }
+        </style>
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark" style="background:linear-gradient(to right, rgb(255, 217, 0), gold, gold); margin-top: -16px;padding-top: 2px;padding-bottom: 2px;">
+        <div class="container-fluid">
+           <!-- <a class="navbar-brand" href="#">Bran</a> -->
+           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+           </button>
+           <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                  <!-- Navbar items here -->
+                <ul class="navbar-nav ms-auto" style="gap: 10px;">
+                    <li class="nav-item"><a class="nav-link active" href="#" style="color: black !important; padding: 8px;font-weight: bold;">Home</a></li>
+                    
+                    
+                    <li class="nav-item dropdown" style="display: flex; align-items: center; gap: 5px;">
+                        <!-- Link to Hourly Pay Page -->
+                        <a class="nav-link" href="hourlyPay.html" style="color:black !important; font-weight: bold; padding: 8px 5px; text-decoration: none;">
+                            Hourly Pay
+                        </a>
+                    
+                        <!-- Dropdown Toggle Icon -->
+                        <a class="nav-link dropdown-toggle" href="#" id="hourlyPayDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:black !important; font-weight: bold; padding: 8px 5px;">
+                           
+                        </a>
+                    
+                        <!-- Dropdown Menu -->
+                        <ul class="dropdown-menu" aria-labelledby="hourlyPayDropdown">
+                            <li><a class="dropdown-item" href="hourlypay.html">Digital Marketing</a></li>
+                            <li><a class="dropdown-item" href="hourlypay.html">Developing</a></li>
+                            <li><a class="dropdown-item" href="hourlypay.html">Virtual Assistance</a></li>
+                            <li><a class="dropdown-item" href="hourlypay.html">Coding</a></li>
+                            <li><a class="dropdown-item" href="hourlypay.html">Networking</a></li>
+                            <li><a class="dropdown-item" href="hourlypay.html">Designing</a></li>
+                            <li><a class="dropdown-item" href="hourlypay.html">Part-time Jobs</a></li>
+                            <li><a class="dropdown-item" href="hourlypay.html">Freelancing</a></li>
+                            <li><a class="dropdown-item" href="hourlypay.html">Documentation</a></li>
+                            <li><a class="dropdown-item" href="hourlypay.html">Work from Home</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item dropdown" style="display: flex; align-items: center; gap: 5px;">
+                        <!-- Link to Second Job Page -->
+                        <a class="nav-link" href="SecondaryJobs.html" style="color:black !important; font-weight: bold; padding: 8px 5px; text-decoration: none;">
+                            Second Job
+                        </a>
+                    
+                        <!-- Dropdown Toggle Icon -->
+                        <a class="nav-link dropdown-toggle" href="#" id="secondJobDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:black !important; font-weight: bold; padding: 8px 5px;">
+                           
+                        </a>
+                    
+                        <!-- Dropdown Menu -->
+                        <ul class="dropdown-menu" aria-labelledby="secondJobDropdown">
+                            <li><a class="dropdown-item" href="Secondaryjobs.html">Work from Home</a></li>
+                            <li><a class="dropdown-item" href="Secondaryjobs.html">Side Hustles</a></li>
+                            <li><a class="dropdown-item" href="Secondaryjobs.html">Data Entry</a></li>
+                            <li><a class="dropdown-item" href="Secondaryjobs.html">Editing</a></li>
+                            <li><a class="dropdown-item" href="Secondaryjobs.html">Part-time Jobs</a></li>
+                            <li><a class="dropdown-item" href="Secondaryjobs.html">Online Tutor</a></li>
+                            <li><a class="dropdown-item" href="Secondaryjobs.html">Writer</a></li>
+                            <li><a class="dropdown-item" href="Secondaryjobs.html">Ecommerce</a></li>
+                            <li><a class="dropdown-item" href="Secondaryjobs.html">Cyber Security/Ethical Hacking</a></li>
+                            <li><a class="dropdown-item" href="Secondaryjobs.html">Content Creation</a></li>
+                            <li><a class="dropdown-item" href="Secondaryjobs.html">Social Media Management</a></li>
+                        </ul>
+                        
+                    </li>
+                    
+                
+                    <li class="nav-item dropdown" style="display: flex; align-items: center; gap: 5px;">
+                        <!-- Link to Part-Time Jobs Page -->
+                        <a class="nav-link" href="parttimejobs.html" style="color: black !important; font-weight: bold; padding: 8px 5px; text-decoration: none;">
+                            Part-Time Jobs
+                        </a>
+                    
+                        <!-- Dropdown Toggle Icon -->
+                        <a class="nav-link dropdown-toggle" href="#" id="partTimeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black !important; font-weight: bold; padding: 8px 5px;">
+                           
+                        </a>
+                    
+                        <!-- Dropdown Menu -->
+                        <ul class="dropdown-menu" aria-labelledby="partTimeDropdown">
+                            <li><a class="dropdown-item" href="parttimejobs.html">Retail Associate</a></li>
+                            <li><a class="dropdown-item" href="parttimejobs.html">Delivery Partner</a></li>
+                            <li><a class="dropdown-item" href="parttimejobs.html">Customer Service</a></li>
+                            <li><a class="dropdown-item" href="parttimejobs.html">Call Center Agent</a></li>
+                            <li><a class="dropdown-item" href="parttimejobs.html">Warehouse Worker</a></li>
+                            <li><a class="dropdown-item" href="parttimejobs.html">Event Staff</a></li>
+                            <li><a class="dropdown-item" href="parttimejobs.html">Waiter/Server</a></li>
+                            <li><a class="dropdown-item" href="parttimejobs.html">Receptionist</a></li>
+                            <li><a class="dropdown-item" href="parttimejobs.html">Cashier</a></li>
+                            <li><a class="dropdown-item" href="parttimejobs.html">Pet Sitter/Babysitter</a></li>
+                            <li><a class="dropdown-item" href="parttimejobs.html">Cleaning Services</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item dropdown" style="display: flex; align-items: center; gap: 5px;">
+                        <!-- Link to WFH Main Page -->
+                        <a class="nav-link" href="WorkFromHome.html" style="color: black !important; font-weight: bold; padding: 8px 5px; text-decoration: none;">
+                            WFH
+                        </a>
+                    
+                        <!-- Dropdown Toggle Icon -->
+                        <a class="nav-link dropdown-toggle" href="#" id="wfhDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black !important; font-weight: bold; padding: 8px 5px;">
+                            
+                        </a>
+                    
+                        <!-- Dropdown Menu -->
+                        <ul class="dropdown-menu" aria-labelledby="wfhDropdown">
+                            <li><a class="dropdown-item" href="WorkFromHome.html">Remote Customer Support</a></li>
+                            <li><a class="dropdown-item" href="WorkFromHome.html">Online Tutoring</a></li>
+                            <li><a class="dropdown-item" href="WorkFromHome.html">Freelance Writing</a></li>
+                            <li><a class="dropdown-item" href="WorkFromHome.html">Graphic Design</a></li>
+                            <li><a class="dropdown-item" href="WorkFromHome.html">Web Development</a></li>
+                            <li><a class="dropdown-item" href="WorkFromHome.html">Data Entry</a></li>
+                            <li><a class="dropdown-item" href="WorkFromHome.html">Social Media Management</a></li>
+                            <li><a class="dropdown-item" href="WorkFromHome.html">SEO & Digital Marketing</a></li>
+                            <li><a class="dropdown-item" href="WorkFromHome.html">Transcription</a></li>
+                            <li><a class="dropdown-item" href="WorkFromHome.html">Virtual Assistance</a></li>
+                        </ul>
+                    </li>
+                    
+    
+                    <li class="nav-item dropdown" style="display: flex; align-items: center; gap:5px;">
+                        <!-- Main Link to Projects.html -->
+                        <a href="Projects.html" class="nav-link" style="color:black !important; padding: 8px; font-weight: bold; text-decoration: none;">
+                            Projects
+                        </a>
+                    
+                        <!-- Dropdown Icon for Toggle -->
+                        <a class="nav-link dropdown-toggle" href="#" id="projectsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                            style="color:black !important; padding: 8px; font-weight: bold;">
+                            
+                        </a>
+                    
+                        <!-- Dropdown Menu -->
+                        <ul class="dropdown-menu" aria-labelledby="projectsDropdown"
+                            style="max-height: 300px; overflow-y: auto; overflow-x: hidden; width: 300px; scrollbar-width: thin;">
+                            
+                            <!-- Professional Projects -->
+                            <li><h6 class="dropdown-header">Professional Projects</h6></li>
+                            <li><a class="dropdown-item" href="Projects.html">Enterprise Software Development</a></li>
+                            <li><a class="dropdown-item" href="Projects.html">Cloud-Based Applications</a></li>
+                            <li><a class="dropdown-item" href="Projects.html">Cybersecurity & Penetration Testing</a></li>
+                            <li><a class="dropdown-item" href="Projects.html">AI & Machine Learning Solutions</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                    
+                            <!-- Student Projects -->
+                            <li><h6 class="dropdown-header">Student Projects (B.Tech & M.Tech)</h6></li>
+                    
+                            <!-- Mini Projects -->
+                            <li><h6 class="dropdown-header">Mini Projects</h6></li>
+                            <li><a class="dropdown-item" href="Projects.html">Basic Web Development Project</a></li>
+                            <li><a class="dropdown-item" href="Projects.html">IoT-Based Smart Home System</a></li>
+                            <li><a class="dropdown-item" href="Projects.html">Simple AI Chatbot</a></li>
+                            <li><a class="dropdown-item" href="Projects.html">Basic Data Analysis Dashboard</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                    
+                            <!-- Major Projects -->
+                            <li><h6 class="dropdown-header">Major Projects</h6></li>
+                            <li><a class="dropdown-item" href="Projects.html">Full Stack E-Commerce Platform</a></li>
+                            <li><a class="dropdown-item" href="Projects.html">AI-Based Healthcare Diagnosis</a></li>
+                            <li><a class="dropdown-item" href="Projects.html">Blockchain-Based Voting System</a></li>
+                            <li><a class="dropdown-item" href="Projects.html">Advanced IoT Smart City Project</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                    
+                            <!-- Job-Oriented Projects -->
+                            <li><h6 class="dropdown-header">Job-Oriented Projects (For Job Seekers)</h6></li>
+                            <li><a class="dropdown-item" href="Projects.html">Full Stack Development Projects</a></li>
+                            <li><a class="dropdown-item" href="Projects.html">Cybersecurity Hands-on Projects</a></li>
+                            <li><a class="dropdown-item" href="Projects.html">Real-World Data Science & AI Projects</a></li>
+                            <li><a class="dropdown-item" href="Projects.html">Cloud & DevOps Deployment Projects</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                    
+                            <!-- Other Projects -->
+                            <li><h6 class="dropdown-header">Other Projects</h6></li>
+                            <li><a class="dropdown-item" href="Projects.html">Open Source Contributions</a></li>
+                            <li><a class="dropdown-item" href="Projects.html">Freelance & Startup Projects</a></li>
+                            <li><a class="dropdown-item" href="Projects.html">Hackathon & Research Projects</a></li>
+                        </ul>
+                    </li>
+                    
+                    
+                    <li class="nav-item dropdown" style="display: flex; align-items: center; gap: 5px;">
+                        <!-- Main Link to Training.html -->
+                        <a href="Training.html" class="nav-link" style="color: black !important; padding: 8px; font-weight: bold; text-decoration: none;">
+                            Training
+                        </a>
+                    
+                        <!-- Dropdown Toggle Icon -->
+                        <a class="nav-link dropdown-toggle" href="#" id="trainingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                            style="color: black !important; padding: 8px; font-weight: bold;">
+                            
+                        </a>
+                    
+                        <!-- Dropdown Menu -->
+                        <ul class="dropdown-menu" aria-labelledby="trainingDropdown"
+                            style="max-height: 300px; overflow-y: auto; overflow-x: hidden; width: 380px; scrollbar-width: thin;">
+                            
+                            <!-- IT & Software Training -->
+                            <li><h6 class="dropdown-header">IT & Software Training</h6></li>
+                    
+                            <!-- 45 Days -->
+                            <li><h6 class="dropdown-header">For IT Professionals (45 Days)</h6></li>
+                            <li><a class="dropdown-item" href="Training.html">Full Stack Development (45 Days)</a></li>
+                            <li><a class="dropdown-item" href="Training.html">Cybersecurity & Ethical Hacking (45 Days)</a></li>
+                            <li><a class="dropdown-item" href="Training.html">Cloud Computing (AWS, Azure, GCP) (45 Days)</a></li>
+                            <li><a class="dropdown-item" href="Training.html">Data Science & AI (45 Days)</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                    
+                            <!-- 3 Months -->
+                            <li><h6 class="dropdown-header">Short-Term Courses (3 Months)</h6></li>
+                            <li><a class="dropdown-item" href="Training.html">Full Stack Development (3 Months)</a></li>
+                            <li><a class="dropdown-item" href="Training.html">Cybersecurity & Ethical Hacking (3 Months)</a></li>
+                            <li><a class="dropdown-item" href="Training.html">Cloud Computing (AWS, Azure, GCP) (3 Months)</a></li>
+                            <li><a class="dropdown-item" href="Training.html">Data Science & AI (3 Months)</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                    
+                            <!-- 6 Months -->
+                            <li><h6 class="dropdown-header">Long-Term Courses (6 Months)</h6></li>
+                            <li><a class="dropdown-item" href="Training.html">Full Stack Development (6 Months)</a></li>
+                            <li><a class="dropdown-item" href="Training.html">Cybersecurity & Ethical Hacking (6 Months)</a></li>
+                            <li><a class="dropdown-item" href="Training.html">Cloud Computing (AWS, Azure, GCP) (6 Months)</a></li>
+                            <li><a class="dropdown-item" href="Training.html">Data Science & AI (6 Months)</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                    
+                            <!-- Business & Marketing Training -->
+                            <li><h6 class="dropdown-header">Business & Marketing Training</h6></li>
+                            <li><a class="dropdown-item" href="Training.html">Digital Marketing & SEO</a></li>
+                            <li><a class="dropdown-item" href="Training.html">E-commerce & Dropshipping</a></li>
+                            <li><a class="dropdown-item" href="Training.html">Financial & Investment Training</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                    
+                            <!-- Creative & Media Training -->
+                            <li><h6 class="dropdown-header">Creative & Media Training</h6></li>
+                            <li><a class="dropdown-item" href="Training.html">Graphic Design & Video Editing</a></li>
+                            <li><a class="dropdown-item" href="Training.html">Photography & Content Creation</a></li>
+                            <li><a class="dropdown-item" href="Training.html">Social Media Management</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                    
+                            <!-- Professional Development -->
+                            <li><h6 class="dropdown-header">Professional Development</h6></li>
+                            <li><a class="dropdown-item" href="Training.html">Soft Skills & Leadership</a></li>
+                            <li><a class="dropdown-item" href="Training.html">Public Speaking & Communication</a></li>
+                            <li><a class="dropdown-item" href="Training.html">Career Coaching & Resume Building</a></li>
+                        </ul>
+                    </li>
+                    
+                    
+                    <li class="nav-item dropdown" style="display: flex; align-items: center; gap: 5px;">
+                        <!-- Direct Link to TechnicalSupport.html -->
+                        <a href="TechnicalSupport.html" class="nav-link" style="color: black !important; padding: 8px; font-weight: bold; text-decoration: none;">
+                            Technical Support
+                        </a>
+                    
+                        <!-- Dropdown Toggle Icon -->
+                        <a class="nav-link dropdown-toggle" href="#" id="technicalSupportDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                            style="color: black !important; padding: 8px; font-weight: bold;">
+                            
+                        </a>
+                    
+                        <!-- Dropdown Menu -->
+                        <ul class="dropdown-menu" aria-labelledby="technicalSupportDropdown" 
+                            style="max-height: 300px; overflow-y: auto; overflow-x: hidden; width: 350px; scrollbar-width: thin;">
+                            
+                            <!-- IT & Software Support -->
+                            <li><h6 class="dropdown-header">IT & Software Support</h6></li>
+                            <li><a class="dropdown-item" href="TechnicalSupport.html">Software Installation & Troubleshooting</a></li>
+                            <li><a class="dropdown-item" href="TechnicalSupport.html">Cloud Computing Support (AWS, Azure, GCP)</a></li>
+                            <li><a class="dropdown-item" href="TechnicalSupport.html">Networking & Server Management</a></li>
+                            <li><a class="dropdown-item" href="TechnicalSupport.html">Database Management & Optimization</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                    
+                            <!-- Hardware & Device Support -->
+                            <li><h6 class="dropdown-header">Hardware & Device Support</h6></li>
+                            <li><a class="dropdown-item" href="TechnicalSupport.html">Laptop & Desktop Repair</a></li>
+                            <li><a class="dropdown-item" href="TechnicalSupport.html">Printer & Peripheral Setup</a></li>
+                            <li><a class="dropdown-item" href="TechnicalSupport.html">Smartphone & Tablet Assistance</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                    
+                            <!-- Cybersecurity & Data Protection -->
+                            <li><h6 class="dropdown-header">Cybersecurity & Data Protection</h6></li>
+                            <li><a class="dropdown-item" href="TechnicalSupport.html">Virus Removal & Protection</a></li>
+                            <li><a class="dropdown-item" href="TechnicalSupport.html">Data Backup & Recovery</a></li>
+                            <li><a class="dropdown-item" href="TechnicalSupport.html">Ethical Hacking & Security Audits</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                    
+                            <!-- Website & App Support -->
+                            <li><h6 class="dropdown-header">Website & App Support</h6></li>
+                            <li><a class="dropdown-item" href="TechnicalSupport.html">WordPress & CMS Support</a></li>
+                            <li><a class="dropdown-item" href="TechnicalSupport.html">E-commerce & Payment Gateway Issues</a></li>
+                            <li><a class="dropdown-item" href="TechnicalSupport.html">App Debugging & Performance Optimization</a></li>
+                        </ul>
+                    </li>
+                    
+                                        
+                    <li class="nav-item dropdown" style="display: flex; align-items: center; gap:5px;">
+                        <!-- Direct Link to TechnicalSupport.html -->
+                        <a href="FresherJobs.html" class="nav-link" style="color: black !important; padding: 8px; font-weight: bold; text-decoration: none;">
+                            Fresher Jobs
+                        </a>
+                    
+                        <!-- Dropdown Toggle Icon -->
+                        <a class="nav-link dropdown-toggle" href="#" id="freshersjobsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                            style="color: black !important; padding: 8px; font-weight: bold;">
+                            
+                        </a>
+                    
+                        <!-- Dropdown Menu -->
+                        <ul class="dropdown-menu" aria-labelledby="FreshersJobsDropdown" 
+                            style="max-height: 300px; overflow-y: auto; overflow-x: hidden; width: 300px; scrollbar-width: thin;">
+                            
+                            <li><h6 class="dropdown-header">IT & Software Jobs</h6></li>
+                            <li><a class="dropdown-item" href="FresherJobs.html">Software Developer</a></li>
+                            <li><a class="dropdown-item" href="FresherJobs.html">Web Developer</a></li>
+                            <li><a class="dropdown-item" href="FresherJobs.html">Cybersecurity Analyst</a></li>
+                            <li><a class="dropdown-item" href="FresherJobs.html">Data Analyst</a></li>
+                            <li><a class="dropdown-item" href="FresherJobs.html">Cloud Engineer</a></li>
+                            <li><hr class="dropdown-divider"></li>
+    
+                            <li><h6 class="dropdown-header">Business & Finance Jobs</h6></li>
+                            <li><a class="dropdown-item" href="FresherJobs.html">Business Analyst</a></li>
+                            <li><a class="dropdown-item" href="FresherJobs.html">Financial Advisor</a></li>
+                            <li><a class="dropdown-item" href="FresherJobs.html">Marketing Executive</a></li>
+                            <li><a class="dropdown-item" href="FresherJobs.html">HR Recruiter</a></li>
+                            <li><hr class="dropdown-divider"></li>
+    
+                            <li><h6 class="dropdown-header">Creative & Digital Jobs</h6></li>
+                            <li><a class="dropdown-item" href="FresherJobs.html">Graphic Designer</a></li>
+                            <li><a class="dropdown-item" href="FresherJobs.html">Content Writer</a></li>
+                            <li><a class="dropdown-item" href="FresherJobs.html">Social Media Manager</a></li>
+                            <li><a class="dropdown-item" href="FresherJobs.html">UI/UX Designer</a></li>
+                            <li><hr class="dropdown-divider"></li>
+    
+                            <li><h6 class="dropdown-header">Engineering & Core Jobs</h6></li>
+                            <li><a class="dropdown-item" href="FresherJobs.html">Mechanical Engineer</a></li>
+                            <li><a class="dropdown-item" href="FresherJobs.html">Civil Engineer</a></li>
+                            <li><a class="dropdown-item" href="FresherJobs.html">Electrical Engineer</a></li>
+                        </ul>
+    
+                    </li>
+                    
+                    
+                 
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contactForm" id="contactUsButton" role="button" style="color: white !important; padding: 8px 20px; background-color: #007bff; border-radius: 30px; text-align: center; transition: background-color 0.3s ease;font-weight: bold;">
+                            <!-- <i class="fas fa-envelope" style="margin-right: 8px;"></i> -->
+                            <i class="fas fa-phone-alt" style="margin-right: 8px;"></i> Contact Us
+                        </a>
+                    </li>
+                    
+                </ul>
+            </ul>
+           </div>
+        </div>
+    </header> 
+               <!-- script for the serch button in the header -->
+                <script>
+                   async function searchJobs() {
+                       const keyword = document.getElementById('searchInput').value.toLowerCase().trim();
+                       const jobResults = document.getElementById('jobResults');
+                       jobResults.innerHTML = 'Loading...';
+                   
+                       try {
+                           // First try to fetch from API
+                           const response = await fetch(`http://localhost:5000/api/jobs?keyword=${encodeURIComponent(keyword)}`);
+                           
+                           if (response.ok) {
+                               const jobs = await response.json();
+                   
+                               // If API returns valid results, display them
+                               if (Array.isArray(jobs) && jobs.length > 0) {
+                                   displaySearchResults(jobs, keyword);
+                                   return;
+                               }
+                           }
+                           
+                           // If API fails or returns no results, search in existing job listings
+                           const allJobElements = document.querySelectorAll('.job-card');
+                           const matchingJobs = [];
+                           
+                           allJobElements.forEach(jobElement => {
+                               // Get all text content from the job card
+                               const jobText = jobElement.textContent.toLowerCase();
+                               
+                               // Check if keyword appears anywhere in the job text
+                               if (jobText.includes(keyword)) {
+                                   // Extract job data from the element with proper field mapping
+                                   const jobData = {
+                                       jobTitle: jobElement.querySelector('h3')?.textContent || '',
+                                       companyName: jobElement.querySelector('.job-detail:nth-of-type(1) span:last-child')?.textContent || '',
+                                       location: Array.from(jobElement.querySelectorAll('.location-item')).map(el => el.textContent).join(', '),
+                                       experience: jobElement.querySelector('.job-detail:nth-of-type(3) span:last-child')?.textContent || '',
+                                       salary: jobElement.querySelector('.salary-highlight')?.textContent || '',
+                                       salaryDetails: jobElement.querySelector('.salary-details')?.textContent || '',
+                                       workMode: jobElement.querySelector('.job-detail:nth-of-type(5) span:last-child')?.textContent || '',
+                                       education: jobElement.querySelector('.job-detail:nth-of-type(6) span:last-child')?.textContent || '',
+                                       description: jobElement.querySelector('.job-detail:nth-of-type(7) span:last-child')?.textContent || ''
+                                   };
+                                   matchingJobs.push(jobData);
+                               }
+                           });
+                   
+                           if (matchingJobs.length === 0) {
+                               jobResults.innerHTML = `<p style="color:red;">No jobs found for "${keyword}".</p>`;
+                               return;
+                           }
+                   
+                           displaySearchResults(matchingJobs, keyword);
+                   
+                       } catch (error) {
+                           console.error('Error searching jobs:', error);
+                           jobResults.innerHTML = `<p style="color:red;">Error searching jobs. Please try again.</p>`;
+                       }
+                   }
+                   
+                   function displaySearchResults(jobs, keyword) {
+                       const jobResults = document.getElementById('jobResults');
+                       
+                       jobResults.innerHTML = `<p style="color:green;">Found ${jobs.length} job(s) matching "${keyword}"</p><br>`;
+                       
+                       jobs.forEach(job => {
+                           // Highlight matching text in results
+                           const highlight = (text) => {
+                               if (!text || !keyword) return text;
+                               const regex = new RegExp(`(${keyword})`, 'gi');
+                               return text.replace(regex, '<span style="background-color: yellow;">$1</span>');
+                           };
+                           
+                           const jobCard = `
+                               <div style="border: 1px solid #ddd; border-radius: 10px; padding: 20px; margin-bottom: 15px; box-shadow: 2px 2px 6px rgba(0,0,0,0.1);">
+                                   <h2 style="color: #0a3d62;">${highlight(job.jobTitle)}</h2>
+                                   <p><strong>Company:</strong> ${highlight(job.companyName)}</p>
+                                   <p><strong>Location:</strong> ${highlight(`${job.city || ''}, ${job.state || ''}, ${job.country || ''}`)}</p>
+
+                                   <p><strong>Experience:</strong> ${highlight(job.experience)}</p>
+                                   <p><strong>Salary:</strong> ${highlight(job.salary)} ${job.salaryDetails ? highlight(job.salaryDetails) : ''}</p>
+                                   <p><strong>Work Mode:</strong> ${highlight(job.workMode)}</p>
+                                   <p><strong>Education:</strong> ${highlight(job.education)}</p>
+                                   <p><strong>Description:</strong> ${highlight(job.description)}</p>
+                                    <a href="applicationform.html?jobId=${job.id}&jobTitle=${encodeURIComponent(job.jobTitle)}" style="text-decoration: none;">
+                                    <button 
+                                        class="apply-btn"
+                                        style="
+                                        margin-top: 12px;
+                                        padding: 8px 18px;
+                                        background-color: #007bff;
+                                        color: white;
+                                        font-size: 14px;
+                                        font-weight: 500;
+                                        border: none;
+                                        border-radius: 5px;
+                                        cursor: pointer;
+                                        transition: background-color 0.2s ease;
+                                        "
+                                        onmouseover="this.style.backgroundColor='#0056b3';"
+                                        onmouseout="this.style.backgroundColor='#007bff';"
+                                    >
+                                        Apply Now
+                                    </button>
+                                    </a>
+                               </div>
+                           `;
+                           jobResults.innerHTML += jobCard;
+                       });
+                   }
+                   
+                   // Add event listener for Enter key
+                   document.getElementById('searchInput').addEventListener('keypress', function(e) {
+                       if (e.key === 'Enter') {
+                           searchJobs();
+                       }
+                   });
+                </script>
+                <script>
+  // Check login status on page load
+  document.addEventListener("DOMContentLoaded", function () {
+    const isLoggedIn = localStorage.getItem("userLoggedIn") === "true";
+    const loginBtn = document.getElementById("loginBtn");
+    const logoutBtn = document.getElementById("logoutBtn");
+
+    if (isLoggedIn) {
+      loginBtn.style.display = "none";
+      logoutBtn.style.display = "inline-block";
+    } else {
+      loginBtn.style.display = "inline-block";
+      logoutBtn.style.display = "none";
+    }
+
+    // Logout click handler
+    logoutBtn.addEventListener("click", () => {
+      localStorage.removeItem("userLoggedIn");
+      window.location.href = "index.html";
+    });
+  });
+</script>
+
+        <!-- Bootstrap JS -->
+         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

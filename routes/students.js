@@ -4,7 +4,11 @@ const db = require("../db");
 const router = express.Router();
 const nodemailer = require("nodemailer");
 require("dotenv").config();
+const app = express();
 
+const cors = require('cors');
+app.use(cors());
+app.use(express.json());
 router.use(express.json());
 
 // Generate a 6-digit unique ID with characters 0-9 and a-z
@@ -28,50 +32,22 @@ const transporter = nodemailer.createTransport({
 });
 
 // 🚀 Register Student
-router.post("/register", async (req, res) => {
-    let { full_name, email, phone, password, receive_updates } = req.body;
-
-    full_name = full_name?.trim();
-    email = email?.trim();
-    phone = phone?.trim();
-    password = password?.trim();
+router.post('/register', (req, res) => {
+    const { full_name, email, phone, password, receive_updates } = req.body;
 
     if (!full_name || !email || !phone || !password) {
-        return res.status(400).json({ success: false, message: "All fields are required" });
+        return res.status(400).json({ success: false, message: 'All fields are required.' });
     }
 
-    const receiveUpdatesValue = receive_updates ? 1 : 0;
-
-    const emailCheckSql = "SELECT * FROM students WHERE email = ?";
-    db.query(emailCheckSql, [email], async (err, result) => {
-        if (err) return res.status(500).json({ success: false, message: "Database query error" });
-        if (result.length > 0) return res.status(409).json({ success: false, message: "Email already registered" });
-
-        const hashedPassword = await bcrypt.hash(password, 10);
-        const uniqueId = generateUniqueId();
-
-        const insertSql = `
-            INSERT INTO students (student_id, full_name, email, phone, password, receive_updates)
-            VALUES (?, ?, ?, ?, ?, ?)
-        `;
-
-        db.query(insertSql, [uniqueId, full_name, email, phone, hashedPassword, receiveUpdatesValue], (err, result) => {
-            if (err) return res.status(500).json({ success: false, message: "Error registering student" });
-
-            const mailOptions = {
-                from: process.env.EMAIL_USER,
-                to: email,
-                subject: "Registration Successful - Hitaishi Pay",
-                text: `Dear ${full_name},\n\nThank you for registering with Hitaishi Pay.\n\nBest regards,\nHitaishi Pay Team`
-            };
-
-            transporter.sendMail(mailOptions, (emailErr, info) => {
-                if (emailErr) {
-                    return res.status(500).json({ success: false, message: "Registration successful, but email failed" });
-                }
-                res.status(201).json({ success: true, message: "Registration successful. Email sent!", student_id: uniqueId });
-            });
-        });
+    // Insert into database (example)
+    const query = 'INSERT INTO students (full_name, email, phone, password, receive_updates) VALUES (?, ?, ?, ?, ?)';
+    db.query(query, [full_name, email, phone, password, receive_updates], (err, result) => {
+        if (err) {
+            console.error('Database error:', err);
+            return res.status(500).json({ success: false, message: 'Server error. Please try again later.' });
+        }
+        
+        return res.status(201).json({ success: true, message: 'User registered successfully' });
     });
 });
 
@@ -84,14 +60,24 @@ router.post("/login", (req, res) => {
     }
 
     const sql = "SELECT * FROM students WHERE email = ?";
-    db.query(sql, [email], async (err, result) => {
+    db.query(sql, [email], (err, result) => {
         if (err) return res.status(500).json({ success: false, message: "Database error" });
-        if (result.length === 0) return res.status(401).json({ success: false, message: "Invalid email or password" });
+
+        if (result.length === 0) {
+            console.log("No user found with the given email:", email); // Debugging log
+            return res.status(401).json({ success: false, message: "Invalid email or password" });
+        }
 
         const student = result[0];
-        const isMatch = await bcrypt.compare(password, student.password);
-        if (!isMatch) return res.status(401).json({ success: false, message: "Invalid email or password" });
+        
+        console.log('Stored Password:', student.password); // Debugging log
 
+        if (password !== student.password) {
+            console.log("Password does not match for email:", email); // Debugging log
+            return res.status(401).json({ success: false, message: "Invalid email or password" });
+        }
+
+        // If password matches
         req.session.student = {
             student_id: student.student_id,
             full_name: student.full_name,
@@ -103,7 +89,7 @@ router.post("/login", (req, res) => {
             success: true,
             message: "Login successful",
             student: req.session.student,
-            redirect: "/student-profile"
+            redirect: "StudentProfile.html"
         });
     });
 });

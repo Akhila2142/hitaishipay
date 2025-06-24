@@ -24,8 +24,19 @@ const userRoutes = require("./routes/users");
 const contactRoutes = require("./routes/contacts");
 const registerRoutes = require("./routes/students");
 const employerRoutes = require("./routes/employers");
+const applyRoutes = require("./routes/apply");
 const jobPostRoutes = require("./routes/jobPosts");
 const employerloginRoutes = require("./routes/employers")
+const enrollmentRoutes = require("./routes/enrollment");
+
+app.post('/api/saveProfile', (req, res) => {
+    const profileData = req.body;
+    console.log("Received profile:", profileData);
+    // TODO: Save to database
+    res.json({ message: "Profile saved successfully" });
+});
+
+
 
 // Use Routes
 app.use("/api", userRoutes);
@@ -34,6 +45,8 @@ app.use("/api", registerRoutes);
 app.use("/api", employerRoutes);
 app.use("/api" , jobPostRoutes);
 app.use("/api",employerloginRoutes);
+app.use("/api", applyRoutes);
+app.use("/api",enrollmentRoutes);
 
 // Start Server
 const PORT = process.env.PORT || 5000;

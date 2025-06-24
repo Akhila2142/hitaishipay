@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse job listings with advanced filters for experience, location, salary, work mode, and education">
+  <meta name="keywords" content="jobs, employment, career, job search, job listings">
+ 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <title>Job Listings - Find Your Dream Job</title>
+  <style>
+    :root {
+      --primary-color: #007bff;
+      --secondary-color: #6c757d;
+      --light-color: #f8f9fa;
+      --dark-color: #343a40;
+      --danger-color: #dc3545;
+      --border-radius: 8px;
+      --box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    /* Sidebar Filters */
+    .sidebar {
+      width: 280px;
+      position: sticky;
+      top: 20px;
+      height: fit-content;
+      max-height: calc(100vh - 40px);
+      overflow-y: auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+    }
+
+    .filter-group {
+      margin-bottom: 20px;
+    }
+
+    .filter-group h4 {
+      margin-bottom: 10px;
+      color: var(--dark-color);
+      font-size: 1.1rem;
+    }
+
+    .filter-group label {
+      display: block;
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: var(--transition);
+      padding: 5px;
+      border-radius: 4px;
+    }
+
+    .filter-group label:hover {
+      background-color: rgba(0, 123, 255, 0.1);
+    }
+
+    .filter-group input[type="checkbox"] {
+      margin-right: 8px;
+    }
+
+    /* Job Listings */
+    .job-listings {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .job-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      border-left: 5px solid var(--primary-color);
+      transition: var(--transition);
+    }
+
+    .job-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .job-card h3 {
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+
+    .job-card p {
+      margin-bottom: 8px;
+    }
+
+    /* No Results */
+    .no-results {
+      grid-column: 1 / -1;
+      display: none;
+      background: #ffdddd;
+      padding: 20px;
+      text-align: center;
+      border-radius: var(--border-radius);
+      color: var(--danger-color);
+      font-weight: bold;
+    }
+
+    /* Clear Button */
+    .clear-btn {
+      width: 100%;
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      font-weight: bold;
+      transition: var(--transition);
+      margin-top: 10px;
+    }
+
+    .clear-btn:hover {
+      background: #0069d9;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        padding: 15px;
+      }
+
+      .sidebar {
+        width: 100%;
+        position: static;
+        margin-bottom: 20px;
+        max-height: none;
+      }
+
+      .job-listings {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Accessibility Improvements */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    /* Focus styles for accessibility */
+    input:focus, button:focus {
+      outline: 2px solid var(--primary-color);
+      outline-offset: 2px;
+    }
+       /* Additional styles for enhanced job details */
+       .job-detail {
+      display: flex;
+      margin-bottom: 8px;
+    }
+    .job-detail-label {
+      font-weight: 600;
+      min-width: 120px;
+      color: var(--secondary-color);
+    }
+    .salary-highlight {
+      color: #28a745;
+      font-weight: 600;
+    }
+    .location-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .location-item {
+      background: #e9ecef;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+    }
+    .salary-range-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .salary-range-option {
+      display: flex;
+      align-items: center;
+    }
+    .salary-range-option input {
+      margin-right: 8px;
+    }
+    .salary-range-label {
+      flex-grow: 1;
+    }
+  </style>
+</head>
+<body>
+    <header style="position: sticky; top: 0; background-color: white; z-index: 1000; ">        <!-- Welcome Message -->
+        <div style="text-align: center; background:linear-gradient(to right, #0a3d62, #1e5799, #2980b9);  font-style: italic; color: rgb(255, 238, 0); font-weight: bold;padding-bottom: -100px;padding-top: -100px;">
+            Welcome to the Hitaishi Pay for endeavors
+        </div>   
+                
+            <!-- HEADER TOP -->
+        <div class="container-fluid" style="background:linear-gradient(to right, #0a3d62, #1e5799, #2980b9); padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;margin-top: -15px;">
+            <!-- Left Side (Logo + Title + Search) -->
+            <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
+                <a href="index.html" style="text-decoration: none;">
+            <img src="https://cdn3d.iconscout.com/3d/premium/thumb/payment-successful-3d-illustration-download-in-png-blend-fbx-gltf-file-formats--done-dollar-money-finance-and-pack-business-illustrations-4731409.png?f=webp"
+                alt="Logo" 
+                style="width: 60px; height: 60px; border-radius: 10px;">
+    </a>
+            <a class="navbar-brand" href="index.html"
+                style="font-size: 2rem; font-weight: bolder;
+                font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+                background: linear-gradient(to right, rgb(235, 230, 224), #ff9900); 
+                -webkit-background-clip: text; 
+                -webkit-text-fill-color: transparent;
+                letter-spacing: 1px; text-decoration: none;">
+                Hitaishi <span style="font-family: 'Montserrat', sans-serif; font-weight: 1000; color: #000;">Pay</span>
+            </a>
+    
+            <!-- Search bar -->
+            <input id="searchInput" type="text" placeholder="Search..."
+            style="padding: 10px 20px; border: 2px solid #ddd; border-radius: 30px; width: 300px; font-size: 16px; transition: width 0.4s ease, border-color 0.3s ease; outline: none; margin-left: 200px;"
+            onfocus="this.style.width='300px'; this.style.borderColor='#007bff';"
+            onblur="this.style.width='250px'; this.style.borderColor='#ddd';" />
+          <span style="position: absolute; margin-left: 750px; font-size: 18px; color: #007bff; cursor: pointer; transition: color 0.3s ease;" 
+            onclick="searchJobs()">🔍</span>
+          
+            <script>
+                async function searchJobs() {
+                    const keyword = document.getElementById('searchInput').value.toLowerCase().trim();
+                    const jobResults = document.getElementById('jobResults');
+                    jobResults.innerHTML = 'Loading...';
+                
+                    try {
+                        // First try to fetch from API
+                        const response = await fetch(`http://localhost:5000/api/api/jobs?keyword=${encodeURIComponent(keyword)}`);
+                        
+                        if (response.ok) {
+                            const jobs = await response.json();
+                
+                            // If API returns valid results, display them
+                            if (Array.isArray(jobs) && jobs.length > 0) {
+                                displaySearchResults(jobs, keyword);
+                                return;
+                            }
+                        }
+                        
+                        // If API fails or returns no results, search in existing job listings
+                        const allJobElements = document.querySelectorAll('.job-card');
+                        const matchingJobs = [];
+                        
+                        allJobElements.forEach(jobElement => {
+                            // Get all text content from the job card
+                            const jobText = jobElement.textContent.toLowerCase();
+                            
+                            // Check if keyword appears anywhere in the job text
+                            if (jobText.includes(keyword)) {
+                                // Extract job data from the element with proper field mapping
+                                const jobData = {
+                                    jobTitle: jobElement.querySelector('h3')?.textContent || '',
+                                    companyName: jobElement.querySelector('.job-detail:nth-of-type(1) span:last-child')?.textContent || '',
+                                    location: Array.from(jobElement.querySelectorAll('.location-item')).map(el => el.textContent).join(', '),
+                                    experience: jobElement.querySelector('.job-detail:nth-of-type(3) span:last-child')?.textContent || '',
+                                    salary: jobElement.querySelector('.salary-highlight')?.textContent || '',
+                                    salaryDetails: jobElement.querySelector('.salary-details')?.textContent || '',
+                                    workMode: jobElement.querySelector('.job-detail:nth-of-type(5) span:last-child')?.textContent || '',
+                                    education: jobElement.querySelector('.job-detail:nth-of-type(6) span:last-child')?.textContent || '',
+                                    description: jobElement.querySelector('.job-detail:nth-of-type(7) span:last-child')?.textContent || ''
+                                };
+                                matchingJobs.push(jobData);
+                            }
+                        });
+                
+                        if (matchingJobs.length === 0) {
+                            jobResults.innerHTML = `<p style="color:red;">No jobs found for "${keyword}".</p>`;
+                            return;
+                        }
+                
+                        displaySearchResults(matchingJobs, keyword);
+                
+                    } catch (error) {
+                        console.error('Error searching jobs:', error);
+                        jobResults.innerHTML = `<p style="color:red;">Error searching jobs. Please try again.</p>`;
+                    }
+                }
+                
+                function displaySearchResults(jobs, keyword) {
+                    const jobResults = document.getElementById('jobResults');
+                    
+                    jobResults.innerHTML = `<p style="color:green;">Found ${jobs.length} job(s) matching "${keyword}"</p><br>`;
+                    
+                    jobs.forEach(job => {
+                        // Highlight matching text in results
+                        const highlight = (text) => {
+                            if (!text || !keyword) return text;
+                            const regex = new RegExp(`(${keyword})`, 'gi');
+                            return text.replace(regex, '<span style="background-color: yellow;">$1</span>');
+                        };
+                        
+                        const jobCard = `
+                            <div style="border: 1px solid #ddd; border-radius: 10px; padding: 20px; margin-bottom: 15px; box-shadow: 2px 2px 6px rgba(0,0,0,0.1);">
+                                <h2 style="color: #0a3d62;">${highlight(job.jobTitle)}</h2>
+                                <p><strong>Company:</strong> ${highlight(job.companyName)}</p>
+                                <p><strong>Location:</strong> ${highlight(job.location)}</p>
+                                <p><strong>Experience:</strong> ${highlight(job.experience)}</p>
+                                <p><strong>Salary:</strong> ${highlight(job.salary)} ${job.salaryDetails ? highlight(job.salaryDetails) : ''}</p>
+                                <p><strong>Work Mode:</strong> ${highlight(job.workMode)}</p>
+                                <p><strong>Education:</strong> ${highlight(job.education)}</p>
+                                <p><strong>Description:</strong> ${highlight(job.description)}</p>
+                            </div>
+                        `;
+                        jobResults.innerHTML += jobCard;
+                    });
+                }
+                
+                // Add event listener for Enter key
+                document.getElementById('searchInput').addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        searchJobs();
+                    }
+                });
+                </script>
+            </div>
+    
+            <!-- Right Side (Buttons + Social) -->
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+    
+                <a href="https://www.facebook.com/yourprofile" target="_blank" style="background-color: #1877F2; color: #ffffff; font-size: 18px; padding: 10px 12px; margin: 5px; border-radius: 50%; display: inline-block; text-align: center;">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://twitter.com/yourprofile" target="_blank" style="background-color: #1DA1F2; color: #ffffff; font-size: 18px; padding: 10px 11px; margin: 5px; border-radius: 50%; display: inline-block; text-align: center;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/yourprofile" target="_blank" style="background-color: #0077B5; color: #ffffff; font-size: 18px; padding: 10px 12px; margin: 5px; border-radius: 50%; display: inline-block; text-align: center;">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/yourprofile" target="_blank" style="background-color: #E4405F; color: #ffffff; font-size: 18px; padding: 10px 11px; margin: 5px; border-radius: 50%; display: inline-block; text-align: center;">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.youtube.com/channel/yourchannel" target="_blank" style="background-color: #FF0000; color: #ffffff; font-size: 18px; padding: 10px 11px; margin: 5px; border-radius: 50%; display: inline-block; text-align: center;">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                
+            
+            <!-- Employer Button -->
+            <a href="EmployerRegistration.html" style="text-decoration: none;">
+                <button style="padding: 10px 20px; font-size: 16px; background: gold; color: black; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
+                Employer
+                </button>
+            </a>
+    
+            <!-- Login Button -->
+            <a href="StudentLogin.html" style="text-decoration: none;">
+                <button style="padding: 10px 20px; font-size: 16px; background: gold; color: black; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
+                Login
+                </button>
+            </a>
+            </div>
+        </div>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark" style="background:linear-gradient(to right, rgb(255, 217, 0), gold, gold); margin-top: -16px;padding-top: 2px;padding-bottom: 2px;">
+    <div class="container-fluid">
+       <!-- <a class="navbar-brand" href="#">Bran</a> -->
+       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+       </button>
+       <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+              <!-- Navbar items here -->
+            <ul class="navbar-nav ms-auto" style="gap: 2px;">
+                <li class="nav-item"><a class="nav-link active" href="index.html" style="color: black !important; padding: 8px;font-weight: bold;">Home</a></li>
+                
+                
+                <li class="nav-item dropdown" style="display: flex; align-items: center; gap: 5px;">
+                    <!-- Link to Hourly Pay Page -->
+                    <a class="nav-link" href="hourlyPay.html" style="color:black !important; font-weight: bold; padding: 8px 5px; text-decoration: none;">
+                        Hourly Pay
+                    </a>
+                
+                    <!-- Dropdown Toggle Icon -->
+                    <a class="nav-link dropdown-toggle" href="#" id="hourlyPayDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:black !important; font-weight: bold; padding: 8px 5px;">
+                       
+                    </a>
+                
+                    <!-- Dropdown Menu -->
+                    <ul class="dropdown-menu" aria-labelledby="hourlyPayDropdown">
+                        <li><a class="dropdown-item" href="hourlypay.html">Digital Marketing</a></li>
+                        <li><a class="dropdown-item" href="hourlypay.html">Developing</a></li>
+                        <li><a class="dropdown-item" href="hourlypay.html">Virtual Assistance</a></li>
+                        <li><a class="dropdown-item" href="hourlypay.html">Coding</a></li>
+                        <li><a class="dropdown-item" href="hourlypay.html">Networking</a></li>
+                        <li><a class="dropdown-item" href="hourlypay.html">Designing</a></li>
+                        <li><a class="dropdown-item" href="hourlypay.html">Part-time Jobs</a></li>
+                        <li><a class="dropdown-item" href="hourlypay.html">Freelancing</a></li>
+                        <li><a class="dropdown-item" href="hourlypay.html">Documentation</a></li>
+                        <li><a class="dropdown-item" href="hourlypay.html">Work from Home</a></li>
+                    </ul>
+                </li>
+                
+                <li class="nav-item dropdown" style="display: flex; align-items: center; gap: 5px;">
+                    <!-- Link to Second Job Page -->
+                    <a class="nav-link" href="SecondaryJobs.html" style="color:black !important; font-weight: bold; padding: 8px 5px; text-decoration: none;">
+                        Second Job
+                    </a>
+                
+                    <!-- Dropdown Toggle Icon -->
+                    <a class="nav-link dropdown-toggle" href="#" id="secondJobDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:black !important; font-weight: bold; padding: 8px 5px;">
+                       
+                    </a>
+                
+                    <!-- Dropdown Menu -->
+                    <ul class="dropdown-menu" aria-labelledby="secondJobDropdown">
+                        <li><a class="dropdown-item" href="Secondaryjobs.html">Work from Home</a></li>
+                        <li><a class="dropdown-item" href="Secondaryjobs.html">Side Hustles</a></li>
+                        <li><a class="dropdown-item" href="Secondaryjobs.html">Data Entry</a></li>
+                        <li><a class="dropdown-item" href="Secondaryjobs.html">Editing</a></li>
+                        <li><a class="dropdown-item" href="Secondaryjobs.html">Part-time Jobs</a></li>
+                        <li><a class="dropdown-item" href="Secondaryjobs.html">Online Tutor</a></li>
+                        <li><a class="dropdown-item" href="Secondaryjobs.html">Writer</a></li>
+                        <li><a class="dropdown-item" href="Secondaryjobs.html">Ecommerce</a></li>
+                        <li><a class="dropdown-item" href="Secondaryjobs.html">Cyber Security/Ethical Hacking</a></li>
+                        <li><a class="dropdown-item" href="Secondaryjobs.html">Content Creation</a></li>
+                        <li><a class="dropdown-item" href="Secondaryjobs.html">Social Media Management</a></li>
+                    </ul>
+                    
+                </li>
+                
+            
+                <li class="nav-item dropdown" style="display: flex; align-items: center; gap: 5px;">
+                    <!-- Link to Part-Time Jobs Page -->
+                    <a class="nav-link" href="parttimejobs.html" style="color: black !important; font-weight: bold; padding: 8px 5px; text-decoration: none;">
+                        Part-Time Jobs
+                    </a>
+                
+                    <!-- Dropdown Toggle Icon -->
+                    <a class="nav-link dropdown-toggle" href="#" id="partTimeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black !important; font-weight: bold; padding: 8px 5px;">
+                       
+                    </a>
+                
+                    <!-- Dropdown Menu -->
+                    <ul class="dropdown-menu" aria-labelledby="partTimeDropdown">
+                        <li><a class="dropdown-item" href="parttimejobs.html">Retail Associate</a></li>
+                        <li><a class="dropdown-item" href="parttimejobs.html">Delivery Partner</a></li>
+                        <li><a class="dropdown-item" href="parttimejobs.html">Customer Service</a></li>
+                        <li><a class="dropdown-item" href="parttimejobs.html">Call Center Agent</a></li>
+                        <li><a class="dropdown-item" href="parttimejobs.html">Warehouse Worker</a></li>
+                        <li><a class="dropdown-item" href="parttimejobs.html">Event Staff</a></li>
+                        <li><a class="dropdown-item" href="parttimejobs.html">Waiter/Server</a></li>
+                        <li><a class="dropdown-item" href="parttimejobs.html">Receptionist</a></li>
+                        <li><a class="dropdown-item" href="parttimejobs.html">Cashier</a></li>
+                        <li><a class="dropdown-item" href="parttimejobs.html">Pet Sitter/Babysitter</a></li>
+                        <li><a class="dropdown-item" href="parttimejobs.html">Cleaning Services</a></li>
+                    </ul>
+                </li>
+                
+                <li class="nav-item dropdown" style="display: flex; align-items: center; gap: 5px;">
+                    <!-- Link to WFH Main Page -->
+                    <a class="nav-link" href="WorkFromHome.html" style="color: black !important; font-weight: bold; padding: 8px 5px; text-decoration: none;">
+                        WFH
+                    </a>
+                
+                    <!-- Dropdown Toggle Icon -->
+                    <a class="nav-link dropdown-toggle" href="#" id="wfhDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black !important; font-weight: bold; padding: 8px 5px;">
+                        
+                    </a>
+                
+                    <!-- Dropdown Menu -->
+                    <ul class="dropdown-menu" aria-labelledby="wfhDropdown">
+                        <li><a class="dropdown-item" href="WorkFromHome.html">Remote Customer Support</a></li>
+                        <li><a class="dropdown-item" href="WorkFromHome.html">Online Tutoring</a></li>
+                        <li><a class="dropdown-item" href="WorkFromHome.html">Freelance Writing</a></li>
+                        <li><a class="dropdown-item" href="WorkFromHome.html">Graphic Design</a></li>
+                        <li><a class="dropdown-item" href="WorkFromHome.html">Web Development</a></li>
+                        <li><a class="dropdown-item" href="WorkFromHome.html">Data Entry</a></li>
+                        <li><a class="dropdown-item" href="WorkFromHome.html">Social Media Management</a></li>
+                        <li><a class="dropdown-item" href="WorkFromHome.html">SEO & Digital Marketing</a></li>
+                        <li><a class="dropdown-item" href="WorkFromHome.html">Transcription</a></li>
+                        <li><a class="dropdown-item" href="WorkFromHome.html">Virtual Assistance</a></li>
+                    </ul>
+                </li>
+                
+    
+                <li class="nav-item dropdown" style="display: flex; align-items: center; gap:5px;">
+                    <!-- Main Link to Projects.html -->
+                    <a href="Projects.html" class="nav-link" style="color:black !important; padding: 8px; font-weight: bold; text-decoration: none;">
+                        Projects
+                    </a>
+                
+                    <!-- Dropdown Icon for Toggle -->
+                    <a class="nav-link dropdown-toggle" href="#" id="projectsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                        style="color:black !important; padding: 8px; font-weight: bold;">
+                        
+                    </a>
+                
+                    <!-- Dropdown Menu -->
+                    <ul class="dropdown-menu" aria-labelledby="projectsDropdown"
+                        style="max-height: 300px; overflow-y: auto; overflow-x: hidden; width: 300px; scrollbar-width: thin;">
+                        
+                        <!-- Professional Projects -->
+                        <li><h6 class="dropdown-header">Professional Projects</h6></li>
+                        <li><a class="dropdown-item" href="Projects.html">Enterprise Software Development</a></li>
+                        <li><a class="dropdown-item" href="Projects.html">Cloud-Based Applications</a></li>
+                        <li><a class="dropdown-item" href="Projects.html">Cybersecurity & Penetration Testing</a></li>
+                        <li><a class="dropdown-item" href="Projects.html">AI & Machine Learning Solutions</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                
+                        <!-- Student Projects -->
+                        <li><h6 class="dropdown-header">Student Projects (B.Tech & M.Tech)</h6></li>
+                
+                        <!-- Mini Projects -->
+                        <li><h6 class="dropdown-header">Mini Projects</h6></li>
+                        <li><a class="dropdown-item" href="Projects.html">Basic Web Development Project</a></li>
+                        <li><a class="dropdown-item" href="Projects.html">IoT-Based Smart Home System</a></li>
+                        <li><a class="dropdown-item" href="Projects.html">Simple AI Chatbot</a></li>
+                        <li><a class="dropdown-item" href="Projects.html">Basic Data Analysis Dashboard</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                
+                        <!-- Major Projects -->
+                        <li><h6 class="dropdown-header">Major Projects</h6></li>
+                        <li><a class="dropdown-item" href="Projects.html">Full Stack E-Commerce Platform</a></li>
+                        <li><a class="dropdown-item" href="Projects.html">AI-Based Healthcare Diagnosis</a></li>
+                        <li><a class="dropdown-item" href="Projects.html">Blockchain-Based Voting System</a></li>
+                        <li><a class="dropdown-item" href="Projects.html">Advanced IoT Smart City Project</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                
+                        <!-- Job-Oriented Projects -->
+                        <li><h6 class="dropdown-header">Job-Oriented Projects (For Job Seekers)</h6></li>
+                        <li><a class="dropdown-item" href="Projects.html">Full Stack Development Projects</a></li>
+                        <li><a class="dropdown-item" href="Projects.html">Cybersecurity Hands-on Projects</a></li>
+                        <li><a class="dropdown-item" href="Projects.html">Real-World Data Science & AI Projects</a></li>
+                        <li><a class="dropdown-item" href="Projects.html">Cloud & DevOps Deployment Projects</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                
+                        <!-- Other Projects -->
+                        <li><h6 class="dropdown-header">Other Projects</h6></li>
+                        <li><a class="dropdown-item" href="Projects.html">Open Source Contributions</a></li>
+                        <li><a class="dropdown-item" href="Projects.html">Freelance & Startup Projects</a></li>
+                        <li><a class="dropdown-item" href="Projects.html">Hackathon & Research Projects</a></li>
+                    </ul>
+                </li>
+                
+                
+                <li class="nav-item dropdown" style="display: flex; align-items: center; gap: 5px;">
+                    <!-- Main Link to Training.html -->
+                    <a href="Training.html" class="nav-link" style="color: black !important; padding: 8px; font-weight: bold; text-decoration: none;">
+                        Training
+                    </a>
+                
+                    <!-- Dropdown Toggle Icon -->
+                    <a class="nav-link dropdown-toggle" href="#" id="trainingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                        style="color: black !important; padding: 8px; font-weight: bold;">
+                        
+                    </a>
+                
+                    <!-- Dropdown Menu -->
+                    <ul class="dropdown-menu" aria-labelledby="trainingDropdown"
+                        style="max-height: 300px; overflow-y: auto; overflow-x: hidden; width: 380px; scrollbar-width: thin;">
+                        
+                        <!-- IT & Software Training -->
+                        <li><h6 class="dropdown-header">IT & Software Training</h6></li>
+                
+                        <!-- 45 Days -->
+                        <li><h6 class="dropdown-header">For IT Professionals (45 Days)</h6></li>
+                        <li><a class="dropdown-item" href="Training.html">Full Stack Development (45 Days)</a></li>
+                        <li><a class="dropdown-item" href="Training.html">Cybersecurity & Ethical Hacking (45 Days)</a></li>
+                        <li><a class="dropdown-item" href="Training.html">Cloud Computing (AWS, Azure, GCP) (45 Days)</a></li>
+                        <li><a class="dropdown-item" href="Training.html">Data Science & AI (45 Days)</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                
+                        <!-- 3 Months -->
+                        <li><h6 class="dropdown-header">Short-Term Courses (3 Months)</h6></li>
+                        <li><a class="dropdown-item" href="Training.html">Full Stack Development (3 Months)</a></li>
+                        <li><a class="dropdown-item" href="Training.html">Cybersecurity & Ethical Hacking (3 Months)</a></li>
+                        <li><a class="dropdown-item" href="Training.html">Cloud Computing (AWS, Azure, GCP) (3 Months)</a></li>
+                        <li><a class="dropdown-item" href="Training.html">Data Science & AI (3 Months)</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                
+                        <!-- 6 Months -->
+                        <li><h6 class="dropdown-header">Long-Term Courses (6 Months)</h6></li>
+                        <li><a class="dropdown-item" href="Training.html">Full Stack Development (6 Months)</a></li>
+                        <li><a class="dropdown-item" href="Training.html">Cybersecurity & Ethical Hacking (6 Months)</a></li>
+                        <li><a class="dropdown-item" href="Training.html">Cloud Computing (AWS, Azure, GCP) (6 Months)</a></li>
+                        <li><a class="dropdown-item" href="Training.html">Data Science & AI (6 Months)</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                
+                        <!-- Business & Marketing Training -->
+                        <li><h6 class="dropdown-header">Business & Marketing Training</h6></li>
+                        <li><a class="dropdown-item" href="Training.html">Digital Marketing & SEO</a></li>
+                        <li><a class="dropdown-item" href="Training.html">E-commerce & Dropshipping</a></li>
+                        <li><a class="dropdown-item" href="Training.html">Financial & Investment Training</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                
+                        <!-- Creative & Media Training -->
+                        <li><h6 class="dropdown-header">Creative & Media Training</h6></li>
+                        <li><a class="dropdown-item" href="Training.html">Graphic Design & Video Editing</a></li>
+                        <li><a class="dropdown-item" href="Training.html">Photography & Content Creation</a></li>
+                        <li><a class="dropdown-item" href="Training.html">Social Media Management</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                
+                        <!-- Professional Development -->
+                        <li><h6 class="dropdown-header">Professional Development</h6></li>
+                        <li><a class="dropdown-item" href="Training.html">Soft Skills & Leadership</a></li>
+                        <li><a class="dropdown-item" href="Training.html">Public Speaking & Communication</a></li>
+                        <li><a class="dropdown-item" href="Training.html">Career Coaching & Resume Building</a></li>
+                    </ul>
+                </li>
+                
+                
+                <li class="nav-item dropdown" style="display: flex; align-items: center; gap: 5px;">
+                    <!-- Direct Link to TechnicalSupport.html -->
+                    <a href="TechnicalSupport.html" class="nav-link" style="color: black !important; padding: 8px; font-weight: bold; text-decoration: none;">
+                        Technical Support
+                    </a>
+                
+                    <!-- Dropdown Toggle Icon -->
+                    <a class="nav-link dropdown-toggle" href="#" id="technicalSupportDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                        style="color: black !important; padding: 8px; font-weight: bold;">
+                        
+                    </a>
+                
+                    <!-- Dropdown Menu -->
+                    <ul class="dropdown-menu" aria-labelledby="technicalSupportDropdown" 
+                        style="max-height: 300px; overflow-y: auto; overflow-x: hidden; width: 350px; scrollbar-width: thin;">
+                        
+                        <!-- IT & Software Support -->
+                        <li><h6 class="dropdown-header">IT & Software Support</h6></li>
+                        <li><a class="dropdown-item" href="TechnicalSupport.html">Software Installation & Troubleshooting</a></li>
+                        <li><a class="dropdown-item" href="TechnicalSupport.html">Cloud Computing Support (AWS, Azure, GCP)</a></li>
+                        <li><a class="dropdown-item" href="TechnicalSupport.html">Networking & Server Management</a></li>
+                        <li><a class="dropdown-item" href="TechnicalSupport.html">Database Management & Optimization</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                
+                        <!-- Hardware & Device Support -->
+                        <li><h6 class="dropdown-header">Hardware & Device Support</h6></li>
+                        <li><a class="dropdown-item" href="TechnicalSupport.html">Laptop & Desktop Repair</a></li>
+                        <li><a class="dropdown-item" href="TechnicalSupport.html">Printer & Peripheral Setup</a></li>
+                        <li><a class="dropdown-item" href="TechnicalSupport.html">Smartphone & Tablet Assistance</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                
+                        <!-- Cybersecurity & Data Protection -->
+                        <li><h6 class="dropdown-header">Cybersecurity & Data Protection</h6></li>
+                        <li><a class="dropdown-item" href="TechnicalSupport.html">Virus Removal & Protection</a></li>
+                        <li><a class="dropdown-item" href="TechnicalSupport.html">Data Backup & Recovery</a></li>
+                        <li><a class="dropdown-item" href="TechnicalSupport.html">Ethical Hacking & Security Audits</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                
+                        <!-- Website & App Support -->
+                        <li><h6 class="dropdown-header">Website & App Support</h6></li>
+                        <li><a class="dropdown-item" href="TechnicalSupport.html">WordPress & CMS Support</a></li>
+                        <li><a class="dropdown-item" href="TechnicalSupport.html">E-commerce & Payment Gateway Issues</a></li>
+                        <li><a class="dropdown-item" href="TechnicalSupport.html">App Debugging & Performance Optimization</a></li>
+                    </ul>
+                </li>
+                
+                                    
+                <li class="nav-item dropdown" style="display: flex; align-items: center; gap:5px;">
+                    <!-- Direct Link to TechnicalSupport.html -->
+                    <a href="FresherJobs.html" class="nav-link" style="color: black !important; padding: 8px; font-weight: bold; text-decoration: none;">
+                        Fresher Jobs
+                    </a>
+                
+                    <!-- Dropdown Toggle Icon -->
+                    <a class="nav-link dropdown-toggle" href="#" id="freshersjobsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                        style="color: black !important; padding: 8px; font-weight: bold;">
+                        
+                    </a>
+                
+                    <!-- Dropdown Menu -->
+                    <ul class="dropdown-menu" aria-labelledby="FreshersJobsDropdown" 
+                        style="max-height: 300px; overflow-y: auto; overflow-x: hidden; width: 300px; scrollbar-width: thin;">
+                        
+                        <li><h6 class="dropdown-header">IT & Software Jobs</h6></li>
+                        <li><a class="dropdown-item" href="FresherJobs.html">Software Developer</a></li>
+                        <li><a class="dropdown-item" href="FresherJobs.html">Web Developer</a></li>
+                        <li><a class="dropdown-item" href="FresherJobs.html">Cybersecurity Analyst</a></li>
+                        <li><a class="dropdown-item" href="FresherJobs.html">Data Analyst</a></li>
+                        <li><a class="dropdown-item" href="FresherJobs.html">Cloud Engineer</a></li>
+                        <li><hr class="dropdown-divider"></li>
+    
+                        <li><h6 class="dropdown-header">Business & Finance Jobs</h6></li>
+                        <li><a class="dropdown-item" href="FresherJobs.html">Business Analyst</a></li>
+                        <li><a class="dropdown-item" href="FresherJobs.html">Financial Advisor</a></li>
+                        <li><a class="dropdown-item" href="FresherJobs.html">Marketing Executive</a></li>
+                        <li><a class="dropdown-item" href="FresherJobs.html">HR Recruiter</a></li>
+                        <li><hr class="dropdown-divider"></li>
+    
+                        <li><h6 class="dropdown-header">Creative & Digital Jobs</h6></li>
+                        <li><a class="dropdown-item" href="FresherJobs.html">Graphic Designer</a></li>
+                        <li><a class="dropdown-item" href="FresherJobs.html">Content Writer</a></li>
+                        <li><a class="dropdown-item" href="FresherJobs.html">Social Media Manager</a></li>
+                        <li><a class="dropdown-item" href="FresherJobs.html">UI/UX Designer</a></li>
+                        <li><hr class="dropdown-divider"></li>
+    
+                        <li><h6 class="dropdown-header">Engineering & Core Jobs</h6></li>
+                        <li><a class="dropdown-item" href="FresherJobs.html">Mechanical Engineer</a></li>
+                        <li><a class="dropdown-item" href="FresherJobs.html">Civil Engineer</a></li>
+                        <li><a class="dropdown-item" href="FresherJobs.html">Electrical Engineer</a></li>
+                    </ul>
+    
+                </li>
+                
+                
+             
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#contactForm" id="contactUsButton" role="button" style="color: white !important; padding: 8px 20px; background-color: #007bff; border-radius: 30px; text-align: center; transition: background-color 0.3s ease;font-weight: bold;">
+                        <!-- <i class="fas fa-envelope" style="margin-right: 8px;"></i> -->
+                        <i class="fas fa-phone-alt" style="margin-right: 8px;"></i> Contact Us
+                    </a>
+                </li>
+                
+            </ul>
+        </ul>
+       </div>
+    </div>
+    </header>
+    <div id="jobResults" style="margin-top: 0px; padding: 0px;"></div>
+  <div class="container">
+    <!-- Sidebar Filters -->
+    <aside class="sidebar" aria-labelledby="filter-heading">
+      <h3 id="filter-heading">Filters</h3>
+
+      <!-- Experience Filter -->
+      <div class="filter-group">
+        <h4>Experience:</h4>
+        <label><input type="checkbox" class="filter" data-category="experience" value="Fresher"> Fresher</label>
+        <label><input type="checkbox" class="filter" data-category="experience" value="Mid-Level"> Mid-Level</label>
+        <label><input type="checkbox" class="filter" data-category="experience" value="Senior"> Senior</label>
+      </div>
+
+      <!-- Location Filter -->
+      <div class="filter-group">
+        <h4>Location:</h4>
+        <label><input type="checkbox" class="filter" data-category="location" value="hyderabad"> Hyderabad</label>
+        <label><input type="checkbox" class="filter" data-category="location" value="telangana"> Telangana</label>
+        <label><input type="checkbox" class="filter" data-category="location" value="bangalore"> Bangalore</label>
+        <label><input type="checkbox" class="filter" data-category="location" value="india"> India</label>
+        <label><input type="checkbox" class="filter" data-category="location" value="pune"> Pune</label>
+        <label><input type="checkbox" class="filter" data-category="location" value="andhra"> Andhra</label>
+      </div>
+
+      <!-- Salary Filter -->
+      <!-- <div class="filter-group">
+        <h4>Salary Range:</h4>
+        <label><input type="checkbox" class="filter" data-category="salary" value="1-3.5 LPA"> 1 - 3.5 LPA</label>
+        <label><input type="checkbox" class="filter" data-category="salary" value="3.5-7 LPA"> 3.5 - 7 LPA</label>
+        <label><input type="checkbox" class="filter" data-category="salary" value="7-10 LPA"> 7 - 10 LPA</label>
+        <label><input type="checkbox" class="filter" data-category="salary" value="Above 10 LPA"> Above 10 LPA</label>
+      </div> -->
+      <div class="filter-group">
+        <h4>Salary Range (₹):</h4>
+        <div class="salary-range-group">
+          <label class="salary-range-option">
+            <input type="checkbox" class="filter" data-category="salary" value="0-10000">
+            <span class="salary-range-label">Under ₹10,000</span>
+          </label>
+          <label class="salary-range-option">
+            <input type="checkbox" class="filter" data-category="salary" value="10001-25000">
+            <span class="salary-range-label">₹10,001 - ₹25,000</span>
+          </label>
+          <label class="salary-range-option">
+            <input type="checkbox" class="filter" data-category="salary" value="25001-50000">
+            <span class="salary-range-label">₹25,001 - ₹50,000</span>
+          </label>
+          <label class="salary-range-option">
+            <input type="checkbox" class="filter" data-category="salary" value="50001-100000">
+            <span class="salary-range-label">₹50,001 - ₹100,000</span>
+          </label>
+          <label class="salary-range-option">
+            <input type="checkbox" class="filter" data-category="salary" value="100001-250000">
+            <span class="salary-range-label">₹100,001 - ₹250,000</span>
+          </label>
+          <label class="salary-range-option">
+            <input type="checkbox" class="filter" data-category="salary" value="250001-500000">
+            <span class="salary-range-label">₹250,001 - ₹500,000</span>
+          </label>
+          <label class="salary-range-option">
+            <input type="checkbox" class="filter" data-category="salary" value="500001-1000000">
+            <span class="salary-range-label">₹500,001 - ₹1,000,000</span>
+          </label>
+          <label class="salary-range-option">
+            <input type="checkbox" class="filter" data-category="salary" value="1000001">
+            <span class="salary-range-label">Above ₹1,000,000</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Work Mode Filter -->
+      <div class="filter-group">
+        <h4>Work Mode:</h4>
+        <label><input type="checkbox" class="filter" data-category="workMode" value="Remote"> Remote</label>
+        <label><input type="checkbox" class="filter" data-category="workMode" value="Onsite"> Onsite</label>
+        <label><input type="checkbox" class="filter" data-category="workMode" value="Hybrid"> Hybrid</label>
+      </div>
+
+      <!-- Education Filter -->
+      <div class="filter-group">
+        <h4>Education:</h4>
+        <label><input type="checkbox" class="filter" data-category="education" value="Degree"> Degree</label>
+        <label><input type="checkbox" class="filter" data-category="education" value="B-Tech"> B-Tech</label>
+        <label><input type="checkbox" class="filter" data-category="education" value="PG"> PG</label>
+      </div>
+
+      <button class="clear-btn" onclick="clearFilters()">Clear All Filters</button>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+      <h1 class="sr-only">Job Listings</h1>
+      <div id="job-listings" class="job-listings"></div>
+      <div id="noResults" class="no-results">
+        No jobs found matching your filters.
+      </div>
+    </main>
+  </div>
+  <!-- form for application -->
+  <div id="applicationModal" style="display: none; position: fixed; top: 0; left: 0; 
+     width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000;">
+  <div style="background: white; width: 90%; max-width: 700px; margin: 20px auto; 
+              padding: 25px; border-radius: 8px; max-height: 90vh; overflow-y: auto;">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <h2>Apply for: <span id="jobTitleForApplication" style="color: #004085;"></span></h2>
+      <button onclick="closeApplicationForm()" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
+    </div>
+    
+    <form id="applicationForm" onsubmit="submitApplication(event)" enctype="multipart/form-data">
+      <input type="hidden" id="jobId">
+      
+      <!-- Personal Information Section -->
+      <fieldset style="border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; border-radius: 5px;">
+        <legend style="padding: 0 10px; font-weight: bold;">Personal Information</legend>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+          <div>
+            <label style="display: block; margin-bottom: 5px;">Full Name*</label>
+            <input type="text" id="applicantName" required style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+          </div>
+          <div>
+            <label style="display: block; margin-bottom: 5px;">Email*</label>
+            <input type="email" id="applicantEmail" required style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+          </div>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+          <div>
+            <label style="display: block; margin-bottom: 5px;">Phone*</label>
+            <input type="tel" id="applicantPhone" required style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+          </div>
+          <div>
+            <label style="display: block; margin-bottom: 5px;">Date of Birth</label>
+            <input type="date" id="applicantDOB" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+          </div>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+          <div>
+            <label style="display: block; margin-bottom: 5px;">Gender</label>
+            <select id="applicantGender" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+              <option value="">Select</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+              <option value="prefer-not-to-say">Prefer not to say</option>
+            </select>
+          </div>
+          <div>
+            <label style="display: block; margin-bottom: 5px;">Current Location</label>
+            <input type="text" id="applicantLocation" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+          </div>
+        </div>
+      </fieldset>
+      
+      <!-- Professional Profile Links -->
+      <fieldset style="border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; border-radius: 5px;">
+        <legend style="padding: 0 10px; font-weight: bold;">Professional Profiles</legend>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+          <div>
+            <label style="display: block; margin-bottom: 5px;">LinkedIn Profile</label>
+            <input type="url" id="applicantLinkedIn" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+          </div>
+          <div>
+            <label style="display: block; margin-bottom: 5px;">Naukri Profile</label>
+            <input type="url" id="applicantNaukri" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+          </div>
+        </div>
+        <div style="margin-top: 15px;">
+          <label style="display: block; margin-bottom: 5px;">Other Portfolio (GitHub/Website)</label>
+          <input type="url" id="applicantPortfolio" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+        </div>
+      </fieldset>
+      
+      <!-- Education Details -->
+      <fieldset style="border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; border-radius: 5px;">
+        <legend style="padding: 0 10px; font-weight: bold;">Education Details</legend>
+        
+        <!-- Highest Education -->
+        <div style="margin-bottom: 15px;">
+          <label style="display: block; margin-bottom: 5px;">Highest Education*</label>
+          <select id="applicantHighestEducation" required style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+            <option value="">Select Highest Qualification</option>
+            <option value="high-school">High School</option>
+            <option value="diploma">Diploma</option>
+            <option value="bachelor">Bachelor's Degree</option>
+            <option value="master">Master's Degree</option>
+            <option value="phd">PhD</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        
+        <!-- Education Details Table -->
+        <div id="educationContainer">
+          <div class="education-entry" style="margin-bottom: 15px; padding: 15px; border: 1px dashed #ccc; border-radius: 5px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 10px;">
+              <div>
+                <label style="display: block; margin-bottom: 5px;">Institution Name*</label>
+                <input type="text" name="institution" required style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+              </div>
+              <div>
+                <label style="display: block; margin-bottom: 5px;">Degree/Course*</label>
+                <input type="text" name="degree" required style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 10px;">
+              <div>
+                <label style="display: block; margin-bottom: 5px;">Field of Study</label>
+                <input type="text" name="fieldOfStudy" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+              </div>
+              <div>
+                <label style="display: block; margin-bottom: 5px;">Percentage/CGPA*</label>
+                <input type="text" name="percentage" required style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+              <div>
+                <label style="display: block; margin-bottom: 5px;">Start Year*</label>
+                <input type="number" name="startYear" min="1900" max="2099" required style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+              </div>
+              <div>
+                <label style="display: block; margin-bottom: 5px;">End Year*</label>
+                <input type="number" name="endYear" min="1900" max="2099" required style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="addEducationField()" style="padding: 8px 15px; background: #f8f9fa; border: 1px solid #ddd; border-radius: 4px; cursor: pointer;">
+          + Add Another Education
+        </button>
+      </fieldset>
+      
+      <!-- Work Experience -->
+      <fieldset style="border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; border-radius: 5px;">
+        <legend style="padding: 0 10px; font-weight: bold;">Work Experience</legend>
+        
+        <div style="margin-bottom: 15px;">
+          <label style="display: block; margin-bottom: 5px;">Total Experience (Years)</label>
+          <input type="number" id="totalExperience" min="0" step="0.5" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+        </div>
+        
+        <div id="experienceContainer">
+          <div class="experience-entry" style="margin-bottom: 15px; padding: 15px; border: 1px dashed #ccc; border-radius: 5px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 10px;">
+              <div>
+                <label style="display: block; margin-bottom: 5px;">Company Name</label>
+                <input type="text" name="company" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+              </div>
+              <div>
+                <label style="display: block; margin-bottom: 5px;">Job Title</label>
+                <input type="text" name="jobTitle" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+              </div>
+            </div>
+            <div style="margin-bottom: 10px;">
+              <label style="display: block; margin-bottom: 5px;">Job Description</label>
+              <textarea name="jobDescription" rows="3" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;"></textarea>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+              <div>
+                <label style="display: block; margin-bottom: 5px;">Start Date</label>
+                <input type="date" name="startDate" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+              </div>
+              <div>
+                <label style="display: block; margin-bottom: 5px;">End Date</label>
+                <input type="date" name="endDate" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="addExperienceField()" style="padding: 8px 15px; background: #f8f9fa; border: 1px solid #ddd; border-radius: 4px; cursor: pointer;">
+          + Add Another Experience
+        </button>
+      </fieldset>
+      
+      <!-- Resume Upload -->
+      <fieldset style="border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; border-radius: 5px;">
+        <legend style="padding: 0 10px; font-weight: bold;">Resume & Documents</legend>
+        
+        <div style="margin-bottom: 15px;">
+          <label style="display: block; margin-bottom: 5px;">Upload Resume (PDF only)*</label>
+          <input type="file" id="applicantResume" accept=".pdf" required style="width: 100%; padding: 8px;">
+          <small style="color: #666;">Max file size: 5MB</small>
+        </div>
+        
+        <div>
+          <label style="display: block; margin-bottom: 5px;">Cover Letter (Optional)</label>
+          <textarea id="applicantCoverLetter" rows="4" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;"></textarea>
+        </div>
+      </fieldset>
+      
+      <!-- Submit Section -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+        <div>
+          <input type="checkbox" id="agreeTerms" required style="margin-right: 8px;">
+          <label for="agreeTerms">I agree to the terms and conditions*</label>
+        </div>
+        <button type="submit" style="padding: 10px 25px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer;">
+          Submit Application
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+  <script>
+    let allJobs = [];
+
+    function createJobCard(job) {
+        const div = document.createElement('article');
+        div.className = 'job-card';
+        div.setAttribute('aria-label', `Job listing for ${job.jobTitle} at ${job.companyName}`);
+        div.dataset.jobId = job.id;
+      // Safely parse JSON fields if they're strings
+      let workMode = [];
+      let education = [];
+      
+      try {
+        workMode = typeof job.workMode === 'string' ? JSON.parse(job.workMode) : job.workMode || [];
+        education = typeof job.education === 'string' ? JSON.parse(job.education) : job.education || [];
+      } catch (e) {
+        console.error("Error parsing job data:", e);
+        workMode = [];
+        education = [];
+      }
+    
+      // Format salary information
+      let formattedSalary = 'Not specified';
+      let salaryDetails = '';
+      
+      try {
+        if (job.workPay && job.workPay.amount) {
+          const amount = parseFloat(job.workPay.amount) || 0;
+          const type = String(job.workPay.type || '').toLowerCase();
+          
+          if (type.includes('hourly')) {
+            const monthly = (amount * 8 * 5 * 4).toLocaleString('en-IN');
+            const yearly = (amount * 8 * 5 * 4 * 12).toLocaleString('en-IN');
+            formattedSalary = `₹${amount.toLocaleString('en-IN')}/hour`;
+            salaryDetails = `(~₹${monthly}/month, ~₹${yearly}/year)`;
+          } 
+          else if (type.includes('second') || type.includes('week')) {
+            const monthly = (amount * 4).toLocaleString('en-IN');
+            const yearly = (amount * 4 * 12).toLocaleString('en-IN');
+            formattedSalary = `₹${amount.toLocaleString('en-IN')}/week`;
+            salaryDetails = `(~₹${monthly}/month, ~₹${yearly}/year)`;
+          } 
+          else if (type.includes('wfh') || type.includes('month')) {
+            const yearly = (amount * 12).toLocaleString('en-IN');
+            formattedSalary = `₹${amount.toLocaleString('en-IN')}/month`;
+            salaryDetails = `(~₹${yearly}/year)`;
+          } 
+          else {
+            // Default to yearly
+            const monthly = (amount / 12).toLocaleString('en-IN', {maximumFractionDigits: 2});
+            formattedSalary = `₹${amount.toLocaleString('en-IN')}/year`;
+            salaryDetails = `(~₹${monthly}/month)`;
+          }
+        } 
+        else if (job.salary) {
+          formattedSalary = job.salary;
+        }
+      } catch (e) {
+        console.error("Error formatting salary:", e);
+        formattedSalary = 'Salary information not available';
+      }
+    
+      // Format location details
+      const locationDetails = [];
+      if (job.city) locationDetails.push(job.city);
+      if (job.state) locationDetails.push(job.state);
+      if (job.country) locationDetails.push(job.country);
+    
+      div.innerHTML = `
+        <h3>${job.jobTitle || 'No title provided'}</h3>
+        <div class="job-detail">
+          <span class="job-detail-label">Company:</span>
+          <span>${job.companyName || 'Not specified'}</span>
+        </div>
+        <div class="job-detail">
+          <span class="job-detail-label">Location:</span>
+          <div class="location-details">
+            ${locationDetails.map(loc => `<span class="location-item">${loc}</span>`).join('')}
+          </div>
+        </div>
+        <div class="job-detail">
+          <span class="job-detail-label">Experience:</span>
+          <span>${job.experience || 'Not specified'}</span>
+        </div>
+        <div class="job-detail">
+          <span class="job-detail-label">Salary:</span>
+          <span class="salary-highlight">${formattedSalary}</span>
+          ${salaryDetails ? `<span class="salary-details">${salaryDetails}</span>` : ''}
+        </div>
+        <div class="job-detail">
+          <span class="job-detail-label">Work Mode:</span>
+          <span>${workMode.join(', ') || 'Not specified'}</span>
+        </div>
+        <div class="job-detail">
+          <span class="job-detail-label">Education:</span>
+          <span>${education.join(', ') || 'Not specified'}</span>
+        </div>
+        <div class="job-detail" style="align-items: flex-start;">
+          <span class="job-detail-label">Description:</span>
+          <span>${job.description || 'No description provided'}</span>
+        </div>
+          <button class="apply-btn" onclick="showApplicationForm(${job.id})" 
+            style="margin-top: 15px; padding: 10px 20px; background: #004085; 
+                   color: white; border: none; border-radius: 5px; cursor: pointer;">
+      Apply Now
+    </button>
+  
+      `;
+      return div;
+    }
+    
+    // Display list of jobs
+    function displayJobs(jobs) {
+      const container = document.getElementById("job-listings");
+      const noResults = document.getElementById("noResults");
+      
+      try {
+        container.innerHTML = "";
+        
+        if (!Array.isArray(jobs)) {
+          throw new Error("Jobs data is not an array");
+        }
+    
+        if (jobs.length === 0) {
+          noResults.style.display = "block";
+          return;
+        }
+        
+        noResults.style.display = "none";
+        jobs.forEach(job => {
+          if (job && typeof job === 'object') {
+            container.appendChild(createJobCard(job));
+          }
+        });
+      } catch (e) {
+        console.error("Error displaying jobs:", e);
+        container.innerHTML = `
+          <div class="job-card" style="grid-column: 1/-1">
+            <p style="color: red">Error loading job listings. Please try again later.</p>
+          </div>
+        `;
+        noResults.style.display = "none";
+      }
+    }
+    
+       // Updated Salary range matching helper
+       function matchSalaryRange(job, selectedRanges) {
+      try {
+        // First try to get the displayed salary (before parentheses)
+        let salaryText = '';
+        if (job.workPay && job.workPay.amount) {
+          const amount = parseFloat(job.workPay.amount) || 0;
+          const type = String(job.workPay.type || '').toLowerCase();
+          
+          if (type.includes('hourly')) {
+            salaryText = `₹${amount.toLocaleString('en-IN')}/hour`;
+          } 
+          else if (type.includes('second') || type.includes('week')) {
+            salaryText = `₹${amount.toLocaleString('en-IN')}/week`;
+          } 
+          else if (type.includes('wfh') || type.includes('month')) {
+            salaryText = `₹${amount.toLocaleString('en-IN')}/month`;
+          } 
+          else {
+            salaryText = `₹${amount.toLocaleString('en-IN')}/year`;
+          }
+        } 
+        else if (job.salary) {
+          salaryText = job.salary.split('(')[0].trim(); // Take only the part before parentheses
+        }
+
+        // Extract numeric value from the salary text
+        const numericMatch = salaryText.match(/(\d+[\.,]?\d*)/);
+        if (!numericMatch) return false;
+        
+        let salaryNum = parseFloat(numericMatch[0].replace(',', '')) || 0;
+        
+        // Determine multiplier based on pay period
+        let multiplier = 1;
+        if (salaryText.includes('/hour')) {
+          multiplier = 8 * 5 * 4 * 12; // hourly to yearly
+        } else if (salaryText.includes('/week')) {
+          multiplier = 4 * 12; // weekly to yearly
+        } else if (salaryText.includes('/month')) {
+          multiplier = 12; // monthly to yearly
+        }
+        // else (yearly or unspecified) - keep multiplier = 1
+
+        const yearlySalary = salaryNum * multiplier;
+
+        return selectedRanges.some(range => {
+          const [minStr, maxStr] = range.split('-');
+          const min = parseFloat(minStr) || 0;
+          const max = parseFloat(maxStr);
+          
+          if (range === "1000001") return yearlySalary > 1000000;
+          if (!maxStr) return yearlySalary <= min;
+          return yearlySalary >= min && yearlySalary <= max;
+        });
+      } catch (e) {
+        console.error("Error matching salary range:", e);
+        return false;
+      }
+    }
+    // Filter jobs based on selected checkboxes
+    function applyFilters() {
+      try {
+        const filters = document.querySelectorAll(".filter:checked");
+        const selected = {};
+    
+        filters.forEach(f => {
+          const cat = f.getAttribute("data-category");
+          const value = f.value.toLowerCase().trim();
+          if (cat && value) {
+            if (!selected[cat]) selected[cat] = [];
+            selected[cat].push(value);
+          }
+        });
+    
+        const filtered = allJobs.filter(job => {
+          for (const category in selected) {
+            const selectedValues = selected[category];
+            
+            // Salary filtering
+            if (category === 'salary') {
+              if (!matchSalaryRange(job, selectedValues)) return false;
+            }
+            // Work mode filtering
+            else if (category === 'workMode') {
+              let workModes = [];
+              try {
+                workModes = typeof job.workMode === 'string' ? JSON.parse(job.workMode) : job.workMode || [];
+              } catch (e) {
+                console.error("Error parsing workMode:", e);
+                return false;
+              }
+              const jobValues = workModes.map(v => String(v).toLowerCase().trim());
+              if (!selectedValues.some(val => jobValues.includes(val))) return false;
+            }
+            // Education filtering
+            else if (category === 'education') {
+              let educations = [];
+              try {
+                educations = typeof job.education === 'string' ? JSON.parse(job.education) : job.education || [];
+              } catch (e) {
+                console.error("Error parsing education:", e);
+                return false;
+              }
+              const jobValues = educations.map(v => String(v).toLowerCase().trim());
+              if (!selectedValues.some(val => jobValues.includes(val))) return false;
+            }
+            // Location filtering
+            else if (category === 'location') {
+              const jobLocation = [
+                job.city?.toLowerCase() || "",
+                job.state?.toLowerCase() || "",
+                job.country?.toLowerCase() || ""
+              ].join(" ");
+              if (!selectedValues.some(val => jobLocation.includes(val))) return false;
+            }
+            // Experience filtering
+            else if (category === 'experience') {
+              const jobValue = String(job.experience || "").toLowerCase().trim();
+              if (!selectedValues.includes(jobValue)) return false;
+            }
+          }
+          return true;
+        });
+    
+        displayJobs(filtered);
+      } catch (e) {
+        console.error("Error applying filters:", e);
+        displayJobs(allJobs);
+      }
+    }
+    
+    // Clear all filters
+    function clearFilters() {
+      document.querySelectorAll(".filter").forEach(cb => cb.checked = false);
+      displayJobs(allJobs);
+    }
+    
+    // Initialize the application
+    function init() {
+      // Set up event listeners
+      document.addEventListener("change", (e) => {
+        if (e.target.classList.contains("filter")) {
+          applyFilters();
+        }
+      });
+    
+      // Fetch jobs from backend API
+      fetch('http://localhost:5000/api/getJobs')
+        .then(res => {
+          if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+          return res.json();
+        })
+        .then(data => {
+          allJobs = Array.isArray(data.jobs) ? data.jobs : [];
+          
+          // Process each job to ensure data consistency
+          allJobs = allJobs.map(job => {
+            try {
+              // Ensure workMode and education are arrays
+              if (typeof job.workMode === 'string') {
+                job.workMode = JSON.parse(job.workMode);
+              }
+              if (typeof job.education === 'string') {
+                job.education = JSON.parse(job.education);
+              }
+              
+              // Ensure workPay exists and has expected structure
+              if (!job.workPay) {
+                job.workPay = {
+                  type: '',
+                  amount: ''
+                };
+              }
+              
+              return job;
+            } catch (e) {
+              console.error("Error processing job data:", e);
+              return job; // Return original job even if processing fails
+            }
+          });
+          
+          displayJobs(allJobs);
+        })
+        .catch(err => {
+          console.error("Error fetching jobs:", err);
+          document.getElementById("job-listings").innerHTML = `
+            <div class="job-card" style="grid-column: 1 / -1">
+              <p style="color: red">
+                Failed to load jobs. Please try again later.
+                ${err.message ? `<br>Error: ${err.message}` : ''}
+              </p>
+            </div>`;
+        });
+    }
+    
+    // Start the application when DOM is ready
+  document.addEventListener("DOMContentLoaded", init);
+  
+// Show application form with job details
+function showApplicationForm(jobId) {
+  const job = allJobs.find(j => j.id == jobId);
+  if (!job) return;
+  
+  document.getElementById('jobTitleForApplication').textContent = job.jobTitle;
+  document.getElementById('jobId').value = jobId;
+  document.getElementById('applicationModal').style.display = 'block';
+  
+  // Reset form and clear any previous entries
+  document.getElementById('applicationForm').reset();
+  document.getElementById('educationContainer').innerHTML = `
+    <div class="education-entry" style="margin-bottom: 15px; padding: 15px; border: 1px dashed #ccc; border-radius: 5px;">
+      <!-- Education fields as shown in HTML above -->
+    </div>
+  `;
+  document.getElementById('experienceContainer').innerHTML = `
+    <div class="experience-entry" style="margin-bottom: 15px; padding: 15px; border: 1px dashed #ccc; border-radius: 5px;">
+      <!-- Experience fields as shown in HTML above -->
+    </div>
+  `;
+}
+
+// Add education field
+function addEducationField() {
+  const container = document.getElementById('educationContainer');
+  const newEntry = document.createElement('div');
+  newEntry.className = 'education-entry';
+  newEntry.style = 'margin-bottom: 15px; padding: 15px; border: 1px dashed #ccc; border-radius: 5px;';
+  newEntry.innerHTML = `
+    <div style="display: flex; justify-content: flex-end;">
+      <button type="button" onclick="this.parentElement.parentElement.remove()" style="background: none; border: none; color: red; cursor: pointer;">✕</button>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 10px;">
+      <div>
+        <label style="display: block; margin-bottom: 5px;">Institution Name*</label>
+        <input type="text" name="institution" required style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+      </div>
+      <div>
+        <label style="display: block; margin-bottom: 5px;">Degree/Course*</label>
+        <input type="text" name="degree" required style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 10px;">
+      <div>
+        <label style="display: block; margin-bottom: 5px;">Field of Study</label>
+        <input type="text" name="fieldOfStudy" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+      </div>
+      <div>
+        <label style="display: block; margin-bottom: 5px;">Percentage/CGPA*</label>
+        <input type="text" name="percentage" required style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+      <div>
+        <label style="display: block; margin-bottom: 5px;">Start Year*</label>
+        <input type="number" name="startYear" min="1900" max="2099" required style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+      </div>
+      <div>
+        <label style="display: block; margin-bottom: 5px;">End Year*</label>
+        <input type="number" name="endYear" min="1900" max="2099" required style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+      </div>
+    </div>
+  `;
+  container.appendChild(newEntry);
+}
+
+// Add experience field
+function addExperienceField() {
+  const container = document.getElementById('experienceContainer');
+  const newEntry = document.createElement('div');
+  newEntry.className = 'experience-entry';
+  newEntry.style = 'margin-bottom: 15px; padding: 15px; border: 1px dashed #ccc; border-radius: 5px;';
+  newEntry.innerHTML = `
+    <div style="display: flex; justify-content: flex-end;">
+      <button type="button" onclick="this.parentElement.parentElement.remove()" style="background: none; border: none; color: red; cursor: pointer;">✕</button>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 10px;">
+      <div>
+        <label style="display: block; margin-bottom: 5px;">Company Name</label>
+        <input type="text" name="company" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+      </div>
+      <div>
+        <label style="display: block; margin-bottom: 5px;">Job Title</label>
+        <input type="text" name="jobTitle" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+      </div>
+    </div>
+    <div style="margin-bottom: 10px;">
+      <label style="display: block; margin-bottom: 5px;">Job Description</label>
+      <textarea name="jobDescription" rows="3" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;"></textarea>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+      <div>
+        <label style="display: block; margin-bottom: 5px;">Start Date</label>
+        <input type="date" name="startDate" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+      </div>
+      <div>
+        <label style="display: block; margin-bottom: 5px;">End Date</label>
+        <input type="date" name="endDate" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+      </div>
+    </div>
+  `;
+  container.appendChild(newEntry);
+}
+
+const submitBtn = form.querySelector('button[type="submit"]');
+submitBtn.disabled = true;
+submitBtn.textContent = 'Submitting...';
+
+try {
+
+// Submit application with FormData for file upload
+async function submitApplication(event) {
+  event.preventDefault();
+  
+  try {
+    const form = document.getElementById('applicationForm');
+    const formData = new FormData(form);
+    const jobId = document.getElementById('jobId').value;
+
+    // Process education entries with null checks
+    const educationEntries = document.querySelectorAll('.education-entry');
+    const educationData = [];
+    
+    educationEntries.forEach(entry => {
+      const getValue = (name) => {
+        const el = entry.querySelector(`[name="${name}"]`);
+        return el ? el.value : null;
+      };
+
+      educationData.push({
+        institution: getValue('institution'),
+        degree: getValue('degree'),
+        fieldOfStudy: getValue('fieldOfStudy'),
+        percentage: getValue('percentage'),
+        startYear: getValue('startYear'),
+        endYear: getValue('endYear')
+      });
+    });
+
+    // Process experience entries with null checks
+    const experienceEntries = document.querySelectorAll('.experience-entry');
+    const experienceData = [];
+    
+    experienceEntries.forEach(entry => {
+      const getValue = (name) => {
+        const el = entry.querySelector(`[name="${name}"]`);
+        return el ? el.value : null;
+      };
+
+      experienceData.push({
+        company: getValue('company'),
+        jobTitle: getValue('jobTitle'),
+        jobDescription: getValue('jobDescription'),
+        startDate: getValue('startDate'),
+        endDate: getValue('endDate')
+      });
+    });
+
+    // Add data to FormData
+    formData.append('jobId', jobId);
+    formData.append('education', JSON.stringify(educationData));
+    formData.append('experience', JSON.stringify(experienceData));
+    
+    // Add other form data with null checks
+    const getElementValue = (id) => {
+      const el = document.getElementById(id);
+      return el ? el.value : null;
+    };
+    
+    formData.append('highestEducation', getElementValue('applicantHighestEducation'));
+    formData.append('totalExperience', getElementValue('totalExperience'));
+    // ... add other fields similarly
+
+    // Submit the form
+    const response = await fetch('http://localhost:5000/api/applications', {
+      method: 'POST',
+      body: formData
+    });
+
+    if (!response.ok) throw new Error('Submission failed');
+    
+    const result = await response.json();
+    alert('Application submitted successfully!');
+    closeApplicationForm();
+    
+  } catch (error) {
+    console.error('Submission error:', error);
+    alert(`Error: ${error.message}`);
+  }
+}
+} finally {
+  submitBtn.disabled = false;
+  submitBtn.textContent = 'Submit Application';
+}
+// Close application form
+function closeApplicationForm() {
+  document.getElementById('applicationModal').style.display = 'none';
+}
+    </script>
+    <script>
+function submitApplication(event) {
+  event.preventDefault();
+
+  const formData = new FormData();
+
+  formData.append('jobId', document.getElementById('jobId').value);
+  formData.append('name', document.getElementById('applicantName').value);
+  formData.append('email', document.getElementById('applicantEmail').value);
+  formData.append('phone', document.getElementById('applicantPhone').value);
+  formData.append('dob', document.getElementById('applicantDOB').value);
+  formData.append('gender', document.getElementById('applicantGender').value);
+  formData.append('location', document.getElementById('applicantLocation').value);
+  formData.append('linkedIn', document.getElementById('applicantLinkedIn').value);
+  formData.append('naukri', document.getElementById('applicantNaukri').value);
+  formData.append('portfolio', document.getElementById('applicantPortfolio').value);
+  formData.append('highestEducation', document.getElementById('applicantHighestEducation').value);
+  formData.append('experienceYears', document.getElementById('totalExperience').value);
+  formData.append('coverLetter', document.getElementById('applicantCoverLetter').value);
+  formData.append('resume', document.getElementById('applicantResume').files[0]);
+
+  // Education entries
+  const educationEntries = Array.from(document.querySelectorAll('#educationContainer .education-entry')).map(entry => {
+    return {
+      institution: entry.querySelector('[name="institution"]').value,
+      degree: entry.querySelector('[name="degree"]').value,
+      fieldOfStudy: entry.querySelector('[name="fieldOfStudy"]').value,
+      percentage: entry.querySelector('[name="percentage"]').value,
+      startYear: entry.querySelector('[name="startYear"]').value,
+      endYear: entry.querySelector('[name="endYear"]').value
+    };
+  });
+  formData.append('educationData', JSON.stringify(educationEntries));
+
+  // Experience entries
+  const experienceEntries = Array.from(document.querySelectorAll('#experienceContainer .experience-entry')).map(entry => {
+    return {
+      company: entry.querySelector('[name="company"]').value,
+      jobTitle: entry.querySelector('[name="jobTitle"]').value,
+      jobDescription: entry.querySelector('[name="jobDescription"]').value,
+      startDate: entry.querySelector('[name="startDate"]').value,
+      endDate: entry.querySelector('[name="endDate"]').value
+    };
+  });
+  formData.append('experienceData', JSON.stringify(experienceEntries));
+
+  fetch('http://localhost:3000/api/submit-application', {
+    method: 'POST',
+    body: formData
+  })
+  .then(res => res.json())
+  .then(data => {
+    alert(data.message || 'Submitted');
+    document.getElementById('applicationForm').reset();
+    closeApplicationForm();
+  })
+  .catch(err => {
+    console.error(err);
+    alert('Something went wrong.');
+  });
+}
+</script>
+
+</body>
+</html>

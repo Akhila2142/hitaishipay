@@ -3,12 +3,960 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration - Hitaishi Pay</title>
+    <title>Student Login - Hitaishi Pay</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body style="font-family: Arial, sans-serif; display: flex; flex-direction: column; align-items: center; background: url('https://cdn12.picryl.com/photo/2016/12/31/blue-blueness-light-blue-backgrounds-textures-7cd256-1024.jpg') no-repeat center center/cover; min-height: 100vh; margin: 0; overflow-x: hidden; width: 100%;">
-    <h1 style="text-align: center;align-items: center;margin-bottom: -30px;">Register Here</h1>
-    <div style="display: flex; background: white; padding: 20px; border-radius: 10px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); width: 60%; margin-top: 50px; transition: 0.3s; max-width: 100%;">
+    <header style="position: sticky; top: 0; background-color: white; z-index: 1000; width: 100%;">  
+                  <!-- Welcome Message -->
+            <div style="text-align: center; background:linear-gradient(to right, #0a3d62, #1e5799, #2980b9);  font-style: italic; color: rgb(255, 238, 0); font-weight: bold;padding-bottom: -100px;padding-top: -100px;">
+               Empowering Your Success — Welcome to Hitaishi Pay!
+            </div>
+        <!-- HEADER TOP -->
+        <div class="container-fluid" style="background:linear-gradient(to right, #0a3d62, #1e5799, #2980b9); padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: -15px;">
+            <!-- Left Side (Logo + Title + Search) -->
+            <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
+                <a href="index.html" style="text-decoration: none;">
+                <img src="https://cdn3d.iconscout.com/3d/premium/thumb/payment-successful-3d-illustration-download-in-png-blend-fbx-gltf-file-formats--done-dollar-money-finance-and-pack-business-illustrations-4731409.png?f=webp"
+                loading="lazy" alt="Hitaishipay_Logo" 
+                    style="width: 60px; height: 60px; border-radius: 10px;"></a>
 
+                <a class="navbar-brand" href="index.html"
+                    style="font-size: 2rem; font-weight: bolder;
+                    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+                    background: linear-gradient(to right, rgb(235, 230, 224), #ff9900); 
+                    -webkit-background-clip: text; 
+                    -webkit-text-fill-color: transparent;
+                    letter-spacing: 1px; text-decoration: none;">
+                    Hitaishi <span style="font-family: 'Montserrat', sans-serif; font-weight: 1000; color: #000;">Pay</span>
+                </a>
+
+                <!-- Search bar -->
+                        <div style="position: relative; display: inline-block;">
+                <!-- Your exact input with animations -->
+                <input id="searchInput" type="text" placeholder="Search..."
+                    style="padding: 10px 20px; 
+                            border: 2px solid #ddd;
+                            border-radius: 30px;
+                            width: 250px;
+                            font-size: 16px;
+                            outline: none;
+                            margin-left: 200px;
+                            transition: width 0.4s ease, border-color 0.3s ease;"
+                    onfocus="this.style.width='300px'; this.style.borderColor='#007bff';"
+                    onblur="this.style.width='250px'; this.style.borderColor='#ddd';">
+                
+                <!-- Fixed position search icon -->
+                <span style="position: absolute;
+                            left: calc(200px + 250px + 20px); /* margin-left + width + padding */
+                            top: 50%;
+                            transform: translateY(-50%);
+                            font-size: 18px;
+                            color: #007bff;
+                            cursor: pointer;
+                            transition: color 0.3s ease;"
+                    onclick="searchJobs()">
+                    🔍
+                </span>
+            </div>
+
+            <script>
+                function searchJobs() {
+                    const input = document.getElementById('searchInput');
+                    if (input.value.trim()) {
+                        // Your search logic here
+                        console.log("Searching for:", input.value);
+                    }
+                    input.focus(); // Keep focus after click
+                }
+                
+                // Update icon position during transition
+                document.getElementById('searchInput').addEventListener('transitionend', function() {
+                    const icon = document.querySelector('#searchInput + span');
+                    icon.style.left = `calc(200px + ${this.offsetWidth}px - 30px)`;
+                });
+                
+                // Handle Enter key
+                document.getElementById('searchInput').addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') searchJobs();
+                });
+            </script>
+
+            <style>
+                @media (max-width: 1200px) {
+                    /* Adjust for smaller screens */
+                    #searchInput {
+                        margin-left: 100px !important;
+                    }
+                    #searchInput + span {
+                        left: calc(100px + 250px + 20px) !important;
+                    }
+                }
+                
+                @media (max-width: 768px) {
+                    /* Mobile styles */
+                    #searchInput {
+                        margin-left: 20px !important;
+                        width: 200px !important;
+                    }
+                    #searchInput:focus {
+                        width: 250px !important;
+                    }
+                    #searchInput + span {
+                        left: calc(20px + 200px + 10px) !important;
+                    }
+                }
+            </style>
+            </div>
+
+            
+        <!-- Right Side (Buttons + Social) -->
+        <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+            <a href="https://www.facebook.com/hitaishipay" target="_blank" style="background-color: #1877F2; color: #ffffff; font-size: 18px; padding: 10px 12px; margin: 5px; border-radius: 50%; display: inline-block; text-align: center;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://twitter.com/hitaishipay" target="_blank" style="background-color: #1DA1F2; color: #ffffff; font-size: 18px; padding: 10px 11px; margin: 5px; border-radius: 50%; display: inline-block; text-align: center;">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/hitaishipay" target="_blank" style="background-color: #0077B5; color: #ffffff; font-size: 18px; padding: 10px 12px; margin: 5px; border-radius: 50%; display: inline-block; text-align: center;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.instagram.com/hitaishipay" target="_blank" style="background-color: #E4405F; color: #ffffff; font-size: 18px; padding: 10px 11px; margin: 5px; border-radius: 50%; display: inline-block; text-align: center;">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com/@hitaishipay" target="_blank" style="background-color: #FF0000; color: #ffffff; font-size: 18px; padding: 10px 11px; margin: 5px; border-radius: 50%; display: inline-block; text-align: center;">
+                <i class="fab fa-youtube"></i>
+            </a>
+            
+            <!-- Employer Button -->
+            <a href="EmployerRegistration.html" style="text-decoration: none;" id="employerBtn">
+                <button style="padding: 10px 20px; font-size: 16px; background: gold; color: black; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
+                Employer
+                </button>
+            </a>
+
+            <!-- Login Button (shown when logged out) -->
+            <div id="loginBtnContainer" style="display: inline-block;">
+                <a href="StudentLogin.html" style="text-decoration: none;">
+                    <button style="padding: 10px 20px; font-size: 16px; background: gold; color: black; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
+                    Login
+                    </button>
+                </a>
+            </div>
+
+            <!-- Logout Button (shown when logged in) -->
+            <div id="logoutBtnContainer" style="display: none;">
+                <button id="logoutBtn" style="padding: 10px 20px; font-size: 16px; background: #dc3545; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
+                    Logout
+                </button>
+            </div>
+        </div>
+        <!-- script for local storage -->
+        <script>
+            // Function to update UI based on login state
+            function updateAuthUI() {
+                const loginBtnContainer = document.getElementById("loginBtnContainer");
+                const logoutBtnContainer = document.getElementById("logoutBtnContainer");
+                const employerBtn = document.getElementById("employerBtn");
+                const logoutBtn = document.getElementById("logoutBtn");
+
+                // Check auth state properly
+                const isLoggedIn = localStorage.getItem("userLoggedIn") === "true";
+                const userType = localStorage.getItem("userType");
+
+                if (isLoggedIn) {
+                    // User is logged in - show logout, hide login
+                    loginBtnContainer.style.display = "none";
+                    logoutBtnContainer.style.display = "inline-block";
+
+                    // Hide employer button if logged in (student OR employer)
+                    employerBtn.style.display = "none";
+                } else {
+                    // User is logged out - show login & employer buttons, hide logout
+                    loginBtnContainer.style.display = "inline-block";
+                    logoutBtnContainer.style.display = "none";
+                    employerBtn.style.display = "inline-block";
+                }
+            }
+
+            // Run on page load
+            document.addEventListener("DOMContentLoaded", updateAuthUI);
+
+            // Logout functionality
+            document.getElementById("logoutBtn")?.addEventListener("click", function() {
+                // Clear ALL auth data
+                localStorage.removeItem("userLoggedIn");
+                localStorage.removeItem("userType");
+                localStorage.removeItem("username");
+                localStorage.removeItem("employerToken");
+                localStorage.removeItem("studentToken");
+
+                // Update UI immediately (no need to refresh)
+                updateAuthUI();
+
+                // Redirect to home page
+                window.location.href = "index.html";
+            });
+        </script>
+        </div>
+
+       
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark" style="background:linear-gradient(to right, rgb(255, 217, 0), gold, gold); margin-top: -16px;padding-top: 2px;padding-bottom: 2px;">
+        <div class="container-fluid">
+           <!-- <a class="navbar-brand" href="#">Bran</a> -->
+           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+           </button>
+           <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                  <!-- Navbar items here -->
+                <ul class="navbar-nav ms-auto" style="gap: 0px;">
+                    <li class="nav-item"><a class="nav-link active" href="index.html" style="color: black !important; padding: 8px;font-weight: bold;">Home</a></li>
+                    
+                    
+                    <li class="nav-item dropdown" style="display: flex; align-items: center; gap: 5px;">
+                        <!-- Link to Hourly Pay Page -->
+                        <a class="nav-link" href="hourlyPay.html" style="color:black !important; font-weight: bold; padding: 8px 5px; text-decoration: none;">
+                            Hourly Pay
+                        </a>
+                    
+                        <!-- Dropdown Toggle Icon -->
+                        <a class="nav-link dropdown-toggle" href="#" id="hourlyPayDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:black !important; font-weight: bold; padding: 8px 5px;">
+                           
+                        </a>
+                    
+                        <!-- Dropdown Menu -->
+                        <ul class="dropdown-menu" aria-labelledby="hourlyPayDropdown">
+                            <li><a class="dropdown-item" href="hourlypay.html">Digital Marketing</a></li>
+                            <li><a class="dropdown-item" href="hourlypay.html">Developing</a></li>
+                            <li><a class="dropdown-item" href="hourlypay.html">Virtual Assistance</a></li>
+                            <li><a class="dropdown-item" href="hourlypay.html">Coding</a></li>
+                            <li><a class="dropdown-item" href="hourlypay.html">Networking</a></li>
+                            <li><a class="dropdown-item" href="hourlypay.html">Designing</a></li>
+                            <li><a class="dropdown-item" href="hourlypay.html">Part-time Jobs</a></li>
+                            <li><a class="dropdown-item" href="hourlypay.html">Freelancing</a></li>
+                            <li><a class="dropdown-item" href="hourlypay.html">Documentation</a></li>
+                            <li><a class="dropdown-item" href="hourlypay.html">Work from Home</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item dropdown" style="display: flex; align-items: center; gap: 5px;">
+                        <!-- Link to Second Job Page -->
+                        <a class="nav-link" href="SecondaryJobs.html" style="color:black !important; font-weight: bold; padding: 8px 5px; text-decoration: none;">
+                            Second Job
+                        </a>
+                    
+                        <!-- Dropdown Toggle Icon -->
+                        <a class="nav-link dropdown-toggle" href="#" id="secondJobDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:black !important; font-weight: bold; padding: 8px 5px;">
+                           
+                        </a>
+                    
+                        <!-- Dropdown Menu -->
+                        <ul class="dropdown-menu" aria-labelledby="secondJobDropdown">
+                            <li><a class="dropdown-item" href="Secondaryjobs.html">Work from Home</a></li>
+                            <li><a class="dropdown-item" href="Secondaryjobs.html">Side Hustles</a></li>
+                            <li><a class="dropdown-item" href="Secondaryjobs.html">Data Entry</a></li>
+                            <li><a class="dropdown-item" href="Secondaryjobs.html">Editing</a></li>
+                            <li><a class="dropdown-item" href="Secondaryjobs.html">Part-time Jobs</a></li>
+                            <li><a class="dropdown-item" href="Secondaryjobs.html">Online Tutor</a></li>
+                            <li><a class="dropdown-item" href="Secondaryjobs.html">Writer</a></li>
+                            <li><a class="dropdown-item" href="Secondaryjobs.html">Ecommerce</a></li>
+                            <li><a class="dropdown-item" href="Secondaryjobs.html">Cyber Security/Ethical Hacking</a></li>
+                            <li><a class="dropdown-item" href="Secondaryjobs.html">Content Creation</a></li>
+                            <li><a class="dropdown-item" href="Secondaryjobs.html">Social Media Management</a></li>
+                        </ul>
+                        
+                    </li>
+                    
+                
+                    <li class="nav-item dropdown" style="display: flex; align-items: center; gap: 5px;">
+                        <!-- Link to Part-Time Jobs Page -->
+                        <a class="nav-link" href="parttimejobs.html" style="color: black !important; font-weight: bold; padding: 8px 5px; text-decoration: none;">
+                            Part-Time Jobs
+                        </a>
+                    
+                        <!-- Dropdown Toggle Icon -->
+                        <a class="nav-link dropdown-toggle" href="#" id="partTimeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black !important; font-weight: bold; padding: 8px 5px;">
+                           
+                        </a>
+                    
+                        <!-- Dropdown Menu -->
+                        <ul class="dropdown-menu" aria-labelledby="partTimeDropdown">
+                            <li><a class="dropdown-item" href="parttimejobs.html">Retail Associate</a></li>
+                            <li><a class="dropdown-item" href="parttimejobs.html">Delivery Partner</a></li>
+                            <li><a class="dropdown-item" href="parttimejobs.html">Customer Service</a></li>
+                            <li><a class="dropdown-item" href="parttimejobs.html">Call Center Agent</a></li>
+                            <li><a class="dropdown-item" href="parttimejobs.html">Warehouse Worker</a></li>
+                            <li><a class="dropdown-item" href="parttimejobs.html">Event Staff</a></li>
+                            <li><a class="dropdown-item" href="parttimejobs.html">Waiter/Server</a></li>
+                            <li><a class="dropdown-item" href="parttimejobs.html">Receptionist</a></li>
+                            <li><a class="dropdown-item" href="parttimejobs.html">Cashier</a></li>
+                            <li><a class="dropdown-item" href="parttimejobs.html">Pet Sitter/Babysitter</a></li>
+                            <li><a class="dropdown-item" href="parttimejobs.html">Cleaning Services</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item dropdown" style="display: flex; align-items: center; gap: 5px;">
+                        <!-- Link to WFH Main Page -->
+                        <a class="nav-link" href="WorkFromHome.html" style="color: black !important; font-weight: bold; padding: 8px 5px; text-decoration: none;">
+                            WFH
+                        </a>
+                    
+                        <!-- Dropdown Toggle Icon -->
+                        <a class="nav-link dropdown-toggle" href="#" id="wfhDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black !important; font-weight: bold; padding: 8px 5px;">
+                            
+                        </a>
+                    
+                        <!-- Dropdown Menu -->
+                        <ul class="dropdown-menu" aria-labelledby="wfhDropdown">
+                            <li><a class="dropdown-item" href="WorkFromHome.html">Remote Customer Support</a></li>
+                            <li><a class="dropdown-item" href="WorkFromHome.html">Online Tutoring</a></li>
+                            <li><a class="dropdown-item" href="WorkFromHome.html">Freelance Writing</a></li>
+                            <li><a class="dropdown-item" href="WorkFromHome.html">Graphic Design</a></li>
+                            <li><a class="dropdown-item" href="WorkFromHome.html">Web Development</a></li>
+                            <li><a class="dropdown-item" href="WorkFromHome.html">Data Entry</a></li>
+                            <li><a class="dropdown-item" href="WorkFromHome.html">Social Media Management</a></li>
+                            <li><a class="dropdown-item" href="WorkFromHome.html">SEO & Digital Marketing</a></li>
+                            <li><a class="dropdown-item" href="WorkFromHome.html">Transcription</a></li>
+                            <li><a class="dropdown-item" href="WorkFromHome.html">Virtual Assistance</a></li>
+                        </ul>
+                    </li>
+                    
+    
+                    <li class="nav-item dropdown" style="display: flex; align-items: center; gap:5px;">
+                        <!-- Main Link to Projects.html -->
+                        <a href="Projects.html" class="nav-link" style="color:black !important; padding: 8px; font-weight: bold; text-decoration: none;">
+                            Projects
+                        </a>
+                    
+                        <!-- Dropdown Icon for Toggle -->
+                        <a class="nav-link dropdown-toggle" href="#" id="projectsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                            style="color:black !important; padding: 8px; font-weight: bold;">
+                            
+                        </a>
+                    
+                        <!-- Dropdown Menu -->
+                        <ul class="dropdown-menu" aria-labelledby="projectsDropdown"
+                            style="max-height: 300px; overflow-y: auto; overflow-x: hidden; width: 300px; scrollbar-width: thin;">
+                            
+                            <!-- Professional Projects -->
+                            <li><h6 class="dropdown-header">Professional Projects</h6></li>
+                            <li><a class="dropdown-item" href="Projects.html">Enterprise Software Development</a></li>
+                            <li><a class="dropdown-item" href="Projects.html">Cloud-Based Applications</a></li>
+                            <li><a class="dropdown-item" href="Projects.html">Cybersecurity & Penetration Testing</a></li>
+                            <li><a class="dropdown-item" href="Projects.html">AI & Machine Learning Solutions</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                    
+                            <!-- Student Projects -->
+                            <li><h6 class="dropdown-header">Student Projects (B.Tech & M.Tech)</h6></li>
+                    
+                            <!-- Mini Projects -->
+                            <li><h6 class="dropdown-header">Mini Projects</h6></li>
+                            <li><a class="dropdown-item" href="Projects.html">Basic Web Development Project</a></li>
+                            <li><a class="dropdown-item" href="Projects.html">IoT-Based Smart Home System</a></li>
+                            <li><a class="dropdown-item" href="Projects.html">Simple AI Chatbot</a></li>
+                            <li><a class="dropdown-item" href="Projects.html">Basic Data Analysis Dashboard</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                    
+                            <!-- Major Projects -->
+                            <li><h6 class="dropdown-header">Major Projects</h6></li>
+                            <li><a class="dropdown-item" href="Projects.html">Full Stack E-Commerce Platform</a></li>
+                            <li><a class="dropdown-item" href="Projects.html">AI-Based Healthcare Diagnosis</a></li>
+                            <li><a class="dropdown-item" href="Projects.html">Blockchain-Based Voting System</a></li>
+                            <li><a class="dropdown-item" href="Projects.html">Advanced IoT Smart City Project</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                    
+                            <!-- Job-Oriented Projects -->
+                            <li><h6 class="dropdown-header">Job-Oriented Projects (For Job Seekers)</h6></li>
+                            <li><a class="dropdown-item" href="Projects.html">Full Stack Development Projects</a></li>
+                            <li><a class="dropdown-item" href="Projects.html">Cybersecurity Hands-on Projects</a></li>
+                            <li><a class="dropdown-item" href="Projects.html">Real-World Data Science & AI Projects</a></li>
+                            <li><a class="dropdown-item" href="Projects.html">Cloud & DevOps Deployment Projects</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                    
+                            <!-- Other Projects -->
+                            <li><h6 class="dropdown-header">Other Projects</h6></li>
+                            <li><a class="dropdown-item" href="Projects.html">Open Source Contributions</a></li>
+                            <li><a class="dropdown-item" href="Projects.html">Freelance & Startup Projects</a></li>
+                            <li><a class="dropdown-item" href="Projects.html">Hackathon & Research Projects</a></li>
+                        </ul>
+                    </li>
+                    
+                    
+                    <li class="nav-item dropdown" style="display: flex; align-items: center; gap: 5px;">
+                        <!-- Main Link to Training.html -->
+                        <a href="Training.html" class="nav-link" style="color: black !important; padding: 8px; font-weight: bold; text-decoration: none;">
+                            Training
+                        </a>
+                    
+                        <!-- Dropdown Toggle Icon -->
+                        <a class="nav-link dropdown-toggle" href="#" id="trainingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                            style="color: black !important; padding: 8px; font-weight: bold;">
+                            
+                        </a>
+                    
+                        <!-- Dropdown Menu -->
+                        <ul class="dropdown-menu" aria-labelledby="trainingDropdown"
+                            style="max-height: 300px; overflow-y: auto; overflow-x: hidden; width: 380px; scrollbar-width: thin;">
+                            
+                            <!-- IT & Software Training -->
+                            <li><h6 class="dropdown-header">IT & Software Training</h6></li>
+                    
+                            <!-- 45 Days -->
+                            <li><h6 class="dropdown-header">For IT Professionals (45 Days)</h6></li>
+                            <li><a class="dropdown-item" href="Training.html">Full Stack Development (45 Days)</a></li>
+                            <li><a class="dropdown-item" href="Training.html">Cybersecurity & Ethical Hacking (45 Days)</a></li>
+                            <li><a class="dropdown-item" href="Training.html">Cloud Computing (AWS, Azure, GCP) (45 Days)</a></li>
+                            <li><a class="dropdown-item" href="Training.html">Data Science & AI (45 Days)</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                    
+                            <!-- 3 Months -->
+                            <li><h6 class="dropdown-header">Short-Term Courses (3 Months)</h6></li>
+                            <li><a class="dropdown-item" href="Training.html">Full Stack Development (3 Months)</a></li>
+                            <li><a class="dropdown-item" href="Training.html">Cybersecurity & Ethical Hacking (3 Months)</a></li>
+                            <li><a class="dropdown-item" href="Training.html">Cloud Computing (AWS, Azure, GCP) (3 Months)</a></li>
+                            <li><a class="dropdown-item" href="Training.html">Data Science & AI (3 Months)</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                    
+                            <!-- 6 Months -->
+                            <li><h6 class="dropdown-header">Long-Term Courses (6 Months)</h6></li>
+                            <li><a class="dropdown-item" href="Training.html">Full Stack Development (6 Months)</a></li>
+                            <li><a class="dropdown-item" href="Training.html">Cybersecurity & Ethical Hacking (6 Months)</a></li>
+                            <li><a class="dropdown-item" href="Training.html">Cloud Computing (AWS, Azure, GCP) (6 Months)</a></li>
+                            <li><a class="dropdown-item" href="Training.html">Data Science & AI (6 Months)</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                    
+                            <!-- Business & Marketing Training -->
+                            <li><h6 class="dropdown-header">Business & Marketing Training</h6></li>
+                            <li><a class="dropdown-item" href="Training.html">Digital Marketing & SEO</a></li>
+                            <li><a class="dropdown-item" href="Training.html">E-commerce & Dropshipping</a></li>
+                            <li><a class="dropdown-item" href="Training.html">Financial & Investment Training</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                    
+                            <!-- Creative & Media Training -->
+                            <li><h6 class="dropdown-header">Creative & Media Training</h6></li>
+                            <li><a class="dropdown-item" href="Training.html">Graphic Design & Video Editing</a></li>
+                            <li><a class="dropdown-item" href="Training.html">Photography & Content Creation</a></li>
+                            <li><a class="dropdown-item" href="Training.html">Social Media Management</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                    
+                            <!-- Professional Development -->
+                            <li><h6 class="dropdown-header">Professional Development</h6></li>
+                            <li><a class="dropdown-item" href="Training.html">Soft Skills & Leadership</a></li>
+                            <li><a class="dropdown-item" href="Training.html">Public Speaking & Communication</a></li>
+                            <li><a class="dropdown-item" href="Training.html">Career Coaching & Resume Building</a></li>
+                        </ul>
+                    </li>
+                    
+                    
+                    <li class="nav-item dropdown" style="display: flex; align-items: center; gap: 5px;">
+                        <!-- Direct Link to TechnicalSupport.html -->
+                        <a href="TechnicalSupport.html" class="nav-link" style="color: black !important; padding: 8px; font-weight: bold; text-decoration: none;">
+                            Technical Support
+                        </a>
+                    
+                        <!-- Dropdown Toggle Icon -->
+                        <a class="nav-link dropdown-toggle" href="#" id="technicalSupportDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                            style="color: black !important; padding: 8px; font-weight: bold;">
+                            
+                        </a>
+                    
+                        <!-- Dropdown Menu -->
+                        <ul class="dropdown-menu" aria-labelledby="technicalSupportDropdown" 
+                            style="max-height: 300px; overflow-y: auto; overflow-x: hidden; width: 350px; scrollbar-width: thin;">
+                            
+                            <!-- IT & Software Support -->
+                            <li><h6 class="dropdown-header">IT & Software Support</h6></li>
+                            <li><a class="dropdown-item" href="TechnicalSupport.html">Software Installation & Troubleshooting</a></li>
+                            <li><a class="dropdown-item" href="TechnicalSupport.html">Cloud Computing Support (AWS, Azure, GCP)</a></li>
+                            <li><a class="dropdown-item" href="TechnicalSupport.html">Networking & Server Management</a></li>
+                            <li><a class="dropdown-item" href="TechnicalSupport.html">Database Management & Optimization</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                    
+                            <!-- Hardware & Device Support -->
+                            <li><h6 class="dropdown-header">Hardware & Device Support</h6></li>
+                            <li><a class="dropdown-item" href="TechnicalSupport.html">Laptop & Desktop Repair</a></li>
+                            <li><a class="dropdown-item" href="TechnicalSupport.html">Printer & Peripheral Setup</a></li>
+                            <li><a class="dropdown-item" href="TechnicalSupport.html">Smartphone & Tablet Assistance</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                    
+                            <!-- Cybersecurity & Data Protection -->
+                            <li><h6 class="dropdown-header">Cybersecurity & Data Protection</h6></li>
+                            <li><a class="dropdown-item" href="TechnicalSupport.html">Virus Removal & Protection</a></li>
+                            <li><a class="dropdown-item" href="TechnicalSupport.html">Data Backup & Recovery</a></li>
+                            <li><a class="dropdown-item" href="TechnicalSupport.html">Ethical Hacking & Security Audits</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                    
+                            <!-- Website & App Support -->
+                            <li><h6 class="dropdown-header">Website & App Support</h6></li>
+                            <li><a class="dropdown-item" href="TechnicalSupport.html">WordPress & CMS Support</a></li>
+                            <li><a class="dropdown-item" href="TechnicalSupport.html">E-commerce & Payment Gateway Issues</a></li>
+                            <li><a class="dropdown-item" href="TechnicalSupport.html">App Debugging & Performance Optimization</a></li>
+                        </ul>
+                    </li>
+                    
+                                        
+                    <li class="nav-item dropdown" style="display: flex; align-items: center; gap:5px;">
+                        <!-- Direct Link to TechnicalSupport.html -->
+                        <a href="FresherJobs.html" class="nav-link" style="color: black !important; padding: 8px; font-weight: bold; text-decoration: none;">
+                            Fresher Jobs
+                        </a>
+                    
+                        <!-- Dropdown Toggle Icon -->
+                        <a class="nav-link dropdown-toggle" href="#" id="freshersjobsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                            style="color: black !important; padding: 8px; font-weight: bold;">
+                            
+                        </a>
+                    
+                        <!-- Dropdown Menu -->
+                        <ul class="dropdown-menu" aria-labelledby="FreshersJobsDropdown" 
+                            style="max-height: 300px; overflow-y: auto; overflow-x: hidden; width: 300px; scrollbar-width: thin;">
+                            
+                            <li><h6 class="dropdown-header">IT & Software Jobs</h6></li>
+                            <li><a class="dropdown-item" href="FresherJobs.html">Software Developer</a></li>
+                            <li><a class="dropdown-item" href="FresherJobs.html">Web Developer</a></li>
+                            <li><a class="dropdown-item" href="FresherJobs.html">Cybersecurity Analyst</a></li>
+                            <li><a class="dropdown-item" href="FresherJobs.html">Data Analyst</a></li>
+                            <li><a class="dropdown-item" href="FresherJobs.html">Cloud Engineer</a></li>
+                            <li><hr class="dropdown-divider"></li>
+    
+                            <li><h6 class="dropdown-header">Business & Finance Jobs</h6></li>
+                            <li><a class="dropdown-item" href="FresherJobs.html">Business Analyst</a></li>
+                            <li><a class="dropdown-item" href="FresherJobs.html">Financial Advisor</a></li>
+                            <li><a class="dropdown-item" href="FresherJobs.html">Marketing Executive</a></li>
+                            <li><a class="dropdown-item" href="FresherJobs.html">HR Recruiter</a></li>
+                            <li><hr class="dropdown-divider"></li>
+    
+                            <li><h6 class="dropdown-header">Creative & Digital Jobs</h6></li>
+                            <li><a class="dropdown-item" href="FresherJobs.html">Graphic Designer</a></li>
+                            <li><a class="dropdown-item" href="FresherJobs.html">Content Writer</a></li>
+                            <li><a class="dropdown-item" href="FresherJobs.html">Social Media Manager</a></li>
+                            <li><a class="dropdown-item" href="FresherJobs.html">UI/UX Designer</a></li>
+                            <li><hr class="dropdown-divider"></li>
+    
+                            <li><h6 class="dropdown-header">Engineering & Core Jobs</h6></li>
+                            <li><a class="dropdown-item" href="FresherJobs.html">Mechanical Engineer</a></li>
+                            <li><a class="dropdown-item" href="FresherJobs.html">Civil Engineer</a></li>
+                            <li><a class="dropdown-item" href="FresherJobs.html">Electrical Engineer</a></li>
+                        </ul>
+    
+                    </li>
+                    
+                    
+                 
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contactForm" id="contactUsButton" role="button" style="color: white !important; padding: 8px 20px; background-color: #007bff; border-radius: 30px; text-align: center; transition: background-color 0.3s ease;font-weight: bold;">
+                            <!-- <i class="fas fa-envelope" style="margin-right: 8px;"></i> -->
+                            <i class="fas fa-phone-alt" style="margin-right: 8px;"></i> Contact Us
+                        </a>
+                    </li>
+                    
+                </ul>
+            </ul>
+           </div>
+        </div>
+                       <!-- script for the serch button in the header -->
+        <script>
+        // Main search function
+        async function searchJobs() {
+            const keyword = document.getElementById('searchInput').value.trim().toLowerCase();
+            const jobResults = document.getElementById('jobResults');
+            
+            // Show loading state
+            jobResults.innerHTML = `
+                <div style="text-align: center; padding: 40px;">
+                    <i class="fas fa-spinner fa-spin" style="font-size: 32px; color: #007bff;"></i>
+                    <p style="margin-top: 15px;">Searching jobs...</p>
+                </div>
+            `;
+
+            try {
+                // Try API first
+                const response = await fetch(`http://localhost:5000/api/jobs?keyword=${encodeURIComponent(keyword)}`);
+                
+                if (response.ok) {
+                    const jobs = await response.json();
+                    if (jobs && jobs.length > 0) {
+                        // Format API jobs with consistent data structure
+                        const formattedJobs = jobs.map(job => ({
+                            id: job.id || '',
+                            jobTitle: job.jobTitle || job.title || '',
+                            companyName: job.companyName || job.company || '',
+                            location: job.location || `${job.city || ''}${job.city && job.state ? ', ' : ''}${job.state || ''}`,
+                            experience: job.experience || '',
+                            salary: job.salary || '',
+                            jobType: (job.jobType || 'full-time').toLowerCase(),
+                            workMode: job.workMode || '',
+                            education: job.education || '',
+                            description: job.description || ''
+                        }));
+                        displaySearchResults(formattedJobs, keyword);
+                        return;
+                    }
+                }
+                
+                // Fallback to DOM search with reliable selectors
+                const allJobs = Array.from(document.querySelectorAll('.job-card')).map(jobEl => {
+                    // Helper function to safely extract content
+                    const getContent = (selectors) => {
+                        for (const selector of selectors) {
+                            const element = jobEl.querySelector(selector);
+                            if (element && element.textContent.trim()) {
+                                return element.textContent.trim();
+                            }
+                        }
+                        return '';
+                    };
+
+                    // Location extraction with multiple selector patterns
+                    const location = getContent([
+                        '.job-location', '.location', '.job__location',
+                        '[class*="location"]', '[class*="loc"]',
+                        '.job-loc', '.job-city', '.city',
+                        '.job-place', '.place', '.job-address'
+                    ]);
+
+                    // Salary extraction
+                    const salary = getContent([
+                        '.job-salary', '.salary', '.compensation',
+                        '[class*="salary"]', '.salary-amount'
+                    ]);
+
+                    // Job type detection
+                    const jobTypeText = getContent([
+                        '.job-type', '.type', '.employment-type',
+                        '[class*="type"]', '.work-type'
+                    ]).toLowerCase();
+                    
+                    let jobType = 'full-time';
+                    if (jobTypeText.includes('hourly')) jobType = 'hourly';
+                    else if (jobTypeText.includes('part')) jobType = 'part-time';
+                    else if (jobTypeText.includes('wfh') || jobTypeText.includes('remote')) jobType = 'remote';
+                    else if (jobTypeText.includes('freelance')) jobType = 'freelance';
+
+                    return {
+                        id: jobEl.dataset.id || jobEl.id || '',
+                        jobTitle: getContent(['.job-title', '.title', '.job__title', '[class*="title"]', 'h3', 'h4']),
+                        companyName: getContent(['.company-name', '.company', '.employer', '[class*="company"]']),
+                        location: location || 'Location not specified',
+                        experience: getContent(['.job-experience', '.experience', '.exp', '[class*="experience"]']),
+                        salary: salary,
+                        jobType: jobType,
+                        workMode: getContent(['.work-mode', '.mode', '.work-type', '[class*="work"]']),
+                        education: getContent(['.job-education', '.education', '.qualification', '[class*="education"]']),
+                        description: getContent(['.job-description', '.description', '.desc', '[class*="description"]'])
+                    };
+                });
+                
+                const matchingJobs = allJobs.filter(job => 
+                    job.jobTitle.toLowerCase().includes(keyword) ||
+                    job.companyName.toLowerCase().includes(keyword) ||
+                    job.description.toLowerCase().includes(keyword)
+                );
+                
+                if (matchingJobs.length === 0) {
+                    jobResults.innerHTML = `
+                        <div style="text-align: center; padding: 30px; color: #dc3545;">
+                            <i class="fas fa-exclamation-triangle" style="font-size: 24px;"></i>
+                            <p>No jobs found for "${keyword}"</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                displaySearchResults(matchingJobs, keyword);
+                
+            } catch (error) {
+                console.error('Search error:', error);
+                jobResults.innerHTML = `
+                    <div style="text-align: center; padding: 30px; color: #dc3545;">
+                        <i class="fas fa-exclamation-circle" style="font-size: 24px;"></i>
+                        <p>Error searching jobs. Please try again.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Display results with both location and salary properly shown
+        function displaySearchResults(jobs, keyword) {
+            const jobResults = document.getElementById('jobResults');
+            
+            jobResults.innerHTML = `
+                <div class="search-header" style="margin-bottom: 25px; display: flex; justify-content: space-between; align-items: center;">
+                    <h3 style="margin: 0; color: #2e7d32;">
+                        <i class="fas fa-check-circle"></i> ${jobs.length} ${jobs.length === 1 ? 'Job' : 'Jobs'} Found
+                    </h3>
+                    <button onclick="clearSearch()" class="clear-btn">
+                        <i class="fas fa-times"></i> Clear Search
+                    </button>
+                </div>
+            `;
+            
+            jobs.forEach(job => {
+                const jobCard = createJobCard(job, keyword);
+                jobResults.innerHTML += jobCard;
+            });
+        }
+
+        // Create individual job card with both location and salary
+        function createJobCard(job, keyword) {
+            const highlight = text => text && keyword 
+                ? text.replace(new RegExp(`(${keyword})`, 'gi'), '<mark>$1</mark>') 
+                : text;
+            
+            const salaryDetails = getSalaryDetails(job.salary, job.jobType);
+            const jobTypeLabel = getJobTypeLabel(job.jobType);
+            const jobTypeColor = getJobTypeColor(job.jobType);
+            
+            return `
+            <div class="job-card" data-id="${job.id}" style="
+                width: 80%;
+                background: white;
+                border-radius: 10px;
+                box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+                margin:auto;
+                overflow: hidden;
+                transition: transform 0.2s;
+            ">
+                <div style="padding: 20px;">
+                    <!-- Job Header -->
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                        <div>
+                            <h3 style="margin: 0 0 5px 0; color: #0d47a1; font-size: 1.2rem;">
+                                ${highlight(job.jobTitle || 'No title')}
+                            </h3>
+                            <p style="margin: 0; color: #1565c0; font-weight: 500;">
+                                ${highlight(job.companyName || 'No company')}
+                            </p>
+                        </div>
+                        <span style="
+                            background: ${jobTypeColor};
+                            color: white;
+                            padding: 3px 12px;
+                            border-radius: 12px;
+                            font-size: 0.8rem;
+                            height: fit-content;
+                        ">
+                            ${jobTypeLabel}
+                        </span>
+                    </div>
+                    
+                    <!-- Key Details -->
+                    <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 15px;">
+                        <div style="display: flex; align-items: center; color: #616161;">
+                            <i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i>
+                            ${highlight(job.location || 'Location not specified')}
+                        </div>
+                        <div style="display: flex; align-items: center; color: #616161;">
+                            <i class="fas fa-briefcase" style="margin-right: 8px;"></i>
+                            ${highlight(job.experience || 'Experience not specified')}
+                        </div>
+                        <div style="display: flex; align-items: center; color: #616161;">
+                            <i class="fas fa-graduation-cap" style="margin-right: 8px;"></i>
+                            ${highlight(job.education || 'Education not specified')}
+                        </div>
+                    </div>
+                    
+                    <!-- Salary Section -->
+                    <div style="
+                        background: #f8f9fa;
+                        border-radius: 8px;
+                        padding: 15px;
+                        margin-bottom: 15px;
+                    ">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <h4 style="margin: 0; color: #2e7d32;">
+                                <i class="fas fa-rupee-sign"></i> Compensation
+                            </h4>
+                            <span style="font-weight: 600; color: #2e7d32;">
+                                ${job.salary || 'Not specified'}
+                            </span>
+                        </div>
+                        ${salaryDetails}
+                    </div>
+                    
+                    <!-- Description -->
+                    <div style="margin-bottom: 20px;">
+                        <h4 style="margin: 0 0 10px 0; color: #424242; font-size: 1rem;">
+                            <i class="fas fa-align-left"></i> Description
+                        </h4>
+                        <p style="margin: 0; color: #616161; line-height: 1.5;">
+                            ${highlight(job.description || 'No description provided')}
+                        </p>
+                    </div>
+                    
+                    <!-- Footer -->
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div style="color: #757575; font-size: 0.85rem;">
+                            <i class="far fa-clock"></i> Posted recently
+                        </div>
+                        <a href="applicationform.html?jobId=${job.id}&jobTitle=${encodeURIComponent(job.jobTitle || '')}" 
+                        style="text-decoration: none;">
+                            <button class="apply-btn">
+                                <i class="fas fa-paper-plane" style="margin-right: 8px;"></i>
+                                Apply Now
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>`;
+        }
+
+        // Generate salary breakdown based on job type
+        function getSalaryDetails(salary, jobType) {
+            if (!salary) return '<p style="color: #757575; margin: 0;">Salary not specified</p>';
+            
+            const amount = parseFloat(salary.replace(/[^\d.]/g, '')) || 0;
+            jobType = (jobType || '').toLowerCase();
+            
+            if (jobType.includes('hourly')) {
+                const weekly = Math.round(amount * 40);
+                const monthly = Math.round(weekly * 4);
+                return `
+                    <div style="font-size: 0.9rem;">
+                        <div style="display: flex; justify-content: space-between; padding: 5px 0;">
+                            <span style="color: #616161;">Hourly Rate:</span>
+                            <span>₹${amount.toLocaleString()}/hr</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding: 5px 0;">
+                            <span style="color: #616161;">Weekly (40hrs):</span>
+                            <span>₹${weekly.toLocaleString()}</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding: 5px 0;">
+                            <span style="color: #616161;">Monthly (160hrs):</span>
+                            <span>₹${monthly.toLocaleString()}</span>
+                        </div>
+                    </div>
+                `;
+            }
+            else if (jobType.includes('part')) {
+                const annual = Math.round(amount * 12);
+                return `
+                    <div style="font-size: 0.9rem;">
+                        <div style="display: flex; justify-content: space-between; padding: 5px 0;">
+                            <span style="color: #616161;">Monthly Salary:</span>
+                            <span>₹${amount.toLocaleString()}</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding: 5px 0;">
+                            <span style="color: #616161;">Annual Estimate:</span>
+                            <span>₹${annual.toLocaleString()}</span>
+                        </div>
+                    </div>
+                `;
+            }
+            else if (jobType.includes('wfh') || jobType.includes('remote') || jobType.includes('freelance')) {
+                const hourly = amount > 0 ? Math.round(amount / 80) : 0;
+                return `
+                    <div style="font-size: 0.9rem;">
+                        <div style="display: flex; justify-content: space-between; padding: 5px 0;">
+                            <span style="color: #616161;">Project Pay:</span>
+                            <span>₹${amount.toLocaleString()}</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding: 5px 0;">
+                            <span style="color: #616161;">Hourly Equivalent:</span>
+                            <span>₹${hourly.toLocaleString()}/hr</span>
+                        </div>
+                    </div>
+                `;
+            }
+            else { // Full-time
+                const monthly = amount > 0 ? Math.round(amount / 12) : 0;
+                return `
+                    <div style="font-size: 0.9rem;">
+                        <div style="display: flex; justify-content: space-between; padding: 5px 0;">
+                            <span style="color: #616161;">Annual Salary:</span>
+                            <span>₹${amount.toLocaleString()}</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding: 5px 0;">
+                            <span style="color: #616161;">Monthly:</span>
+                            <span>₹${monthly.toLocaleString()}</span>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        // Helper functions
+        function getJobTypeLabel(type) {
+            type = (type || '').toLowerCase();
+            if (type.includes('hourly')) return 'Hourly';
+            if (type.includes('part')) return 'Part-Time';
+            if (type.includes('wfh')) return 'Remote';
+            if (type.includes('remote')) return 'Remote';
+            if (type.includes('freelance')) return 'Freelance';
+            return 'Full-Time';
+        }
+
+        function getJobTypeColor(type) {
+            type = (type || '').toLowerCase();
+            if (type.includes('hourly')) return '#FF9800';
+            if (type.includes('part')) return '#2196F3';
+            if (type.includes('wfh') || type.includes('remote')) return '#4CAF50';
+            if (type.includes('freelance')) return '#9C27B0';
+            return '#607D8B';
+        }
+
+        function clearSearch() {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('jobResults').innerHTML = '';
+        }
+
+        // Initialize search on Enter key
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') searchJobs();
+        });
+        </script>
+
+        <!-- Add this CSS to your stylesheet or head -->
+        <style>
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .clear-btn {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 20px;
+            padding: 5px 15px;
+            color: #6c757d;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .clear-btn:hover {
+            background: #e9ecef;
+            color: #495057;
+        }
+
+        .apply-btn {
+            background: linear-gradient(135deg, #1976D2, #0D47A1);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 20px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .apply-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        mark {
+            background-color: #FFF9C4;
+            padding: 2px 0;
+        }
+        </style>
+    </header>  
+    <div id="jobResults" style="padding: 0;margin: 0;"> </div>
+     </div>
+    <div style="display: flex; background: white; padding: 20px; border-radius: 10px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); width: 60%; margin-top: 90px; transition: 0.3s; max-width: 100%;">
         <div style="width: 35%; padding: 20px; background-color: #f8f9fa; border-radius: 10px; text-align: center;">
             <img src="https://img.freepik.com/free-vector/successful-business-man-holding-trophy_1150-35042.jpg" alt="Illustration" style="width: 100%; border-radius: 10px;">
             <h3 style="color: black;">On registering, you can</h3>
@@ -18,83 +966,152 @@
                 <li style="color: #28a745; font-weight: bold;">✔ Find a job and grow your career</li>
             </ul>
         </div>
-
-
-
-
         <div style="width: 65%; padding: 20px;">
-            <form id="registerForm" style="display: flex; flex-direction: column;">
-                <label>Full name*</label>
-                <input type="text" id="fullName" placeholder="What is your name?" required style="padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; width: 100%;">
-                <label>Email ID*</label>
-                <input type="email" id="email" placeholder="Tell us your Email ID" required style="padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; width: 100%;">
-                <label>Password*</label>
-                <input type="password" id="password" placeholder="(Minimum 6 characters)" required style="padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; width: 100%;">
-                <label>Mobile number*</label>
-                <input type="text" id="mobile" placeholder="+91 Enter your mobile number" required style="padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; width: 100%;">
-                <div style="display: flex; align-items: center;">
-                    <input type="checkbox" id="receiveUpdates" >
-                    <span>Send me important updates & promotions via SMS, email, and WhatsApp</span>
+            <h2 style="text-align: center; color: #007bff;">Register Here</h2>
+            <form id="student-register-form" style="display: flex; flex-direction: column;">
+                <label for="full_name">Full name*</label>
+                <input type="text" id="full_name" name="full_name" required placeholder="What is your name?" style="padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; width: 100%;">
+
+                <label for="email">Email ID*</label>
+                <input type="email" id="email" name="email" required placeholder="Tell us your Email ID" style="padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; width: 100%;">
+
+                <label for="password">Password*</label>
+                <input type="password" id="password" name="password" required minlength="6" placeholder="(Minimum 6 characters)" style="padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; width: 100%;">
+
+                <label for="phone">Mobile number*</label>
+                <input type="text" id="phone" name="phone" required placeholder="+91 Enter your mobile number" style="padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; width: 100%;">
+
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                    <input type="checkbox" id="receive_updates" name="receive_updates">
+                    <label for="receive_updates">Send me important updates & promotions via SMS, email, and WhatsApp</label>
                 </div>
+
                 <div style="text-align: center; margin-top: 20px;">
-                    <button type="submit" style="padding: 12px; background: linear-gradient(to right, #007bff, #00c6ff); color: white; border: none; border-radius: 5px; cursor: pointer; width: 100%;">Continue</button>
+                    <button type="submit" style="padding: 12px; background: linear-gradient(to right, #007bff, #00c6ff); color: white; border: none; border-radius: 5px; cursor: pointer; width: 100%;">Register</button>
+                </div>
+
+                <div style="text-align: center; margin-top: 10px;">
+                    <span>Or</span>
+                </div>
+
+                <div style="text-align: center; margin-top: 10px;">
+                    <button type="button" style="padding: 12px; background: white; color: black; border: 1px solid #ccc; border-radius: 5px; display: flex; align-items: center; gap: 5px; justify-content: center; width: 100%;">
+                        <img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" alt="Google" style="width: 20px;">Continue with Google
+                    </button>
                 </div>
             </form>
-            <script>
-                document.addEventListener("DOMContentLoaded", () => {
-                const form = document.getElementById("registerForm");
-        
-                if (!form) {
-                    console.error("❌ Form not found in the DOM!");
-                    return;
-                }
-        
-                form.addEventListener("submit", async (event) => {
-                    event.preventDefault();  // Prevent form reload
-        
-                    const fullName = document.getElementById("fullName").value;
-                    const email = document.getElementById("email").value;
-                    const password = document.getElementById("password").value;
-                    const phone = document.getElementById("mobile").value;
-                    const receiveUpdates = document.getElementById("receiveUpdates").checked ? 1 : 0;
-        
-                    let userData = { full_name: fullName, email, password, phone, receive_updates: receiveUpdates };
-        
-                    try {
-                        const response = await fetch("http://localhost:5000/api/register", {
-                            method: "POST",
-                            headers: { "Content-Type": "application/json" },
-                            body: JSON.stringify(userData)
-                        });
-        
-                        const data = await response.json();
-        
-                        if (response.ok) {
-                            alert("✅ Registration successful!");
-                            window.location.href = "StudentLogin.html";
-                        } else {
-                            alert("❌ Registration failed: " + (data.message || "Unknown error"));
-                        }
-                    } catch (error) {
-                        console.error("Error submitting form:", error);
-                        alert("❌ Registration failed. Server error.");
-                    }
-                });
-            });
-        
-            </script>
-            
-
-
-
         </div>
     </div>
-    
-    <footer style="margin-top: 50px; background: rgba(0, 0, 0, 0.8); color: white; padding: 20px; text-align: center; width: 100%;">
-        <p>© 2025 Hitaishi Pay. All rights reserved.</p>
-        <p><a href="#" style="color: #00c6ff; text-decoration: none;">Privacy Policy</a> | <a href="#" style="color: #00c6ff; text-decoration: none;">Terms & Conditions</a></p>
-    </footer>
 
-    
+    <div style="width: 60%; margin-top: 50px; text-align: center; max-width: 100%;">
+        <h2 style="color: white;">Why Choose Hitaishi Pay?</h2>
+        <p style="color: white;">We offer the best job-matching solutions to help you build your career and get noticed by recruiters.</p>
+    </div>
+<footer style="width: 100%;">
+    <div style="background: linear-gradient(135deg, #1a2a3a, #2c3e50); padding: 60px 20px; color: #ffffff; font-family: 'Arial', sans-serif; width: 100%;">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px; max-width: 1200px; margin: 0 auto;">
+        
+        <!-- Brand Info & Social -->
+        <div style="flex: 1 1 250px;">
+          <h3 style="color: #3498db; margin-bottom: 15px; font-size: 24px; font-weight: 700;">Hitaishi Pay</h3>
+          <p style="margin-bottom: 20px; color: #ecf0f1; font-size: 14px; line-height: 1.5;">Your trusted partner for seamless payments and employment solutions.</p>
+          <div style="display: flex; gap: 12px; margin-bottom: 25px;">
+            <a href="https://www.facebook.com" style="color: #ffffff; background: #3b5998; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.3s ease;"><i class="fab fa-facebook-f" style="font-size: 16px;"></i></a>
+            <a href="https://twitter.com" style="color: #ffffff; background: #1da1f2; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.3s ease;"><i class="fab fa-twitter" style="font-size: 16px;"></i></a>
+            <a href="https://www.linkedin.com" style="color: #ffffff; background: #0077b5; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.3s ease;"><i class="fab fa-linkedin-in" style="font-size: 16px;"></i></a>
+            <a href="https://www.instagram.com" style="color: #ffffff; background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.3s ease;"><i class="fab fa-instagram" style="font-size: 16px;"></i></a>
+          </div>
+        </div>
+  
+        <!-- Support Links -->
+        <div style="flex: 1 1 180px;">
+          <h4 style="margin-bottom: 20px; font-size: 18px; color: #3498db; font-weight: 600; position: relative; padding-bottom: 8px; border-bottom: 2px solid rgba(52, 152, 219, 0.3);">Support</h4>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="margin-bottom: 10px;"><a href="index.html#contactForm" style="color: #ecf0f1; text-decoration: none; font-size: 15px; transition: all 0.3s ease; display: block; padding: 5px 0;">Help Center</a></li>
+            <li style="margin-bottom: 10px;"><a href="privacy_policy.html" style="color: #ecf0f1; text-decoration: none; font-size: 15px; transition: all 0.3s ease; display: block; padding: 5px 0;">Privacy Policy</a></li>
+            <li style="margin-bottom: 10px;"><a href="fruad_alert.html" style="color: #ecf0f1; text-decoration: none; font-size: 15px; transition: all 0.3s ease; display: block; padding: 5px 0;">Fraud Alert</a></li>
+          </ul>
+        </div>
+  
+        <!-- Quick Links -->
+        <div style="flex: 1 1 220px;">
+          <h4 style="margin-bottom: 20px; font-size: 18px; color: #3498db; font-weight: 600; position: relative; padding-bottom: 8px; border-bottom: 2px solid rgba(52, 152, 219, 0.3);">Quick Links</h4>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <a href="WorkFromHome.html" style="color: #ecf0f1; text-decoration: none; font-size: 14px; transition: all 0.3s ease; display: block; padding: 5px 0;">WFH</a>
+            <a href="HourlyPay.html" style="color: #ecf0f1; text-decoration: none; font-size: 14px; transition: all 0.3s ease; display: block; padding: 5px 0;">Hourly Pay</a>
+            <a href="SecondayJobs.html" style="color: #ecf0f1; text-decoration: none; font-size: 14px; transition: all 0.3s ease; display: block; padding: 5px 0;">Second Job</a>
+            <a href="Projects.html" style="color: #ecf0f1; text-decoration: none; font-size: 14px; transition: all 0.3s ease; display: block; padding: 5px 0;">Projects</a>
+            <a href="Training.html" style="color: #ecf0f1; text-decoration: none; font-size: 14px; transition: all 0.3s ease; display: block; padding: 5px 0;">Training</a>
+            <a href="FresherJobs.html" style="color: #ecf0f1; text-decoration: none; font-size: 14px; transition: all 0.3s ease; display: block; padding: 5px 0;">Fresher Jobs</a>
+            <a href="TechnicalSupport.html" style="color: #ecf0f1; text-decoration: none; font-size: 14px; transition: all 0.3s ease; display: block; padding: 5px 0;">Technical Support</a>
+            <a href="parttimejobs.html" style="color: #ecf0f1; text-decoration: none; font-size: 14px; transition: all 0.3s ease; display: block; padding: 5px 0;">Part Time Jobs</a>
+          </div>
+        </div>
+  
+        <!-- App Downloads -->
+        <div style="flex: 1 1 250px;">
+          <h4 style="margin-bottom: 20px; font-size: 18px; color: #3498db; font-weight: 600; position: relative; padding-bottom: 8px; border-bottom: 2px solid rgba(52, 152, 219, 0.3);">Download Our App</h4>
+          <p style="margin-bottom: 20px; color: #ecf0f1; font-size: 14px; line-height: 1.5;">Get real-time updates and manage your account on the go.</p>
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <a href="https://play.google.com/store" style="display: inline-block; transition: transform 0.3s ease;"><img src="https://ride-taxis.co.uk/wp-content/uploads/2024/05/Google_Play_Store_badge_EN.svg-1-1024x302.png" loading="lazy" alt="Google Play" style="width: 150px; height: auto;"></a>
+            <a href="https://www.apple.com/app-store" style="display: inline-block; transition: transform 0.3s ease;"><img src="https://logosmarken.com/wp-content/uploads/2021/02/App-Store-Emblem.png" loading="lazy" alt="App Store" style="width: 150px; height: auto;"></a>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Footer Bottom -->
+      <div style="margin-top: 50px; text-align: center; font-size: 14px; color: #bdc3c7; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.15);">
+        &copy; 2025 Hitaishi Pay. All rights reserved. | <a href="terms&conditions.html" style="color: #bdc3c7; text-decoration: none; transition: color 0.3s ease;">Terms of Service</a> | <a href="privacy_policy.html" style="color: #bdc3c7; text-decoration: none; transition: color 0.3s ease;">Privacy Policy</a>
+      </div>
+    </div>
+</footer>
+
+<script>
+    document.getElementById("student-register-form").addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const full_name = document.getElementById("full_name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const password = document.getElementById("password").value;
+        const receive_updates = document.getElementById("receive_updates").checked;
+
+        try {
+            const res = await fetch("http://localhost:5000/api/register", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ full_name, email, phone, password, receive_updates })
+            });
+
+            const data = await res.json();
+
+            if (data.success) {
+                // 1. Automatically log the user in after registration
+                localStorage.setItem("userLoggedIn", "true");
+                localStorage.setItem("userType", "student");
+                localStorage.setItem("username", full_name.split(" ")[0]); // Store first name
+
+                // 2. Check for redirect parameter (e.g., ?redirect=hourlyPay.html)
+                const urlParams = new URLSearchParams(window.location.search);
+                const redirectPage = urlParams.get("redirect");
+
+                // 3. Smart redirect logic
+                if (redirectPage) {
+                    window.location.href = redirectPage; // Go to the originally requested page
+                } else {
+                    window.location.href = "jobfiltering.html"; // Default to homepage
+                }
+                
+            } else {
+                alert(data.message || "Registration failed. Please try again.");
+            }
+
+        } catch (err) {
+            console.error("Registration error:", err);
+            alert("Network error. Please check your connection and try again.");
+        }
+    });
+</script>
+
 </body>
 </html>
