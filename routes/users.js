@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const db = require("../db"); // Import MySQL connection
+const db = require("../db"); 
 
 // Store mobile number in MySQL
 router.post("/storeNumber", (req, res) => {
@@ -20,4 +20,4 @@ router.post("/storeNumber", (req, res) => {
     });
 });
 
-module.exports = router;
+module.exports = router; 

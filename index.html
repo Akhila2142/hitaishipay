@@ -1009,50 +1009,107 @@
         </style>
     </header> 
 
- 
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
         <!-- Bootstrap JS -->
          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
         
-            
-        <div style="position: relative; width: 100%; height: 58vh; min-height: 400px; 
-            background: linear-gradient(to right, #0a3d62, #1e5799, #2980b9); 
-            color: white; display: flex; align-items: center; 
-            padding: 0px; overflow: hidden;margin-top: -40px;">
-                    <div class="container h-100">
-                        <div class="row h-100 align-items-center">
-                            <!-- Text Content Column -->
-                            <div class="col-lg-6 text-lg-start text-center" 
-                                style="padding: 0px;">
-                                <h1 style="font-size: 3rem; font-weight: bold; margin-bottom: 15px; line-height: 1.3;
-                                        font-size: clamp(2rem, 5vw, 3rem);">
-                                    Empowering Your Career <br class="d-none d-md-block"> 
-                                    with <span style="color: #f7b731;">Hitaishi Pay</span>
-                                </h1>
-                                <p style="font-size: 1.2rem; margin-bottom: 25px; color: #dfe6e9;
-                                        font-size: clamp(1rem, 2.5vw, 1.2rem);">
-                                    Find top-paying jobs, career growth opportunities, and valuable resources all in one place.
-                                </p>
-                                <a href="StudentLogin.html" class="btn" 
-                                style="font-size: 1.1rem; padding: 12px 30px; 
-                                        font-weight: bold; border-radius: 8px; 
-                                        background: #f7b731; color: #1e272e; 
-                                        box-shadow: 0px 4px 10px rgba(247, 183, 49, 0.4); 
-                                        text-transform: uppercase;
-                                        font-size: clamp(1rem, 2.5vw, 1.1rem);">
-                                    Get Started
-                                </a>
-                            </div>
+        <!--  Hero section-->
+            <div style="position: relative; width: 100%; height: 58vh; min-height: 400px; 
+                        background: linear-gradient(to right, #0a3d62, #1e5799, #2980b9); 
+                        color: white; display: flex; align-items: center; 
+                        padding: 0px; overflow: hidden; margin-top: -40px;">
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+                        <!-- Text Content Column -->
+                        <div class="col-lg-6 text-lg-start text-center" 
+                            style="padding: 0px;">
+                            <h1 style="font-size: 3rem; font-weight: bold; margin-bottom: 15px; line-height: 1.3;
+                                    font-size: clamp(2rem, 5vw, 3rem);">
+                                Empowering Your Career <br class="d-none d-md-block"> 
+                                with <span style="color: #f7b731;">Hitaishi Pay</span>
+                            </h1>
+                            <p style="font-size: 1.2rem; margin-bottom: 25px; color: #dfe6e9;
+                                    font-size: clamp(1rem, 2.5vw, 1.2rem);">
+                                Find top-paying jobs, career growth opportunities, and valuable resources all in one place.
+                            </p>
+                            <a href="StudentLogin.html" class="btn" 
+                            style="font-size: 1.1rem; padding: 12px 30px; 
+                                    font-weight: bold; border-radius: 8px; 
+                                    background: #f7b731; color: #1e272e; 
+                                    box-shadow: 0px 4px 10px rgba(247, 183, 49, 0.4); 
+                                    text-transform: uppercase;
+                                    font-size: clamp(1rem, 2.5vw, 1.1rem);">
+                                Get Started
+                            </a>
+                        </div>
 
-                            <!-- Image Column -->
-                            <div class="col-lg-6 text-center d-flex justify-content-center align-items-center" 
-                                style="height: 100%;">
-                                <img src="img/Hitaishipay.png" alt="Professional Growth" loading="lazy" 
-                                    style="width: 50%; height: 400px; max-width: 100%; max-height: 100%;margin-bottom: -100px; 
-                                            object-fit: contain; object-position: center;">
-                            </div>
+                        <!-- Image Column -->
+                        <div class="col-lg-6 text-center d-flex justify-content-center align-items-center" 
+                            style="height: 100%;">
+                            <img src="img/Hitaishipay.png" alt="Professional Growth" loading="lazy" 
+                                style="width: 50%; height: 400px; max-width: 100%; max-height: 100%; margin-bottom: -100px; 
+                                        object-fit: contain; object-position: center;">
                         </div>
                     </div>
-        </div>
+                </div>
+            </div>
+
+            <style>
+                /* Mobile responsive adjustments */
+                @media (max-width: 991px) {
+                    div[style*="height: 58vh"] {
+                        height: auto !important;
+                        min-height: auto !important;
+                        padding: 60px 0 !important;
+                    }
+                    
+                    .row.align-items-center {
+                        align-items: flex-start !important;
+                    }
+                    
+                    .col-lg-6 {
+                        width: 100% !important;
+                        padding: 15px !important;
+                    }
+                    
+                    /* Text column adjustments */
+                    .text-lg-start.text-center {
+                        text-align: center !important;
+                        margin-bottom: 30px !important;
+                    }
+                    
+                    h1 {
+                        font-size: 2rem !important;
+                        line-height: 1.2 !important;
+                        margin-bottom: 10px !important;
+                    }
+                    
+                    p {
+                        font-size: 1rem !important;
+                        margin-bottom: 20px !important;
+                    }
+                    
+                    .btn {
+                        padding: 10px 25px !important;
+                        font-size: 1rem !important;
+                        margin: 0 auto !important;
+                    }
+                    
+                    /* Image column adjustments */
+                    .col-lg-6.text-center img {
+                        width: 70% !important;
+                        height: auto !important;
+                        margin-bottom: 0 !important;
+                        max-height: 300px !important;
+                    }
+                }
+                
+                /* Desktop styles remain exactly as in original */
+                @media (min-width: 992px) {
+                    /* All original styles preserved exactly */
+                }
+            </style>
         <div id="jobResults" style="margin-top: 0px; padding: 0px;"></div>
         <section style="background: whitesmoke; padding: 50px 20px; text-align: center; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); border-radius: 10px; max-width: 1200px; margin: auto;margin-top: -40px;">
            
@@ -1101,6 +1158,7 @@
         
         </section>    
         <div id="jobResult"></div>
+        <!-- script for the filtered searching in frontend -->
         <script>
                 function toggleDropdown() {
                     const dropdown = document.getElementById('countryOptions');
@@ -1187,7 +1245,7 @@
                         .catch(err => console.error('Fetch error:', err));
                 }
         </script>
-
+         <!-- script for the filtered searching from backend -->
             <script>
                  const locationData = {
                 India: {
@@ -1365,62 +1423,204 @@
                 }
                                 
                 function displayJobsByCategory(jobs) {
-                    const container = document.getElementById("jobResult");
-                    container.innerHTML = "";
+    const container = document.getElementById("jobResult");
+    container.innerHTML = "";
+    
+    // Set up container styling
+    container.style.display = 'grid';
+    container.style.gridTemplateColumns = 'repeat(auto-fill, minmax(450px, 1fr))';
+    container.style.gap = '25px';
+    container.style.padding = '25px';
+    container.style.maxWidth = '1400px';
+    container.style.margin = '0 auto';
 
-                    jobs.forEach(job => {
-                        const card = document.createElement("div");
-                        card.className = "job-card";
-                        card.style.cssText = `
-                            border: 1px solid #ddd;
-                            border-radius: 8px;
-                            padding: 15px;
-                            margin-bottom: 15px;
-                            background: white;
-                            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-                        `;
+    if (!jobs || jobs.length === 0) {
+        container.innerHTML = `
+            <div style="grid-column: 1/-1; text-align: center; padding: 40px;">
+                <svg style="width: 80px; height: 80px; fill: #bdc3c7; margin-bottom: 20px;" viewBox="0 0 24 24">
+                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-4v-4H7v-4h4V5h4v4h4v4z"/>
+                </svg>
+                <h3 style="color: #7f8c8d; margin-bottom: 10px;">No Jobs Found</h3>
+                <p style="color: #bdc3c7; max-width: 500px; margin: 0 auto;">We couldn't find any jobs matching your criteria. Try adjusting your search filters.</p>
+            </div>
+        `;
+        return;
+    }
 
-                        // Parse JSON fields
-                        const workMode = JSON.parse(job.workMode || "[]").join(", ");
-                        const education = JSON.parse(job.education || "[]").join(", ");
-                        const jobType = JSON.parse(job.jobType || "[]").join(", ");
+    jobs.forEach(job => {
+        const card = document.createElement("div");
+        card.className = "job-card";
+        card.style.cssText = `
+            border: 1px solid #e0e0e0;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            background-color: white;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+        `;
 
-                        card.innerHTML = `
-                            <h3 style="margin-top:0;color:#004085;">${job.jobTitle}</h3>
-                            <p><strong>Company:</strong> ${job.companyName}</p>
-                            <p><strong>Location:</strong> ${job.city}, ${job.state}, ${job.country}</p>
-                            <p><strong>Experience:</strong> ${job.experience}</p>
-                            <p><strong>Salary:</strong> ${job.salary}</p>
-                            <p><strong>Work Mode:</strong> ${workMode}</p>
-                            <p><strong>Education:</strong> ${education}</p>
-                            <p><strong>Job Type:</strong> ${jobType}</p>
-                            <p><strong>Description:</strong> ${job.description}</p>
-                            <button 
-                            onclick="showApplicationForm('${job.id}')" 
-                            class="apply-btn"
-                            style="
-                                margin-top: 12px;
-                                padding: 8px 18px;
-                                background-color: #007bff;
-                                color: white;
-                                font-size: 14px;
-                                font-weight: 500;
-                                border: none;
-                                border-radius: 5px;
-                                cursor: pointer;
-                                transition: background-color 0.2s ease;
-                            "
-                            onmouseover="this.style.backgroundColor='#0056b3';"
-                            onmouseout="this.style.backgroundColor='#007bff';"
-                            >
-                            Apply Now
-                            </button>
+        // Add hover effects
+        card.onmouseover = () => {
+            card.style.transform = 'translateY(-5px)';
+            card.style.boxShadow = '0 8px 20px rgba(0,0,0,0.12)';
+            card.style.borderColor = '#4dabf7';
+        };
+        card.onmouseout = () => {
+            card.style.transform = '';
+            card.style.boxShadow = '0 4px 12px rgba(0,0,0,0.08)';
+            card.style.borderColor = '#e0e0e0';
+        };
 
+        // Parse JSON fields with error handling
+        const workMode = safeJsonParse(job.workMode).join(", ") || 'Flexible';
+        const education = safeJsonParse(job.education).join(", ") || 'Not specified';
+        const jobType = safeJsonParse(job.jobType).join(", ") || 'Full-time';
+        const formattedSalary = job.salary ? (job.salary.includes('$') ? job.salary : `$${job.salary}`) : 'Negotiable';
 
-                        `;
-                        container.appendChild(card);
-                    });
-                }
+        card.innerHTML = `
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px;">
+                <div>
+                    <h3 style="margin: 0 0 5px 0; color: #2c3e50; font-size: 1.4rem; font-weight: 700;">${job.jobTitle || 'No Title'}</h3>
+                    <p style="margin: 0 0 10px 0; font-weight: 600; color: #4dabf7; font-size: 1.1rem; display: flex; align-items: center;">
+                        <svg style="width: 16px; height: 16px; margin-right: 8px; fill: currentColor;" viewBox="0 0 24 24">
+                            <path d="M18 6h-2c0-2.21-1.79-4-4-4S8 3.79 8 6H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 4c0 .55-.45 1-1 1s-1-.45-1-1V8h2v2zm2-6c1.1 0 2 .9 2 2h-4c0-1.1.9-2 2-2zm4 6c0 .55-.45 1-1 1s-1-.45-1-1V8h2v2z"/>
+                        </svg>
+                        ${job.companyName || 'Company not specified'}
+                    </p>
+                </div>
+                <div style="background: #e7f5ff; padding: 5px 10px; border-radius: 20px; font-size: 0.85rem; color: #4dabf7; font-weight: 600;">
+                    ${jobType}
+                </div>
+            </div>
+            
+            <div style="display: flex; align-items: center; margin-bottom: 15px; color: #7f8c8d;">
+                <svg style="width: 16px; height: 16px; margin-right: 8px; fill: currentColor;" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                <span>${job.city ? `${job.city}, ${job.state || ''}${job.state && job.country ? ', ' : ''}${job.country || ''}` : 'Location not specified'}</span>
+            </div>
+            
+            <div style="margin-bottom: 20px; flex-grow: 1;">
+                <p style="margin: 0 0 10px 0; font-size: 0.95rem; color: #555; line-height: 1.6;">
+                    ${job.description || 'No job description provided.'}
+                </p>
+            </div>
+            
+            <div style="background: #f8f9fa; border-radius: 8px; padding: 15px; margin-bottom: 20px;">
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;">
+                    <div style="display: flex; align-items: center;">
+                        <svg style="width: 16px; height: 16px; margin-right: 8px; fill: #7f8c8d;" viewBox="0 0 24 24">
+                            <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm0 4c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm6 12H6v-1.4c0-2 4-3.1 6-3.1s6 1.1 6 3.1V19z"/>
+                        </svg>
+                        <span style="font-size: 0.9rem;"><strong>Experience:</strong> ${job.experience || 'Not specified'}</span>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <svg style="width: 16px; height: 16px; margin-right: 8px; fill: #4dabf7;" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.31-8.86c-1.77-.45-2.34-.94-2.34-1.67 0-.84.79-1.43 2.1-1.43 1.38 0 1.9.66 1.94 1.64h1.71c-.05-1.34-.87-2.57-2.49-2.97V5H10.9v1.69c-1.51.32-2.72 1.3-2.72 2.81 0 1.79 1.49 2.69 3.66 3.21 1.95.46 2.34 1.15 2.34 1.87 0 .53-.39 1.39-2.1 1.39-1.6 0-2.23-.72-2.32-1.64H8.04c.1 1.7 1.36 2.66 2.86 2.97V19h2.34v-1.67c1.52-.29 2.72-1.16 2.73-2.77-.01-2.2-1.9-2.96-3.66-3.42z"/>
+                        </svg>
+                        <span style="font-size: 0.9rem;"><strong>Salary:</strong> ${formattedSalary}</span>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <svg style="width: 16px; height: 16px; margin-right: 8px; fill: #7f8c8d;" viewBox="0 0 24 24">
+                            <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
+                        </svg>
+                        <span style="font-size: 0.9rem;"><strong>Education:</strong> ${education}</span>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <svg style="width: 16px; height: 16px; margin-right: 8px; fill: #7f8c8d;" viewBox="0 0 24 24">
+                            <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.9 2-2V8c0-1.11-.9-2-2-2zm-6 0h-4V4h4v2z"/>
+                        </svg>
+                        <span style="font-size: 0.9rem;"><strong>Work Mode:</strong> ${workMode}</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="font-size: 0.9rem; color: #7f8c8d; display: flex; align-items: center;">
+                    <svg style="width: 16px; height: 16px; margin-right: 5px; fill: currentColor; vertical-align: middle;" viewBox="0 0 24 24">
+                        <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
+                        <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                    </svg>
+                    <span>Posted ${formatPostDate(job.postedDate)}</span>
+                </div>
+                <button 
+                    onclick="handleApplyNow('${job.id}')" 
+                    class="apply-btn"
+                    style="
+                        padding: 10px 25px;
+                        background-color: #4dabf7;
+                        color: white;
+                        font-size: 1rem;
+                        font-weight: 600;
+                        border: none;
+                        border-radius: 6px;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                        display: flex;
+                        align-items: center;
+                        position: relative;
+                        z-index: 2;
+                    "
+                    onmouseover="this.style.backgroundColor='#339af0'; this.style.transform='translateY(-2px)';"
+                    onmouseout="this.style.backgroundColor='#4dabf7'; this.style.transform='';"
+                >
+                    <svg style="width: 16px; height: 16px; margin-right: 8px; fill: white;" viewBox="0 0 24 24">
+                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                    </svg>
+                    Apply Now
+                </button>
+            </div>
+        `;
+        container.appendChild(card);
+    });
+}
+
+// Helper functions
+function safeJsonParse(str) {
+    try {
+        return JSON.parse(str || "[]");
+    } catch (e) {
+        return [];
+    }
+}
+
+function formatPostDate(dateString) {
+    if (!dateString) return 'recently';
+    try {
+        const postDate = new Date(dateString);
+        const now = new Date();
+        const diffDays = Math.floor((now - postDate) / (1000 * 60 * 60 * 24));
+        
+        if (diffDays === 0) return 'today';
+        if (diffDays === 1) return 'yesterday';
+        if (diffDays < 7) return `${diffDays} days ago`;
+        if (diffDays < 30) return `${Math.floor(diffDays/7)} weeks ago`;
+        return 'recently';
+    } catch (e) {
+        return 'recently';
+    }
+}
+
+// Application handling function
+function handleApplyNow(jobId) {
+    console.log('Applying for job:', jobId);
+    // Here you can either:
+    // 1. Redirect to application page
+    window.location.href = `applicationform.html?jobId=${jobId}`;
+    
+    // OR 2. Show a modal/form
+    // showApplicationModal(jobId);
+    
+    // OR 3. Make an API call
+    // submitApplication(jobId);
+}
+
+// Make sure this is in your global scope
+window.handleApplyNow = handleApplyNow;
             </script> <br>
 
                 <div style="display: flex; flex-direction: column; align-items: flex-start; max-width: 1200px; margin: auto; margin-top: 20px; padding: 30px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
@@ -1698,7 +1898,7 @@
                                     console.error('Error fetching WFH jobs:', error);
                                 }
                             }
-                    </script>
+                        </script>
                         <!-- Jobs container for part time jobs -->
                         <div id="jobs-container"></div>
 
@@ -2570,12 +2770,12 @@
                                                 position: relative;
                                             `;
                                             
-                                            // Enhanced hover effect
+                                            // Enhanced hover effect with teal accent
                                             card.onmouseover = () => {
                                                 card.style.transform = 'translateY(-5px)';
                                                 card.style.boxShadow = '0 8px 20px rgba(0,0,0,0.12)';
-                                                card.style.borderColor = '#6c757d';
-                                                card.querySelector('.apply-btn').style.boxShadow = '0 4px 8px rgba(108, 117, 125, 0.3)';
+                                                card.style.borderColor = '#20c997';
+                                                card.querySelector('.apply-btn').style.boxShadow = '0 4px 8px rgba(32, 201, 151, 0.3)';
                                             };
                                             card.onmouseout = () => {
                                                 card.style.transform = '';
@@ -2584,13 +2784,13 @@
                                                 card.querySelector('.apply-btn').style.boxShadow = 'none';
                                             };
 
-                                            // Add secondary job badge with icon
+                                            // Add secondary job badge with teal accent
                                             card.innerHTML += `
-                                                <div style="position: absolute; top: 15px; right: 15px; background-color: #6c757d; color: white; padding: 3px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; display: flex; align-items: center;">
+                                                <div style="position: absolute; top: 15px; right: 15px; background-color: #20c997; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; display: flex; align-items: center;">
                                                     <svg style="width: 14px; height: 14px; margin-right: 5px; fill: white;" viewBox="0 0 24 24">
                                                         <path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"/>
                                                     </svg>
-                                                    Secondary Job
+                                                    Side Job
                                                 </div>
                                             `;
 
@@ -2599,10 +2799,10 @@
                                             const workModeText = Array.isArray(job.workMode) ? job.workMode.join(', ') : job.workMode;
                                             const educationText = Array.isArray(job.education) ? job.education.join(', ') : job.education;
 
-                                            // Highlight flexible work elements
+                                            // Highlight flexible work elements with teal background
                                             const descriptionHTML = job.description 
                                                 ? job.description.replace(/(part.?time|flexible|evening|weekend|secondary)/gi, 
-                                                    '<span style="color: #6c757d; font-weight: 600; background-color: #f8f9fa; padding: 2px 4px; border-radius: 4px;">$1</span>')
+                                                    '<span style="color: #087f5b; font-weight: 600; background-color: #e6fcf5; padding: 2px 4px; border-radius: 4px;">$1</span>')
                                                 : '<span style="color: #95a5a6; font-style: italic;">No description provided</span>';
 
                                             // Format salary with currency symbol if missing
@@ -2615,23 +2815,23 @@
                                             card.innerHTML += `
                                                 <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; margin-top: 10px;">
                                                     <div>
-                                                        <h3 style="margin: 0 0 5px 0; color: #2c3e50; font-size: 1.4rem; font-weight: 700; line-height: 1.3;">${job.jobTitle}</h3>
-                                                        <p style="margin: 0 0 10px 0; font-weight: 600; color: #6c757d; font-size: 1.1rem; display: flex; align-items: center;">
-                                                            <svg style="width: 16px; height: 16px; margin-right: 8px; fill: #6c757d;" viewBox="0 0 24 24">
+                                                        <h3 style="margin: 0 0 5px 0; color: #212529; font-size: 1.4rem; font-weight: 700; line-height: 1.3;">${job.jobTitle}</h3>
+                                                        <p style="margin: 0 0 10px 0; font-weight: 600; color: #20c997; font-size: 1.1rem; display: flex; align-items: center;">
+                                                            <svg style="width: 16px; height: 16px; margin-right: 8px; fill: #20c997;" viewBox="0 0 24 24">
                                                                 <path d="M18 6h-2c0-2.21-1.79-4-4-4S8 3.79 8 6H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-8 4c0 .55-.45 1-1 1s-1-.45-1-1V8h2v2zm2-6c1.1 0 2 .9 2 2h-4c0-1.1.9-2 2-2zm4 6c0 .55-.45 1-1 1s-1-.45-1-1V8h2v2z"/>
                                                             </svg>
                                                             ${job.companyName || 'Multiple Employers'}
                                                         </p>
                                                     </div>
-                                                    <div style="background: #f8f9fa; padding: 5px 10px; border-radius: 20px; font-size: 0.85rem; color: #6c757d; font-weight: 600; display: flex; align-items: center;">
-                                                        <svg style="width: 14px; height: 14px; margin-right: 5px; fill: #6c757d;" viewBox="0 0 24 24">
+                                                    <div style="background: #e6fcf5; padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; color: #087f5b; font-weight: 600; display: flex; align-items: center;">
+                                                        <svg style="width: 14px; height: 14px; margin-right: 5px; fill: #087f5b;" viewBox="0 0 24 24">
                                                             <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.9 2-2V8c0-1.11-.9-2-2-2zm-6 0h-4V4h4v2z"/>
                                                         </svg>
                                                         ${jobTypeText}
                                                     </div>
                                                 </div>
                                                 
-                                                <div style="display: flex; align-items: center; margin-bottom: 15px; color: #7f8c8d;">
+                                                <div style="display: flex; align-items: center; margin-bottom: 15px; color: #6c757d;">
                                                     <svg style="width: 16px; height: 16px; margin-right: 8px; fill: currentColor;" viewBox="0 0 24 24">
                                                         <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                                                     </svg>
@@ -2639,31 +2839,31 @@
                                                 </div>
                                                 
                                                 <div style="margin-bottom: 20px; flex-grow: 1;">
-                                                    <p style="margin: 0 0 10px 0; font-size: 0.95rem; color: #555; line-height: 1.6;">${descriptionHTML}</p>
+                                                    <p style="margin: 0 0 10px 0; font-size: 0.95rem; color: #495057; line-height: 1.6;">${descriptionHTML}</p>
                                                 </div>
                                                 
                                                 <div style="background: #f8f9fa; border-radius: 8px; padding: 15px; margin-bottom: 20px;">
                                                     <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;">
                                                         <div style="display: flex; align-items: center;">
-                                                            <svg style="width: 16px; height: 16px; margin-right: 8px; fill: #7f8c8d;" viewBox="0 0 24 24">
+                                                            <svg style="width: 16px; height: 16px; margin-right: 8px; fill: #6c757d;" viewBox="0 0 24 24">
                                                                 <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm0 4c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm6 12H6v-1.4c0-2 4-3.1 6-3.1s6 1.1 6 3.1V19z"/>
                                                             </svg>
                                                             <span style="font-size: 0.9rem;"><strong>Experience:</strong> ${job.experience || 'Entry Level'}</span>
                                                         </div>
                                                         <div style="display: flex; align-items: center;">
-                                                            <svg style="width: 16px; height: 16px; margin-right: 8px; fill: #6c757d;" viewBox="0 0 24 24">
+                                                            <svg style="width: 16px; height: 16px; margin-right: 8px; fill: #20c997;" viewBox="0 0 24 24">
                                                                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.31-8.86c-1.77-.45-2.34-.94-2.34-1.67 0-.84.79-1.43 2.1-1.43 1.38 0 1.9.66 1.94 1.64h1.71c-.05-1.34-.87-2.57-2.49-2.97V5H10.9v1.69c-1.51.32-2.72 1.3-2.72 2.81 0 1.79 1.49 2.69 3.66 3.21 1.95.46 2.34 1.15 2.34 1.87 0 .53-.39 1.39-2.1 1.39-1.6 0-2.23-.72-2.32-1.64H8.04c.1 1.7 1.36 2.66 2.86 2.97V19h2.34v-1.67c1.52-.29 2.72-1.16 2.73-2.77-.01-2.2-1.9-2.96-3.66-3.42z"/>
                                                             </svg>
                                                             <span style="font-size: 0.9rem;"><strong>Pay Rate:</strong> ${formattedSalary}</span>
                                                         </div>
                                                         <div style="display: flex; align-items: center;">
-                                                            <svg style="width: 16px; height: 16px; margin-right: 8px; fill: #7f8c8d;" viewBox="0 0 24 24">
+                                                            <svg style="width: 16px; height: 16px; margin-right: 8px; fill: #6c757d;" viewBox="0 0 24 24">
                                                                 <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
                                                             </svg>
                                                             <span style="font-size: 0.9rem;"><strong>Requirements:</strong> ${educationText || 'Minimal'}</span>
                                                         </div>
                                                         <div style="display: flex; align-items: center;">
-                                                            <svg style="width: 16px; height: 16px; margin-right: 8px; fill: #7f8c8d;" viewBox="0 0 24 24">
+                                                            <svg style="width: 16px; height: 16px; margin-right: 8px; fill: #6c757d;" viewBox="0 0 24 24">
                                                                 <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.9 2-2V8c0-1.11-.9-2-2-2zm-6 0h-4V4h4v2z"/>
                                                             </svg>
                                                             <span style="font-size: 0.9rem;"><strong>Schedule:</strong> ${workModeText || 'Flexible'}</span>
@@ -2672,7 +2872,7 @@
                                                 </div>
                                                 
                                                 <div style="display: flex; justify-content: space-between; align-items: center;">
-                                                    <div style="font-size: 0.9rem; color: #7f8c8d; display: flex; align-items: center;">
+                                                    <div style="font-size: 0.9rem; color: #6c757d; display: flex; align-items: center;">
                                                         <svg style="width: 16px; height: 16px; margin-right: 5px; fill: currentColor; vertical-align: middle;" viewBox="0 0 24 24">
                                                             <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
                                                             <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
@@ -2684,7 +2884,7 @@
                                                             class="apply-btn"
                                                             style="
                                                                 padding: 10px 25px;
-                                                                background-color: #6c757d;
+                                                                background-color: #20c997;
                                                                 color: white;
                                                                 font-size: 1rem;
                                                                 font-weight: 600;
@@ -2696,8 +2896,8 @@
                                                                 align-items: center;
                                                                 justify-content: center;
                                                             "
-                                                            onmouseover="this.style.backgroundColor='#5a6268'; this.style.transform='translateY(-2px)';"
-                                                            onmouseout="this.style.backgroundColor='#6c757d'; this.style.transform='';"
+                                                            onmouseover="this.style.backgroundColor='#099268'; this.style.transform='translateY(-2px)';"
+                                                            onmouseout="this.style.backgroundColor='#20c997'; this.style.transform='';"
                                                         >
                                                             <svg style="width: 16px; height: 16px; margin-right: 8px; fill: white;" viewBox="0 0 24 24">
                                                                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
@@ -2712,24 +2912,25 @@
                                     } else {
                                         document.getElementById('jobs-container').innerHTML = `
                                             <div style="grid-column: 1/-1; text-align: center; padding: 40px;">
-                                                <svg style="width: 80px; height: 80px; fill: #bdc3c7; margin-bottom: 20px;" viewBox="0 0 24 24">
+                                                <svg style="width: 80px; height: 80px; fill: #c3fae8; margin-bottom: 20px;" viewBox="0 0 24 24">
                                                     <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-4v-4H7v-4h4V5h4v4h4v4z"/>
                                                 </svg>
-                                                <h3 style="color: #7f8c8d; margin-bottom: 10px;">No Secondary Jobs Available</h3>
-                                                <p style="color: #bdc3c7; max-width: 500px; margin: 0 auto;">Currently there are no secondary job opportunities matching your criteria. Check back later or try adjusting your search filters.</p>
+                                                <h3 style="color: #087f5b; margin-bottom: 10px;">No Side Jobs Available</h3>
+                                                <p style="color: #adb5bd; max-width: 500px; margin: 0 auto;">Currently there are no secondary job opportunities matching your criteria. Check back later or try adjusting your search filters.</p>
                                                 <button 
                                                     style="
                                                         margin-top: 20px;
                                                         padding: 10px 20px;
-                                                        background-color: #f8f9fa;
-                                                        color: #7f8c8d;
-                                                        border: 1px solid #e0e0e0;
+                                                        background-color: #e6fcf5;
+                                                        color: #087f5b;
+                                                        border: 1px solid #96f2d7;
                                                         border-radius: 6px;
                                                         cursor: pointer;
                                                         transition: all 0.3s ease;
+                                                        font-weight: 500;
                                                     "
-                                                    onmouseover="this.style.backgroundColor='#e0e0e0';"
-                                                    onmouseout="this.style.backgroundColor='#f8f9fa';"
+                                                    onmouseover="this.style.backgroundColor='#c3fae8';"
+                                                    onmouseout="this.style.backgroundColor='#e6fcf5';"
                                                 >
                                                     Refresh Opportunities
                                                 </button>
@@ -2740,25 +2941,26 @@
                                     console.error('Error fetching secondary jobs:', error);
                                     document.getElementById('jobs-container').innerHTML = `
                                         <div style="grid-column: 1/-1; text-align: center; padding: 40px;">
-                                            <svg style="width: 80px; height: 80px; fill: #e74c3c; margin-bottom: 20px;" viewBox="0 0 24 24">
+                                            <svg style="width: 80px; height: 80px; fill: #ff6b6b; margin-bottom: 20px;" viewBox="0 0 24 24">
                                                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
                                             </svg>
-                                            <h3 style="color: #e74c3c; margin-bottom: 10px;">Error Loading Secondary Jobs</h3>
-                                            <p style="color: #95a5a6; max-width: 500px; margin: 0 auto;">We're having trouble loading secondary job opportunities. Please check your connection and try again.</p>
+                                            <h3 style="color: #c92a2a; margin-bottom: 10px;">Error Loading Side Jobs</h3>
+                                            <p style="color: #adb5bd; max-width: 500px; margin: 0 auto;">We're having trouble loading secondary job opportunities. Please check your connection and try again.</p>
                                             <button 
                                                 style="
                                                     margin-top: 20px;
                                                     padding: 10px 20px;
-                                                    background-color: #f8f9fa;
-                                                    color: #7f8c8d;
-                                                    border: 1px solid #e0e0e0;
+                                                    background-color: #fff5f5;
+                                                    color: #c92a2a;
+                                                    border: 1px solid #ffc9c9;
                                                     border-radius: 6px;
                                                     cursor: pointer;
                                                     transition: all 0.3s ease;
+                                                    font-weight: 500;
                                                 "
                                                 onclick="fetchSecondaryJobs()"
-                                                onmouseover="this.style.backgroundColor='#e0e0e0';"
-                                                onmouseout="this.style.backgroundColor='#f8f9fa';"
+                                                onmouseover="this.style.backgroundColor='#ffc9c9';"
+                                                onmouseout="this.style.backgroundColor='#fff5f5';"
                                             >
                                                 Retry Loading
                                             </button>
@@ -3037,69 +3239,177 @@
                         
                         <script>
                             async function fetchTechnicalSupportJobs() {
-                            try {
-                                const response = await fetch('http://localhost:5000/api/getJobs/TechnicalSupport');
-                                const data = await response.json();
-                        
-                                console.log(data); // Debugging the data structure
-                        
-                                if (data.jobs && data.jobs.length > 0) {
-                                const container = document.getElementById('jobs-container');
-                                container.innerHTML = ''; // Clear previous jobs
-                        
-                                data.jobs.forEach(job => {
-                                    const card = document.createElement('div');
-                                    card.className = 'job-card';
-                                    card.style.marginBottom = '20px';
-                        
-                                    const workPayText = Array.isArray(job.workPay) ? job.workPay.join(', ') : job.workPay;
-                                    const jobTypeText = Array.isArray(job.jobType) ? job.jobType.join(', ') : job.jobType;
-                                    const workModeText = Array.isArray(job.workMode) ? job.workMode.join(', ') : job.workMode;
-                                    const educationText = Array.isArray(job.education) ? job.education.join(', ') : job.education;
-                        
-                                    card.innerHTML = `
-                                    <h3>${job.jobTitle}</h3>
-                                    <p><strong>Company:</strong> ${job.companyName}</p>
-                                    <p><strong>Location:</strong> ${job.city}, ${job.state}, ${job.country}</p>
-                                    <p><strong>Experience:</strong> ${job.experience}</p>
-                                    <p><strong>Salary:</strong> ${job.salary}</p>
-                                    <p><strong>Description:</strong> ${job.description}</p>
-                                    <p><strong>Job Type:</strong> ${jobTypeText}</p>
-                                    <p><strong>Work Mode:</strong> ${workModeText}</p>
-                                    <p><strong>Education:</strong> ${educationText}</p>
-                                    <p><strong>Pay Details:</strong> ${workPayText}</p>
-                                    <a href="applicationform.html?jobId=${job.id}&jobTitle=${encodeURIComponent(job.jobTitle)}" style="text-decoration: none;">
-                                    <button 
-                                        class="apply-btn"
-                                        style="
-                                        margin-top: 12px;
-                                        padding: 8px 18px;
-                                        background-color: #007bff;
-                                        color: white;
-                                        font-size: 14px;
-                                        font-weight: 500;
-                                        border: none;
-                                        border-radius: 5px;
-                                        cursor: pointer;
-                                        transition: background-color 0.2s ease;
-                                        "
-                                        onmouseover="this.style.backgroundColor='#0056b3';"
-                                        onmouseout="this.style.backgroundColor='#007bff';"
-                                    >
-                                        Apply Now
-                                    </button>
-                                    </a>
+                                try {
+                                    const response = await fetch('http://localhost:5000/api/getJobs/TechnicalSupport');
+                                    const data = await response.json();
+                                    
+                                    console.log(data); // Debugging the data structure
 
+                                    if (data.jobs && data.jobs.length > 0) {
+                                        const container = document.getElementById('jobs-container');
+                                        container.innerHTML = ''; // Clear previous jobs
+                                        container.style.display = 'grid';
+                                        container.style.gridTemplateColumns = 'repeat(auto-fill, minmax(450px, 1fr))';
+                                        container.style.gap = '25px';
+                                        container.style.padding = '25px';
+                                        container.style.maxWidth = '1400px';
+                                        container.style.margin = '0 auto';
+
+                                        data.jobs.forEach(job => {
+                                            const card = document.createElement('div');
+                                            card.className = 'job-card';
+                                            card.style.cssText = `
+                                                border: 1px solid #e0e0e0;
+                                                padding: 25px;
+                                                border-radius: 12px;
+                                                box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+                                                background-color: white;
+                                                transition: all 0.3s ease;
+                                                display: flex;
+                                                flex-direction: column;
+                                                height: 100%;
+                                                position: relative;
+                                            `;
+                                            card.onmouseover = () => {
+                                                card.style.transform = 'translateY(-5px)';
+                                                card.style.boxShadow = '0 8px 20px rgba(0,0,0,0.12)';
+                                                card.style.borderColor = '#e67e22';
+                                            };
+                                            card.onmouseout = () => {
+                                                card.style.transform = '';
+                                                card.style.boxShadow = '0 4px 12px rgba(0,0,0,0.08)';
+                                                card.style.borderColor = '#e0e0e0';
+                                            };
+
+                                            // Add technical support badge
+                                            card.innerHTML += `
+                                                <div style="position: absolute; top: 15px; right: 15px; background-color: #e67e22; color: white; padding: 3px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">
+                                                    Tech Support
+                                                </div>
+                                            `;
+
+                                            const workPayText = Array.isArray(job.workPay) ? job.workPay.join(', ') : job.workPay;
+                                            const jobTypeText = Array.isArray(job.jobType) ? job.jobType.join(', ') : job.jobType;
+                                            const workModeText = Array.isArray(job.workMode) ? job.workMode.join(', ') : job.workMode;
+                                            const educationText = Array.isArray(job.education) ? job.education.join(', ') : job.education;
+
+                                            // Highlight technical support keywords
+                                            const descriptionHTML = job.description 
+                                                ? job.description.replace(/(technical support|help desk|troubleshooting|customer support|IT support)/gi, '<span style="color: #d35400; font-weight: 600;">$1</span>')
+                                                : 'No description available';
+
+                                            card.innerHTML += `
+                                                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; margin-top: 10px;">
+                                                    <div>
+                                                        <h3 style="margin: 0 0 5px 0; color: #2c3e50; font-size: 1.4rem; font-weight: 700;">${job.jobTitle}</h3>
+                                                        <p style="margin: 0 0 10px 0; font-weight: 600; color: #e67e22; font-size: 1.1rem;">${job.companyName}</p>
+                                                    </div>
+                                                    <div style="background: #fdebd0; padding: 5px 10px; border-radius: 20px; font-size: 0.85rem; color: #d35400; font-weight: 600;">
+                                                        ${jobTypeText}
+                                                    </div>
+                                                </div>
+                                                
+                                                <div style="display: flex; align-items: center; margin-bottom: 15px; color: #7f8c8d;">
+                                                    <svg style="width: 16px; height: 16px; margin-right: 8px; fill: currentColor;" viewBox="0 0 24 24">
+                                                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                                    </svg>
+                                                    <span>${job.city}, ${job.state}, ${job.country}</span>
+                                                </div>
+                                                
+                                                <div style="margin-bottom: 20px; flex-grow: 1;">
+                                                    <p style="margin: 0 0 10px 0; font-size: 0.95rem; color: #555; line-height: 1.6;">${descriptionHTML}</p>
+                                                </div>
+                                                
+                                                <div style="background: #f8f9fa; border-radius: 8px; padding: 15px; margin-bottom: 20px;">
+                                                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;">
+                                                        <div style="display: flex; align-items: center;">
+                                                            <svg style="width: 16px; height: 16px; margin-right: 8px; fill: #7f8c8d;" viewBox="0 0 24 24">
+                                                                <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm0 4c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm6 12H6v-1.4c0-2 4-3.1 6-3.1s6 1.1 6 3.1V19z"/>
+                                                            </svg>
+                                                            <span style="font-size: 0.9rem;"><strong>Experience:</strong> ${job.experience}</span>
+                                                        </div>
+                                                        <div style="display: flex; align-items: center;">
+                                                            <svg style="width: 16px; height: 16px; margin-right: 8px; fill: #e67e22;" viewBox="0 0 24 24">
+                                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.31-8.86c-1.77-.45-2.34-.94-2.34-1.67 0-.84.79-1.43 2.1-1.43 1.38 0 1.9.66 1.94 1.64h1.71c-.05-1.34-.87-2.57-2.49-2.97V5H10.9v1.69c-1.51.32-2.72 1.3-2.72 2.81 0 1.79 1.49 2.69 3.66 3.21 1.95.46 2.34 1.15 2.34 1.87 0 .53-.39 1.39-2.1 1.39-1.6 0-2.23-.72-2.32-1.64H8.04c.1 1.7 1.36 2.66 2.86 2.97V19h2.34v-1.67c1.52-.29 2.72-1.16 2.73-2.77-.01-2.2-1.9-2.96-3.66-3.42z"/>
+                                                            </svg>
+                                                            <span style="font-size: 0.9rem;"><strong>Salary:</strong> ${job.salary || 'Not specified'}</span>
+                                                        </div>
+                                                        <div style="display: flex; align-items: center;">
+                                                            <svg style="width: 16px; height: 16px; margin-right: 8px; fill: #7f8c8d;" viewBox="0 0 24 24">
+                                                                <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
+                                                            </svg>
+                                                            <span style="font-size: 0.9rem;"><strong>Education:</strong> ${educationText}</span>
+                                                        </div>
+                                                        <div style="display: flex; align-items: center;">
+                                                            <svg style="width: 16px; height: 16px; margin-right: 8px; fill: #7f8c8d;" viewBox="0 0 24 24">
+                                                                <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/>
+                                                            </svg>
+                                                            <span style="font-size: 0.9rem;"><strong>Work Mode:</strong> ${workModeText}</span>
+                                                        </div>
+                                                        <div style="display: flex; align-items: center; grid-column: span 2;">
+                                                            <svg style="width: 16px; height: 16px; margin-right: 8px; fill: #7f8c8d;" viewBox="0 0 24 24">
+                                                                <path d="M20 8h-3V4H7v4H4v14h16V8zM9 6h6v2H9V6zm6 11h-2v2H11v-2H9v-2h2v-2h2v2h2v2z"/>
+                                                            </svg>
+                                                            <span style="font-size: 0.9rem;"><strong>Pay Details:</strong> ${workPayText || 'Not specified'}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                                    <div style="font-size: 0.9rem; color: #7f8c8d;">
+                                                        <svg style="width: 16px; height: 16px; margin-right: 5px; fill: currentColor; vertical-align: middle;" viewBox="0 0 24 24">
+                                                            <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
+                                                            <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                                                        </svg>
+                                                        <span>Posted recently</span>
+                                                    </div>
+                                                    <a href="applicationform.html?jobId=${job.id}&jobTitle=${encodeURIComponent(job.jobTitle)}" style="text-decoration: none;">
+                                                        <button 
+                                                            class="apply-btn"
+                                                            style="
+                                                                padding: 10px 25px;
+                                                                background-color: #e67e22;
+                                                                color: white;
+                                                                font-size: 1rem;
+                                                                font-weight: 600;
+                                                                border: none;
+                                                                border-radius: 6px;
+                                                                cursor: pointer;
+                                                                transition: all 0.3s ease;
+                                                            "
+                                                            onmouseover="this.style.backgroundColor='#d35400'; this.style.transform='translateY(-2px)';"
+                                                            onmouseout="this.style.backgroundColor='#e67e22'; this.style.transform='';"
+                                                        >
+                                                            Apply Now
+                                                        </button>
+                                                    </a>
+                                                </div>
+                                            `;
+                                            container.appendChild(card);
+                                        });
+                                    } else {
+                                        document.getElementById('jobs-container').innerHTML = `
+                                            <div style="grid-column: 1/-1; text-align: center; padding: 40px;">
+                                                <svg style="width: 60px; height: 60px; fill: #bdc3c7; margin-bottom: 20px;" viewBox="0 0 24 24">
+                                                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 15.5h-1.5V14h-1v3H8v-3H7v4.5H5.5v-5c0-.55.45-1 1-1H11c.55 0 1 .45 1 1v5zm3.5 0H14v-6h3.5c.55 0 1 .45 1 1V16c0 .55-.45 1-1 1h-2v1.5zm-1-8c0 .55-.45 1-1 1H10V10h3V9h-2V8h2V7h-3V5.5h3.5c.55 0 1 .45 1 1v4zm1 3.5H17v1.5h-1.5z"/>
+                                                </svg>
+                                                <h3 style="color: #7f8c8d; margin-bottom: 10px;">No Technical Support Jobs Available</h3>
+                                                <p style="color: #bdc3c7;">We couldn't find any technical support jobs matching your criteria.</p>
+                                            </div>
+                                        `;
+                                    }
+                                } catch (error) {
+                                    console.error('Error fetching technical support jobs:', error);
+                                    document.getElementById('jobs-container').innerHTML = `
+                                        <div style="grid-column: 1/-1; text-align: center; padding: 40px;">
+                                            <svg style="width: 60px; height: 60px; fill: #e74c3c; margin-bottom: 20px;" viewBox="0 0 24 24">
+                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                                            </svg>
+                                            <h3 style="color: #e74c3c; margin-bottom: 10px;">Error Loading Jobs</h3>
+                                            <p style="color: #95a5a6;">We're having trouble loading technical support jobs. Please try again later.</p>
+                                        </div>
                                     `;
-                                    container.appendChild(card);
-                                });
-                                } else {
-                                document.getElementById('jobs-container').innerHTML = '<p>No technical support jobs found.</p>';
                                 }
-                            } catch (error) {
-                                console.error('Error fetching technical support jobs:', error);
-                                document.getElementById('jobs-container').innerHTML = '<p>Error fetching technical support jobs. Please try again later.</p>';
-                            }
                             }
                         </script>
                         
@@ -3108,69 +3418,171 @@
                         
                         <script>
                             async function fetchFresherJobs() {
-                            try {
-                                const response = await fetch('http://localhost:5000/api/getJobs/FreshersJobs');
-                                const data = await response.json();
-                        
-                                console.log(data); // Debugging
-                        
-                                if (data.jobs && data.jobs.length > 0) {
-                                const container = document.getElementById('jobs-container');
-                                container.innerHTML = ''; // Clear old jobs
-                        
-                                data.jobs.forEach(job => {
-                                    const card = document.createElement('div');
-                                    card.className = 'job-card';
-                                    card.style.marginBottom = '20px';
-                        
-                                    const workPayText = Array.isArray(job.workPay) ? job.workPay.join(', ') : job.workPay;
-                                    const jobTypeText = Array.isArray(job.jobType) ? job.jobType.join(', ') : job.jobType;
-                                    const workModeText = Array.isArray(job.workMode) ? job.workMode.join(', ') : job.workMode;
-                                    const educationText = Array.isArray(job.education) ? job.education.join(', ') : job.education;
-                        
-                                    card.innerHTML = `
-                                    <h3>${job.jobTitle}</h3>
-                                    <p><strong>Company:</strong> ${job.companyName}</p>
-                                    <p><strong>Location:</strong> ${job.city}, ${job.state}, ${job.country}</p>
-                                    <p><strong>Experience:</strong> ${job.experience}</p>
-                                    <p><strong>Salary:</strong> ${job.salary}</p>
-                                    <p><strong>Description:</strong> ${job.description}</p>
-                                    <p><strong>Job Type:</strong> ${jobTypeText}</p>
-                                    <p><strong>Work Mode:</strong> ${workModeText}</p>
-                                    <p><strong>Education:</strong> ${educationText}</p>
-                                    <a href="applicationform.html?jobId=${job.id}&jobTitle=${encodeURIComponent(job.jobTitle)}" style="text-decoration: none;">
-                                    <button 
-                                        class="apply-btn"
-                                        style="
-                                        margin-top: 12px;
-                                        padding: 8px 18px;
-                                        background-color: #007bff;
-                                        color: white;
-                                        font-size: 14px;
-                                        font-weight: 500;
-                                        border: none;
-                                        border-radius: 5px;
-                                        cursor: pointer;
-                                        transition: background-color 0.2s ease;
-                                        "
-                                        onmouseover="this.style.backgroundColor='#0056b3';"
-                                        onmouseout="this.style.backgroundColor='#007bff';"
-                                    >
-                                        Apply Now
-                                    </button>
-                                    </a>
+                                try {
+                                    const response = await fetch('http://localhost:5000/api/getJobs/FreshersJobs');
+                                    const data = await response.json();
+                                    
+                                    console.log(data); // Debugging the data structure
 
+                                    if (data.jobs && data.jobs.length > 0) {
+                                        const container = document.getElementById('jobs-container');
+                                        container.innerHTML = ''; // Clear previous jobs
+                                        container.style.display = 'grid';
+                                        container.style.gridTemplateColumns = 'repeat(auto-fill, minmax(450px, 1fr))';
+                                        container.style.gap = '25px';
+                                        container.style.padding = '25px';
+                                        container.style.maxWidth = '1400px';
+                                        container.style.margin = '0 auto';
 
+                                        data.jobs.forEach(job => {
+                                            const card = document.createElement('div');
+                                            card.className = 'job-card';
+                                            card.style.cssText = `
+                                                border: 1px solid #e0e0e0;
+                                                padding: 25px;
+                                                border-radius: 12px;
+                                                box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+                                                background-color: white;
+                                                transition: all 0.3s ease;
+                                                display: flex;
+                                                flex-direction: column;
+                                                height: 100%;
+                                                position: relative;
+                                            `;
+                                            card.onmouseover = () => {
+                                                card.style.transform = 'translateY(-5px)';
+                                                card.style.boxShadow = '0 8px 20px rgba(0,0,0,0.12)';
+                                                card.style.borderColor = '#3498db';
+                                            };
+                                            card.onmouseout = () => {
+                                                card.style.transform = '';
+                                                card.style.boxShadow = '0 4px 12px rgba(0,0,0,0.08)';
+                                                card.style.borderColor = '#e0e0e0';
+                                            };
+
+                                            // Add fresher job badge
+                                            card.innerHTML += `
+                                                <div style="position: absolute; top: 15px; right: 15px; background-color: #3498db; color: white; padding: 3px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">
+                                                    Fresher Job
+                                                </div>
+                                            `;
+
+                                            const workPayText = Array.isArray(job.workPay) ? job.workPay.join(', ') : job.workPay;
+                                            const jobTypeText = Array.isArray(job.jobType) ? job.jobType.join(', ') : job.jobType;
+                                            const workModeText = Array.isArray(job.workMode) ? job.workMode.join(', ') : job.workMode;
+                                            const educationText = Array.isArray(job.education) ? job.education.join(', ') : job.education;
+
+                                            // Highlight fresher-specific elements
+                                            const descriptionHTML = job.description 
+                                                ? job.description.replace(/(fresher|entry-level|beginner|new graduate)/gi, '<span style="color: #2980b9; font-weight: 600;">$1</span>')
+                                                : 'No description available';
+
+                                            card.innerHTML += `
+                                                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; margin-top: 10px;">
+                                                    <div>
+                                                        <h3 style="margin: 0 0 5px 0; color: #2c3e50; font-size: 1.4rem; font-weight: 700;">${job.jobTitle}</h3>
+                                                        <p style="margin: 0 0 10px 0; font-weight: 600; color: #3498db; font-size: 1.1rem;">${job.companyName}</p>
+                                                    </div>
+                                                    <div style="background: #e3f2fd; padding: 5px 10px; border-radius: 20px; font-size: 0.85rem; color: #2980b9; font-weight: 600;">
+                                                        ${jobTypeText}
+                                                    </div>
+                                                </div>
+                                                
+                                                <div style="display: flex; align-items: center; margin-bottom: 15px; color: #7f8c8d;">
+                                                    <svg style="width: 16px; height: 16px; margin-right: 8px; fill: currentColor;" viewBox="0 0 24 24">
+                                                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                                    </svg>
+                                                    <span>${job.city}, ${job.state}, ${job.country}</span>
+                                                </div>
+                                                
+                                                <div style="margin-bottom: 20px; flex-grow: 1;">
+                                                    <p style="margin: 0 0 10px 0; font-size: 0.95rem; color: #555; line-height: 1.6;">${descriptionHTML}</p>
+                                                </div>
+                                                
+                                                <div style="background: #f8f9fa; border-radius: 8px; padding: 15px; margin-bottom: 20px;">
+                                                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;">
+                                                        <div style="display: flex; align-items: center;">
+                                                            <svg style="width: 16px; height: 16px; margin-right: 8px; fill: #7f8c8d;" viewBox="0 0 24 24">
+                                                                <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm0 4c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm6 12H6v-1.4c0-2 4-3.1 6-3.1s6 1.1 6 3.1V19z"/>
+                                                            </svg>
+                                                            <span style="font-size: 0.9rem;"><strong>Experience:</strong> ${job.experience}</span>
+                                                        </div>
+                                                        <div style="display: flex; align-items: center;">
+                                                            <svg style="width: 16px; height: 16px; margin-right: 8px; fill: #3498db;" viewBox="0 0 24 24">
+                                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.31-8.86c-1.77-.45-2.34-.94-2.34-1.67 0-.84.79-1.43 2.1-1.43 1.38 0 1.9.66 1.94 1.64h1.71c-.05-1.34-.87-2.57-2.49-2.97V5H10.9v1.69c-1.51.32-2.72 1.3-2.72 2.81 0 1.79 1.49 2.69 3.66 3.21 1.95.46 2.34 1.15 2.34 1.87 0 .53-.39 1.39-2.1 1.39-1.6 0-2.23-.72-2.32-1.64H8.04c.1 1.7 1.36 2.66 2.86 2.97V19h2.34v-1.67c1.52-.29 2.72-1.16 2.73-2.77-.01-2.2-1.9-2.96-3.66-3.42z"/>
+                                                            </svg>
+                                                            <span style="font-size: 0.9rem;"><strong>Salary:</strong> ${job.salary || 'Not specified'}</span>
+                                                        </div>
+                                                        <div style="display: flex; align-items: center;">
+                                                            <svg style="width: 16px; height: 16px; margin-right: 8px; fill: #7f8c8d;" viewBox="0 0 24 24">
+                                                                <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
+                                                            </svg>
+                                                            <span style="font-size: 0.9rem;"><strong>Education:</strong> ${educationText}</span>
+                                                        </div>
+                                                        <div style="display: flex; align-items: center;">
+                                                            <svg style="width: 16px; height: 16px; margin-right: 8px; fill: #7f8c8d;" viewBox="0 0 24 24">
+                                                                <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/>
+                                                            </svg>
+                                                            <span style="font-size: 0.9rem;"><strong>Work Mode:</strong> ${workModeText}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                                    <div style="font-size: 0.9rem; color: #7f8c8d;">
+                                                        <svg style="width: 16px; height: 16px; margin-right: 5px; fill: currentColor; vertical-align: middle;" viewBox="0 0 24 24">
+                                                            <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
+                                                            <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                                                        </svg>
+                                                        <span>Posted recently</span>
+                                                    </div>
+                                                    <a href="applicationform.html?jobId=${job.id}&jobTitle=${encodeURIComponent(job.jobTitle)}" style="text-decoration: none;">
+                                                        <button 
+                                                            class="apply-btn"
+                                                            style="
+                                                                padding: 10px 25px;
+                                                                background-color: #3498db;
+                                                                color: white;
+                                                                font-size: 1rem;
+                                                                font-weight: 600;
+                                                                border: none;
+                                                                border-radius: 6px;
+                                                                cursor: pointer;
+                                                                transition: all 0.3s ease;
+                                                            "
+                                                            onmouseover="this.style.backgroundColor='#2980b9'; this.style.transform='translateY(-2px)';"
+                                                            onmouseout="this.style.backgroundColor='#3498db'; this.style.transform='';"
+                                                        >
+                                                            Apply Now
+                                                        </button>
+                                                    </a>
+                                                </div>
+                                            `;
+                                            container.appendChild(card);
+                                        });
+                                    } else {
+                                        document.getElementById('jobs-container').innerHTML = `
+                                            <div style="grid-column: 1/-1; text-align: center; padding: 40px;">
+                                                <svg style="width: 60px; height: 60px; fill: #bdc3c7; margin-bottom: 20px;" viewBox="0 0 24 24">
+                                                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 15.5h-1.5V14h-1v3H8v-3H7v4.5H5.5v-5c0-.55.45-1 1-1H11c.55 0 1 .45 1 1v5zm3.5 0H14v-6h3.5c.55 0 1 .45 1 1V16c0 .55-.45 1-1 1h-2v1.5zm-1-8c0 .55-.45 1-1 1H10V10h3V9h-2V8h2V7h-3V5.5h3.5c.55 0 1 .45 1 1v4zm1 3.5H17v1.5h-1.5z"/>
+                                                </svg>
+                                                <h3 style="color: #7f8c8d; margin-bottom: 10px;">No Fresher Jobs Available</h3>
+                                                <p style="color: #bdc3c7;">We couldn't find any fresher jobs matching your criteria.</p>
+                                            </div>
+                                        `;
+                                    }
+                                } catch (error) {
+                                    console.error('Error fetching fresher jobs:', error);
+                                    document.getElementById('jobs-container').innerHTML = `
+                                        <div style="grid-column: 1/-1; text-align: center; padding: 40px;">
+                                            <svg style="width: 60px; height: 60px; fill: #e74c3c; margin-bottom: 20px;" viewBox="0 0 24 24">
+                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                                            </svg>
+                                            <h3 style="color: #e74c3c; margin-bottom: 10px;">Error Loading Jobs</h3>
+                                            <p style="color: #95a5a6;">We're having trouble loading fresher jobs. Please try again later.</p>
+                                        </div>
                                     `;
-                                    container.appendChild(card);
-                                });
-                                } else {
-                                document.getElementById('jobs-container').innerHTML = '<p>No fresher jobs found.</p>';
                                 }
-                            } catch (error) {
-                                console.error('Error fetching fresher jobs:', error);
-                                document.getElementById('jobs-container').innerHTML = '<p>Error fetching fresher jobs. Please try again later.</p>';
-                            }
                             }
                         </script>
                     </div>
@@ -3210,40 +3622,126 @@
                         <br>
         
             <!-- About Us Section -->
-            <section id="about-us" style="position: relative; height: auto; display: flex; align-items: center; justify-content: center; padding: 80px 0; background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url('https://source.unsplash.com/1600x900/?corporate,teamwork,technology') center/cover no-repeat; color: white;max-width: 90%; margin: auto;  padding: 30px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+            <section id="about-us" style="position: relative; height: auto; display: flex; align-items: center; justify-content: center; padding: 80px 0; background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url('https://source.unsplash.com/1600x900/?corporate,teamwork,technology') center/cover no-repeat; color: white; max-width: 90%; margin: auto; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
 
                 <div style="max-width: 1200px; display: flex; align-items: center; justify-content: space-between; padding: 40px; gap: 40px;">
-
                     <!-- Text Content -->
                     <div style="flex: 1.5;">
                         <h2 style="font-size: 42px; font-weight: 800; font-family: 'Poppins', sans-serif; margin-bottom: 15px;">
                             About <span style="color: #FFD700;">Hitaishi Pay</span>
                         </h2>
                         <p style="font-size: 18px; line-height: 1.6; font-weight: 500; font-family: 'Roboto', sans-serif; max-width: 600px; color: #EDEDED;">
-                            Hitaishi Pay is a **leading digital job platform** that connects job seekers with **hourly jobs, second jobs, fresher opportunities, and professional training**. We empower individuals by providing **real-time job listings, training, and technical support**, helping them achieve financial stability and career growth.
+                            Hitaishi Pay is a <strong>leading digital job platform</strong> that connects job seekers with <strong>hourly jobs, second jobs, fresher opportunities, and professional training</strong>. We empower individuals by providing <strong>real-time job listings, training, and technical support</strong>, helping them achieve financial stability and career growth.
                         </p>
 
                         <h3 style="color: #FFCC00; font-size: 22px; font-weight: bold; margin-top: 20px;">
                             Why Choose Hitaishi Pay?
                         </h3>
-                        <ul style="font-size: 17px; line-height: 1.6; font-weight: 400; font-family: 'Lato', sans-serif; padding-left: 20px;list-style: none; display: flex; flex-direction: column; gap: 10px;">
-                            <li>🌟 **Flexible Hourly Jobs** – Work at your convenience.</li>
-                            <li>🚀 **Career Growth** – Certified training & workshops.</li>
-                            <li>💼 **Fresher Jobs** – Entry-level job assistance.</li>
-                            <li>🔧 **Technical Support** – Experts to guide your career.</li>
-                            <li>📈 **Professional & Student Projects** – Gain hands-on experience.</li>
+                        <ul style="font-size: 17px; line-height: 1.6; font-weight: 400; font-family: 'Lato', sans-serif; padding-left: 20px; list-style: none; display: flex; flex-direction: column; gap: 10px;">
+                            <li>🌟 <strong>Flexible Hourly Jobs</strong> – Work at your convenience.</li>
+                            <li>🚀 <strong>Career Growth</strong> – Certified training & workshops.</li>
+                            <li>💼 <strong>Fresher Jobs</strong> – Entry-level job assistance.</li>
+                            <li>🔧 <strong>Technical Support</strong> – Experts to guide your career.</li>
+                            <li>📈 <strong>Professional & Student Projects</strong> – Gain hands-on experience.</li>
                         </ul>
                     </div>
 
                     <!-- Image Overlay -->
                     <div style="flex: 1; display: flex; justify-content: center; align-items: center;">
-                        <img src="https://static.vecteezy.com/system/resources/previews/039/894/461/non_2x/ai-generated-senior-mentor-corporate-teacher-training-business-coach-free-photo.jpg" loading="lazy" alt="About Us" style="max-width: 120%; height: 400px;border-radius: 10px;  ">
+                        <img src="https://static.vecteezy.com/system/resources/previews/039/894/461/non_2x/ai-generated-senior-mentor-corporate-teacher-training-business-coach-free-photo.jpg" loading="lazy" alt="About Us" style="max-width: 120%; height: 400px; border-radius: 10px;">
                     </div>
-
                 </div>
+
+                <style>
+                    @media (max-width: 768px) {
+                        #about-us {
+                            padding: 40px 0 !important;
+                            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url('https://source.unsplash.com/1600x900/?corporate,teamwork,technology') center/cover no-repeat !important;
+                        }
+                        
+                        #about-us > div {
+                            flex-direction: column !important;
+                            padding: 20px !important;
+                            gap: 30px !important;
+                        }
+                        
+                        #about-us h2 {
+                            font-size: 32px !important;
+                            text-align: center !important;
+                        }
+                        
+                        #about-us p {
+                            font-size: 16px !important;
+                            text-align: center !important;
+                            max-width: 100% !important;
+                        }
+                        
+                        #about-us h3 {
+                            font-size: 20px !important;
+                            text-align: center !important;
+                            margin-top: 15px !important;
+                        }
+                        
+                        #about-us ul {
+                            font-size: 15px !important;
+                            padding-left: 0 !important;
+                            text-align: center !important;
+                        }
+                        
+                        #about-us li {
+                            margin-bottom: 8px !important;
+                        }
+                        
+                        #about-us img {
+                            max-width: 100% !important;
+                            height: auto !important;
+                        }
+                    }
+                </style>
             </section>
 
+            <!-- Responsive Styles -->
+            <style>
+                @media (max-width: 768px) {
+                #about-us {
+                    flex-direction: column !important;
+                    padding: 40px 20px !important;
+                    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url('https://source.unsplash.com/1600x900/?corporate,teamwork,technology') center/cover no-repeat !important;
+                }
 
+                #about-us h2 {
+                    font-size: 28px !important;
+                    text-align: center !important;
+                }
+
+                #about-us p {
+                    font-size: 16px !important;
+                    text-align: center !important;
+                }
+
+                #about-us h3 {
+                    font-size: 20px !important;
+                    text-align: center !important;
+                    margin-top: 20px !important;
+                }
+
+                #about-us ul {
+                    font-size: 15px !important;
+                    padding-left: 0 !important;
+                    text-align: center !important;
+                }
+
+                #about-us li {
+                    margin-bottom: 8px !important;
+                }
+
+                #about-us img {
+                    margin-top: 30px !important;
+                    max-width: 90% !important;
+                    height: auto !important;
+                }
+                }
+            </style>
             <!-- Our Mission & Vision Section -->
         <section id="mission-vision" style="background: #f4f6f9; padding: 80px 20px; text-align: center; overflow: hidden;max-width: 90%; margin: auto;  padding: 30px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
             <div style="max-width: 1200px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap;">
@@ -3300,43 +3798,98 @@
                 toggleVisibility(); // Initial check on page load
             });
         </script>
+         <!-- hourely paying jobs -->
+        <div style="max-width: 90%; margin: auto; background: white; padding: 40px; box-shadow: 0px 6px 20px rgba(0,0,0,0.1); border-radius: 20px; margin-top: 50px; display: flex; align-items: center; gap: 30px; font-family: Arial, Helvetica, sans-serif;">
 
-        <div style="max-width: 90%; margin: auto; background: white; padding: 40px; box-shadow: 0px 6px 20px rgba(0,0,0,0.1); border-radius: 20px; margin-top: 50px; display: flex; align-items: center; gap: 30px;font-family: Arial, Helvetica, sans-serif;">
-
-            <div style="flex: 1; text-align: left; ">
-                <h2 style="color: #0056b3; font-size: 38px; font-weight: 800; ">Explore High-Paying Hourly Jobs</h2>
+            <div style="flex: 1; text-align: left;">
+                <h2 style="color: #0056b3; font-size: 38px; font-weight: 800;">Explore High-Paying Hourly Jobs</h2>
                 <p style="color: #333; font-size: 22px; line-height: 1.8; font-weight: 600;">💼 <span style="color: #d32f2f; font-weight: bold;">Hourly jobs</span> offer flexibility and fair wages. Ideal for freelancers, students, and professionals.</p>
                 <p style="color: #444; font-size: 22px; line-height: 1.8; font-weight: 600;">🌟 Opportunities in <span style="color: #00796b; font-weight: bold;">retail</span>, <span style="color: #c2185b; font-weight: bold;">customer service</span>, and the <span style="color: #ffa000; font-weight: bold;">gig economy</span> provide work-life balance and earnings growth.</p>
-                <a href= "HourlyPay.html" style=" color:#007bff; font-style: italic;"> learn More</a>
+                <a href="HourlyPay.html" style="color:#007bff; font-style: italic; font-size: 18px;">Learn More</a>
             </div>
             
-                <div style="flex: 1; position: relative; overflow: hidden; border-radius: 15px; box-shadow: 0px 4px 15px rgba(0,0,0,0.15);">
-                    <div class="carousel-slide" style="display: block;">
-                        <img src="https://images.pexels.com/photos/3184611/pexels-photo-3184611.jpeg" loading="lazy" alt="Hourly Jobs" class="carousel-image">
-                    </div>
-                    <div class="carousel-slide" style="display: none;">
-                        <img src="https://images.pexels.com/photos/3760069/pexels-photo-3760069.jpeg"  loading="lazy" alt="Uses" class="carousel-image">
-                    </div>
-                    <div class="carousel-slide" style="display: none;">
-                        <img src="https://st2.depositphotos.com/3894705/6733/i/450/depositphotos_67337219-stock-photo-your-career-online.jpg" loading="lazy" alt="Benefits" class="carousel-image">
-                    </div>
-                    <div class="carousel-slide" style="display: none;">
-                        <img src="https://cdn.pixabay.com/photo/2023/12/29/10/39/woman-8475958_640.jpg" loading="lazy" alt="Effects" class="carousel-image">
-                    </div>
-                
-                    <button onclick="prevSlide()" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background: rgba(0, 0, 0, 0.7); color: white; border: none; padding: 12px 14px; cursor: pointer; font-size: 20px; border-radius: 50%;">&#10094;</button>
-                            <button onclick="nextSlide()" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background: rgba(0, 0, 0, 0.7); color: white; border: none; padding: 12px 14px; cursor: pointer; font-size: 20px; border-radius: 50%;">&#10095;</button>
+            <div style="flex: 1; position: relative; overflow: hidden; border-radius: 15px; box-shadow: 0px 4px 15px rgba(0,0,0,0.15); min-height: 350px;">
+                <div class="carousel-slide" style="display: block;">
+                    <img src="https://images.pexels.com/photos/3184611/pexels-photo-3184611.jpeg" loading="lazy" alt="Hourly Jobs" class="carousel-image">
                 </div>
+                <div class="carousel-slide" style="display: none;">
+                    <img src="https://images.pexels.com/photos/3760069/pexels-photo-3760069.jpeg" loading="lazy" alt="Uses" class="carousel-image">
+                </div>
+                <div class="carousel-slide" style="display: none;">
+                    <img src="https://st2.depositphotos.com/3894705/6733/i/450/depositphotos_67337219-stock-photo-your-career-online.jpg" loading="lazy" alt="Benefits" class="carousel-image">
+                </div>
+                <div class="carousel-slide" style="display: none;">
+                    <img src="https://cdn.pixabay.com/photo/2023/12/29/10/39/woman-8475958_640.jpg" loading="lazy" alt="Effects" class="carousel-image">
+                </div>
+            
+                <button onclick="prevSlide()" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background: rgba(0, 0, 0, 0.7); color: white; border: none; padding: 12px 14px; cursor: pointer; font-size: 20px; border-radius: 50%;">&#10094;</button>
+                <button onclick="nextSlide()" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background: rgba(0, 0, 0, 0.7); color: white; border: none; padding: 12px 14px; cursor: pointer; font-size: 20px; border-radius: 50%;">&#10095;</button>
+            </div>
         </div>
 
         <style>
             .carousel-image {
                 width: 100%;
-                height: 350px; /* Set the same height for all images */
-                object-fit: cover; /* Ensures images maintain aspect ratio and cover the area */
+                height: 350px;
+                object-fit: cover;
                 border-radius: 15px;
             }
-        </style> <br>
+
+            @media (max-width: 768px) {
+                div[style*="background: white; padding: 40px;"] {
+                    flex-direction: column !important;
+                    padding: 25px !important;
+                    gap: 25px !important;
+                }
+                
+                div[style*="background: white; padding: 40px;"] h2 {
+                    font-size: 28px !important;
+                    text-align: center !important;
+                }
+                
+                div[style*="background: white; padding: 40px;"] p {
+                    font-size: 18px !important;
+                    line-height: 1.6 !important;
+                    text-align: center !important;
+                }
+                
+                div[style*="background: white; padding: 40px;"] a {
+                    display: block !important;
+                    text-align: center !important;
+                    margin-top: 15px !important;
+                    font-size: 16px !important;
+                }
+                
+                .carousel-image {
+                    height: 250px !important;
+                }
+                
+                div[style*="position: relative; overflow: hidden;"] {
+                    min-height: 250px !important;
+                    width: 100% !important;
+                }
+            }
+        </style>
+
+        <script>
+            // Carousel functionality (unchanged)
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.carousel-slide');
+            
+            function showSlide(n) {
+                slides.forEach(slide => slide.style.display = 'none');
+                currentSlide = (n + slides.length) % slides.length;
+                slides[currentSlide].style.display = 'block';
+            }
+            
+            function nextSlide() {
+                showSlide(currentSlide + 1);
+            }
+            
+            function prevSlide() {
+                showSlide(currentSlide - 1);
+            }
+        </script> <br>
         <div style="padding: 60px 20px; text-align: center; background: linear-gradient(135deg, #ff9a9e, #fad0c4); color: white; max-width: 90%; margin: auto; padding: 30px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
             <h2>🌟 Secondary Jobs </h2>
             <p>Find the best secondary jobs and earn extra income effortlessly!</p>
@@ -3688,11 +4241,7 @@
                     <h3 style="color: #0056b3; font-size: 20px; margin-bottom: 5px;">IT & Software Jobs</h3>
                     <p style="font-size: 14px; color: #555; margin-bottom: 12px;">Explore opportunities in development, data, and cloud computing.</p>
                     <ul style="list-style-type: none; padding: 0;">
-                        <!-- <li><a href="#" style="text-decoration: none;">Software Developer</a></li>
-                        <li><a href="#" style="text-decoration: none;">Web Developer</a></li>
-                        <li><a href="#" style="text-decoration: none;">Cybersecurity Analyst</a></li>
-                        <li><a href="#" style="text-decoration: none;">Data Analyst</a></li>
-                        <li><a href="#" style="text-decoration: none;">Cloud Engineer</a></li> -->
+
                     </ul>
                     <a href="FresherJobs.html" style="display: block; margin-top: 10px; color: #0056b3; font-weight: bold; text-decoration: none;">Read More</a>
                 </div>
@@ -3715,10 +4264,7 @@
                     <h3 style="color: #0056b3; font-size: 20px; margin-bottom: 5px;">Creative & Digital Jobs</h3>
                     <p style="font-size: 14px; color: #555; margin-bottom: 12px;">Innovate in design, content, and social media management.</p>
                     <ul style="list-style-type: none; padding: 0;">
-                        <!-- <li><a href="#" style="text-decoration: none;">Graphic Designer</a></li>
-                        <li><a href="#" style="text-decoration: none;">Content Writer</a></li>
-                        <li><a href="#" style="text-decoration: none;">Social Media Manager</a></li>
-                        <li><a href="#" style="text-decoration: none;">UI/UX Designer</a></li> -->
+
                     </ul>
                     <a href="FresherJobs.html" style="display: block; margin-top: 10px; color: #0056b3; font-weight: bold; text-decoration: none;">Read More</a>
                 </div>
@@ -3789,6 +4335,8 @@
 
         <!-- First Section -->
         <div style="background: #f4f7ff; padding: 60px; display: flex; justify-content: space-between; align-items: center; border-radius: 10px; max-width: 90%; margin: auto; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
+
+            <!-- Left Content -->
             <div style="max-width: 50%;">
                 <h2 style="color: #333; font-size: 28px; font-weight: bold; margin-bottom: 10px;">10M+ users are on the Hitaishi Pay App</h2>
                 <p style="color: #555; font-size: 18px; margin-bottom: 20px;">Get real-time job updates & more!</p>
@@ -3801,8 +4349,161 @@
                         Get link
                     </button>
                 </div>
+
+                <div style="margin-top: 20px; display: flex; align-items: center;">
+                    <a href="https://play.google.com/store" style="text-decoration: none;">
+                    <img src="https://ride-taxis.co.uk/wp-content/uploads/2024/05/Google_Play_Store_badge_EN.svg-1-1024x302.png" loading="lazy" alt="Google Play" style="width: 150px; margin-right: 10px; cursor: pointer;">
+                    </a>
+                    <a href="https://www.apple.com/app-store" style="text-decoration: none;">
+                    <img src="https://logosmarken.com/wp-content/uploads/2021/02/App-Store-Emblem.png" loading="lazy" alt="App Store" style="width: 150px; cursor: pointer;">
+                    </a>
+                </div>
+            </div>
+            
+            <!-- QR Code -->
+            <div>
+                <a href="#" style="text-decoration: none;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/11/Qr_code_QR-Code-Generator.png" loading="lazy" alt="Scan to download" style="width: 120px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
+                </a>
+            </div>
+
+            <!-- Responsive styles -->
+            <style>
+                @media (max-width: 1024px) {
+                    div > div[style*="background: #f4f7ff"] {
+                        padding: 40px !important;
+                    }
+                    div > div[style*="background: #f4f7ff"] > div:first-child {
+                        max-width: 60% !important;
+                    }
+                }
                 
-                <script>
+                @media (max-width: 768px) {
+                    div > div[style*="background: #f4f7ff"] {
+                        flex-direction: column !important;
+                        padding: 30px 20px !important;
+                        align-items: center !important;
+                        text-align: center !important;
+                    }
+                    div > div[style*="background: #f4f7ff"] > div:first-child {
+                        max-width: 100% !important;
+                        margin-bottom: 25px !important;
+                    }
+                    div > div[style*="background: #f4f7ff"] h2 {
+                        font-size: 22px !important;
+                        text-align: center !important;
+                        margin-bottom: 15px !important;
+                    }
+                    div > div[style*="background: #f4f7ff"] p {
+                        font-size: 16px !important;
+                        text-align: center !important;
+                        margin-bottom: 20px !important;
+                    }
+                    div > div[style*="background: #f4f7ff"] > div:first-child > div:first-child {
+                        flex-direction: column !important;
+                        align-items: center !important;
+                    }
+                    div > div[style*="background: #f4f7ff"] input {
+                        width: 100% !important;
+                        max-width: 100% !important;
+                        margin-bottom: 10px !important;
+                        margin-left: 0 !important;
+                        box-sizing: border-box !important;
+                    }
+                    div > div[style*="background: #f4f7ff"] button {
+                        width: 100% !important;
+                        max-width: 100% !important;
+                        margin-left: 0 !important;
+                        box-sizing: border-box !important;
+                    }
+                    div > div[style*="background: #f4f7ff"] > div:first-child > div:last-child {
+                        justify-content: center !important;
+                        flex-wrap: wrap !important;
+                    }
+                    div > div[style*="background: #f4f7ff"] img[alt="Google Play"],
+                    div > div[style*="background: #f4f7ff"] img[alt="App Store"] {
+                        width: 135px !important;
+                        height: auto !important;
+                        margin: 5px !important;
+                    }
+                    div > div[style*="background: #f4f7ff"] img[alt="Scan to download"] {
+                        width: 100px !important;
+                    }
+                }
+                
+                @media (max-width: 480px) {
+                    div > div[style*="background: #f4f7ff"] {
+                        padding: 25px 15px !important;
+                    }
+                    div > div[style*="background: #f4f7ff"] h2 {
+                        font-size: 20px !important;
+                    }
+                    div > div[style*="background: #f4f7ff"] p {
+                        font-size: 15px !important;
+                    }
+                    div > div[style*="background: #f4f7ff"] img[alt="Google Play"],
+                    div > div[style*="background: #f4f7ff"] img[alt="App Store"] {
+                        width: 120px !important;
+                    }
+                }
+            </style>
+        </div>
+            <!-- Responsive styles -->
+        <style>
+            @media (max-width: 768px) {
+                div[style*="background: #f4f7ff"] {
+                    flex-direction: column !important;
+                    text-align: center !important;
+                    padding: 30px 20px !important;
+                }
+
+                div[style*="background: #f4f7ff"] > div {
+                    max-width: 100% !important;
+                    margin-bottom: 20px !important;
+                }
+
+                div[style*="background: #f4f7ff"] h2 {
+                    font-size: 22px !important;
+                }
+
+                div[style*="background: #f4f7ff"] p {
+                    font-size: 16px !important;
+                }
+
+                div[style*="background: #f4f7ff"] input,
+                div[style*="background: #f4f7ff"] button {
+                    width: 100% !important;
+                    margin: 5px 0 !important;
+                }
+
+                div[style*="background: #f4f7ff"] img[alt="Google Play"],
+                div[style*="background: #f4f7ff"] img[alt="App Store"] {
+                    width: 120px !important;
+                }
+
+                div[style*="background: #f4f7ff"] img[alt="Scan to download"] {
+                    width: 100px !important;
+                }
+            }
+
+            @media (max-width: 480px) {
+                div[style*="background: #f4f7ff"] {
+                    padding: 20px 10px !important;
+                }
+
+                div[style*="background: #f4f7ff"] h2 {
+                    font-size: 20px !important;
+                }
+
+                div[style*="background: #f4f7ff"] p {
+                    font-size: 15px !important;
+                }
+            }
+        </style>
+        <br>
+        
+            <!-- script for send a link -->
+              <script>
                 function sendLink() {
                     const mobileNumber = document.getElementById("mobileNumber").value;
                 
@@ -3821,42 +4522,86 @@
                     .catch(error => console.error("Error:", error));
                 }
                </script>
+            <section id="contactForm" style="border-radius: 10px; max-width: 90%; margin: auto; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);background-color: #c4d9dd;justify-content: center;align-items: center;">
+                <div style="background: white; padding: 50px 20px; border-bottom: 5px solid #22BFD8; text-align: center;">
+                    <h2 style="margin: 0; font-size: 28px; color: #333;">Contact Hitaishi Pay</h2>
+                    <p style="color: #666; font-size: 16px;">Have questions about hourly pay, jobs, or projects? Reach out to us!</p>
 
-                
-                <div style="margin-top: 20px; display: flex; align-items: center;">
-                    <a href="https://play.google.com/store" style="text-decoration: none;">
-                    <img src="https://ride-taxis.co.uk/wp-content/uploads/2024/05/Google_Play_Store_badge_EN.svg-1-1024x302.png" loading="lazy" alt="Google Play" style="width: 150px; margin-right: 10px; cursor: pointer;">
-                    </a>
-                    <a href="https://www.apple.com/app-store" style="text-decoration: none;">
-                    <img src="https://logosmarken.com/wp-content/uploads/2021/02/App-Store-Emblem.png" loading="lazy" alt="App Store" style="width: 150px; cursor: pointer;">
-                    </a>
+                    <form id="contactForm">
+                        <input type="email" id="email" value="" placeholder="Enter your email address" required
+                            style="padding: 12px; width: 80%; max-width: 400px; margin: 10px auto; border: 1px solid #ccc; border-radius: 25px; font-size: 14px; text-align: center; display: block;">
+                        <input type="text" id="name" placeholder="Enter your Name" required
+                            style="padding: 12px; width: 80%; max-width: 400px; margin: 10px auto; border: 1px solid #ccc; border-radius: 25px; font-size: 14px; text-align: center; display: block;">
+                        <br>
+                        <button type="submit" id="submit"
+                            style="background: #22BFD8; color: white; border: none; padding: 12px 40px; border-radius: 25px; cursor: pointer; font-size: 16px; font-weight: bold; transition: 0.3s;">
+                            SUBMIT
+                        </button>
+                    </form>
                 </div>
-            </div>
-            
-            <div>
-                <a href="#" style="text-decoration: none;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/1/11/Qr_code_QR-Code-Generator.png" loading="lazy" alt="Scan to download" style="width: 120px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
-                </a>
-            </div>
-        </div><br>
-        <section id="contactForm" style="border-radius: 10px; max-width: 90%; margin: auto; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);background-color: #c4d9dd;justify-content: center;align-items: center;">
-            <div style="background: white; padding: 50px 20px; border-bottom: 5px solid #22BFD8; text-align: center;">
-                <h2 style="margin: 0; font-size: 28px; color: #333;">Contact Hitaishi Pay</h2>
-                <p style="color: #666; font-size: 16px;">Have questions about hourly pay, jobs, or projects? Reach out to us!</p>
 
-                <form id="contactForm">
-                    <input type="email" id="email" value="" placeholder="Enter your email address" required
-                        style="padding: 12px; width: 38%; margin: 10px; border: 1px solid #ccc; border-radius: 25px; font-size: 14px; text-align: center;">
-                    <input type="text" id="name" placeholder="Enter your Name" required
-                        style="padding: 12px; width: 38%; margin: 10px; border: 1px solid #ccc; border-radius: 25px; font-size: 14px; text-align: center;">
-                    <br>
-                    <button type="submit" id="submit"
-                        style="background: #22BFD8; color: white; border: none; padding: 12px 40px; border-radius: 25px; cursor: pointer; font-size: 16px; font-weight: bold; transition: 0.3s;">
-                        SUBMIT
-                    </button>
-                </form>
-            </div>
+                <div style="background: #22BFD8; padding: 40px 10px; display: flex; justify-content: center; align-items: center;">
+                    <div style="background: white; padding: 30px; width: 80%; display: flex; flex-direction: column; justify-content: space-between; align-items: center; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                        <div style="text-align: center; width: 100%; margin-bottom: 30px;">
+                            <div style="font-size: 50px; color: #22BFD8;">&#x1F4BC;</div>
+                            <h3 style="margin: 10px 0; font-size: 18px; color: #333;">ABOUT HITAISHI PAY</h3>
+                            <p style="color: #666; font-size: 14px;">Hourly Pay Jobs <br> Projects & Training</p>
+                        </div>
+                        <div style="text-align: center; width: 100%; margin-bottom: 30px; padding: 20px 0; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;">
+                            <div style="font-size: 50px; color: #22BFD8;">&#x260E;</div>
+                            <h3 style="margin: 10px 0; font-size: 18px; color: #333;">CONTACT US</h3>
+                            <p style="color: #666; font-size: 14px;">
+                                <a href="tel:+918790170525" style="color: #666; text-decoration: none;">+91 87901 70525</a><br>
+                                <a href="mailto:support@hitaishipay.com" style="color: #666; text-decoration: none;">support@hitaishipay.com</a>
+                            </p>
+                        </div>
+                        <div style="text-align: center; width: 100%;">
+                            <div style="font-size: 50px; color: #22BFD8;">&#x1F4CD;</div>
+                            <h3 style="margin: 10px 0; font-size: 18px; color: #333;">OUR OFFICE</h3>
+                            <p style="color: #666; font-size: 14px;">Hitaishi Pay Pvt. Ltd. <br> Hyderabad, India</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <style>
+            @media (max-width: 600px) {
+                #contactForm h2 {
+                font-size: 22px !important;
+                }
+                #contactForm p, #contactForm input, #contactForm button {
+                font-size: 14px !important;
+                }
+                #contactForm button {
+                padding: 10px 30px !important;
+                }
+            }
+            </style>
 
+
+            <style>
+                @media (min-width: 768px) {
+                    #contactForm > div:last-child > div {
+                        flex-direction: row !important;
+                        padding: 30px !important;
+                    }
+                    #contactForm > div:last-child > div > div {
+                        width: 30% !important;
+                        margin-bottom: 0 !important;
+                    }
+                    #contactForm > div:last-child > div > div:nth-child(2) {
+                        border-left: 1px solid #ccc !important;
+                        border-right: 1px solid #ccc !important;
+                        border-top: none !important;
+                        border-bottom: none !important;
+                        padding: 0 20px !important;
+                    }
+                    #contactForm input {
+                        width: 38% !important;
+                        display: inline-block !important;
+                    }
+                }
+            </style><br>
+            <!-- script for contact us section -->
             <script>
                 document.addEventListener("DOMContentLoaded", () => {
                 const form = document.getElementById("contactForm");
@@ -3902,35 +4647,7 @@
             });
 
 
-                  </script>
-
-
-                <div style="background: #22BFD8; padding: 40px 10px; display: flex; justify-content: center; align-items: center; ">
-                    <div style="background: white; padding: 30px; width: 80%; display: flex; justify-content: space-between; align-items: center; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-                        <div style="text-align: center; width: 30%;">
-                            <div style="font-size: 50px; color: #22BFD8;">&#x1F4BC;</div>
-                            <h3 style="margin: 10px 0; font-size: 18px; color: #333;">ABOUT HITAISHI PAY</h3>
-                            <p style="color: #666; font-size: 14px;">Hourly Pay Jobs <br> Projects & Training</p>
-                        </div>
-                       <div style="text-align: center; width: 30%; border-left: 1px solid #ccc; border-right: 1px solid #ccc; padding: 0 20px;">
-                            <div style="font-size: 50px; color: #22BFD8;">&#x260E;</div>
-                            <h3 style="margin: 10px 0; font-size: 18px; color: #333;">CONTACT US</h3>
-                            <p style="color: #666; font-size: 14px;">
-                                <a href="tel:+918790170525" style="color: #666; text-decoration: none;">+91 87901 70525</a><br>
-                                <a href="mailto:support@hitaishipay.com" style="color: #666; text-decoration: none;">support@hitaishipay.com</a>
-                            </p>
-                        </div>
-
-                        <div style="text-align: center; width: 30%;">
-                            <div style="font-size: 50px; color: #22BFD8;">&#x1F4CD;</div>
-                            <h3 style="margin: 10px 0; font-size: 18px; color: #333;">OUR OFFICE</h3>
-                            <p style="color: #666; font-size: 14px;">Hitaishi Pay Pvt. Ltd. <br> Hyderabad, India</p>
-                        </div>
-                    </div>
-                </div>
-        </section><br>
-
-
+             </script>
 <!-- Footer Section -->
 
 <footer style="width: 100%;">

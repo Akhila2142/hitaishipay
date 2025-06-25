@@ -3700,7 +3700,48 @@ window.handleApplyNow = handleApplyNow;
                 </style>
             </section>
 
+            <!-- Responsive Styles -->
+            <style>
+                @media (max-width: 768px) {
+                #about-us {
+                    flex-direction: column !important;
+                    padding: 40px 20px !important;
+                    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url('https://source.unsplash.com/1600x900/?corporate,teamwork,technology') center/cover no-repeat !important;
+                }
 
+                #about-us h2 {
+                    font-size: 28px !important;
+                    text-align: center !important;
+                }
+
+                #about-us p {
+                    font-size: 16px !important;
+                    text-align: center !important;
+                }
+
+                #about-us h3 {
+                    font-size: 20px !important;
+                    text-align: center !important;
+                    margin-top: 20px !important;
+                }
+
+                #about-us ul {
+                    font-size: 15px !important;
+                    padding-left: 0 !important;
+                    text-align: center !important;
+                }
+
+                #about-us li {
+                    margin-bottom: 8px !important;
+                }
+
+                #about-us img {
+                    margin-top: 30px !important;
+                    max-width: 90% !important;
+                    height: auto !important;
+                }
+                }
+            </style>
             <!-- Our Mission & Vision Section -->
         <section id="mission-vision" style="background: #f4f6f9; padding: 80px 20px; text-align: center; overflow: hidden;max-width: 90%; margin: auto;  padding: 30px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
             <div style="max-width: 1200px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap;">
@@ -4295,7 +4336,7 @@ window.handleApplyNow = handleApplyNow;
         <!-- First Section -->
         <div style="background: #f4f7ff; padding: 60px; display: flex; justify-content: space-between; align-items: center; border-radius: 10px; max-width: 90%; margin: auto; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
 
-            <!-- Left Content (unchanged from desktop) -->
+            <!-- Left Content -->
             <div style="max-width: 50%;">
                 <h2 style="color: #333; font-size: 28px; font-weight: bold; margin-bottom: 10px;">10M+ users are on the Hitaishi Pay App</h2>
                 <p style="color: #555; font-size: 18px; margin-bottom: 20px;">Get real-time job updates & more!</p>
@@ -4319,15 +4360,24 @@ window.handleApplyNow = handleApplyNow;
                 </div>
             </div>
             
-            <!-- QR Code (unchanged from desktop) -->
+            <!-- QR Code -->
             <div>
                 <a href="#" style="text-decoration: none;">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/1/11/Qr_code_QR-Code-Generator.png" loading="lazy" alt="Scan to download" style="width: 120px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
                 </a>
             </div>
 
-            <!-- Mobile-specific styles (hidden on desktop) -->
+            <!-- Responsive styles -->
             <style>
+                @media (max-width: 1024px) {
+                    div > div[style*="background: #f4f7ff"] {
+                        padding: 40px !important;
+                    }
+                    div > div[style*="background: #f4f7ff"] > div:first-child {
+                        max-width: 60% !important;
+                    }
+                }
+                
                 @media (max-width: 768px) {
                     div > div[style*="background: #f4f7ff"] {
                         flex-direction: column !important;
@@ -4342,10 +4392,12 @@ window.handleApplyNow = handleApplyNow;
                     div > div[style*="background: #f4f7ff"] h2 {
                         font-size: 22px !important;
                         text-align: center !important;
+                        margin-bottom: 15px !important;
                     }
                     div > div[style*="background: #f4f7ff"] p {
                         font-size: 16px !important;
                         text-align: center !important;
+                        margin-bottom: 20px !important;
                     }
                     div > div[style*="background: #f4f7ff"] > div:first-child > div:first-child {
                         flex-direction: column !important;
@@ -4353,27 +4405,103 @@ window.handleApplyNow = handleApplyNow;
                     }
                     div > div[style*="background: #f4f7ff"] input {
                         width: 100% !important;
-                        max-width: 300px !important;
+                        max-width: 100% !important;
                         margin-bottom: 10px !important;
                         margin-left: 0 !important;
+                        box-sizing: border-box !important;
                     }
                     div > div[style*="background: #f4f7ff"] button {
                         width: 100% !important;
-                        max-width: 300px !important;
+                        max-width: 100% !important;
                         margin-left: 0 !important;
+                        box-sizing: border-box !important;
                     }
                     div > div[style*="background: #f4f7ff"] > div:first-child > div:last-child {
                         justify-content: center !important;
+                        flex-wrap: wrap !important;
                     }
                     div > div[style*="background: #f4f7ff"] img[alt="Google Play"],
                     div > div[style*="background: #f4f7ff"] img[alt="App Store"] {
                         width: 135px !important;
                         height: auto !important;
+                        margin: 5px !important;
+                    }
+                    div > div[style*="background: #f4f7ff"] img[alt="Scan to download"] {
+                        width: 100px !important;
+                    }
+                }
+                
+                @media (max-width: 480px) {
+                    div > div[style*="background: #f4f7ff"] {
+                        padding: 25px 15px !important;
+                    }
+                    div > div[style*="background: #f4f7ff"] h2 {
+                        font-size: 20px !important;
+                    }
+                    div > div[style*="background: #f4f7ff"] p {
+                        font-size: 15px !important;
+                    }
+                    div > div[style*="background: #f4f7ff"] img[alt="Google Play"],
+                    div > div[style*="background: #f4f7ff"] img[alt="App Store"] {
+                        width: 120px !important;
                     }
                 }
             </style>
         </div>
+            <!-- Responsive styles -->
+        <style>
+            @media (max-width: 768px) {
+                div[style*="background: #f4f7ff"] {
+                    flex-direction: column !important;
+                    text-align: center !important;
+                    padding: 30px 20px !important;
+                }
+
+                div[style*="background: #f4f7ff"] > div {
+                    max-width: 100% !important;
+                    margin-bottom: 20px !important;
+                }
+
+                div[style*="background: #f4f7ff"] h2 {
+                    font-size: 22px !important;
+                }
+
+                div[style*="background: #f4f7ff"] p {
+                    font-size: 16px !important;
+                }
+
+                div[style*="background: #f4f7ff"] input,
+                div[style*="background: #f4f7ff"] button {
+                    width: 100% !important;
+                    margin: 5px 0 !important;
+                }
+
+                div[style*="background: #f4f7ff"] img[alt="Google Play"],
+                div[style*="background: #f4f7ff"] img[alt="App Store"] {
+                    width: 120px !important;
+                }
+
+                div[style*="background: #f4f7ff"] img[alt="Scan to download"] {
+                    width: 100px !important;
+                }
+            }
+
+            @media (max-width: 480px) {
+                div[style*="background: #f4f7ff"] {
+                    padding: 20px 10px !important;
+                }
+
+                div[style*="background: #f4f7ff"] h2 {
+                    font-size: 20px !important;
+                }
+
+                div[style*="background: #f4f7ff"] p {
+                    font-size: 15px !important;
+                }
+            }
+        </style>
         <br>
+        
             <!-- script for send a link -->
               <script>
                 function sendLink() {
@@ -4435,6 +4563,20 @@ window.handleApplyNow = handleApplyNow;
                     </div>
                 </div>
             </section>
+            <style>
+            @media (max-width: 600px) {
+                #contactForm h2 {
+                font-size: 22px !important;
+                }
+                #contactForm p, #contactForm input, #contactForm button {
+                font-size: 14px !important;
+                }
+                #contactForm button {
+                padding: 10px 30px !important;
+                }
+            }
+            </style>
+
 
             <style>
                 @media (min-width: 768px) {
