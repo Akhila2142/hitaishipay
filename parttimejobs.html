@@ -961,6 +961,90 @@
             background-color: #FFF9C4;
             padding: 2px 0;
         }
+
+        @media (max-width: 992px) {
+  #jobs {
+    margin-left: 0 !important;
+    width: 100% !important;
+    gap: 15px !important;
+  }
+  .job {
+    flex: 1 1 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+  }
+}
+@media (max-width: 768px) {
+  #jobs {
+    flex-direction: column !important;
+    gap: 12px !important;
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+  .job {
+    flex: 1 1 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    font-size: 15px !important;
+    padding: 14px !important;
+  }
+  .job-card {
+    width: 98% !important;
+    min-width: unset !important;
+    margin: 10px auto !important;
+    padding: 10px !important;
+  }
+  .search-header {
+    flex-direction: column !important;
+    gap: 10px !important;
+    align-items: flex-start !important;
+  }
+  input#search, input#searchInput {
+    width: 98% !important;
+    font-size: 15px !important;
+    padding: 12px 10px !important;
+  }
+  .apply-btn, button {
+    width: 100% !important;
+    padding: 12px 0 !important;
+    font-size: 1rem !important;
+  }
+  .testimonial-slide {
+    padding: 18px !important;
+    font-size: 0.98rem !important;
+  }
+  .container-fluid, header, nav {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
+}
+@media (max-width: 480px) {
+  h2, h3, h4 {
+    font-size: 1.1rem !important;
+  }
+  .job, .job-card {
+    font-size: 14px !important;
+    padding: 8px !important;
+  }
+  .testimonial-slide {
+    font-size: 0.92rem !important;
+    padding: 10px !important;
+  }
+  .search-header h3 {
+    font-size: 1rem !important;
+  }
+  .clear-btn {
+    font-size: 0.95rem !important;
+    padding: 6px 10px !important;
+  }
+  .apply-btn, button {
+    font-size: 0.98rem !important;
+    padding: 10px 0 !important;
+  }
+  .footer {
+    padding: 20px 5px !important;
+  }
+}
         </style>
     </header> 
     <div id="jobResults" style="padding: 0;margin: 0;"> </div>
